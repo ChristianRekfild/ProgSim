@@ -5,26 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Noob_Coder"
         mc:Ignorable="d"
-        Title="Симулятор программиста: Меню" Height="720" Width="1280" ShowInTaskbar="True">
-    <Grid x:Name="MainMenu" ShowGridLines="False">
-        <Grid.Background>
-            <ImageBrush ImageSource="/background.jpg"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="2*" />
-        </Grid.RowDefinitions>
-        <Image x:Name="Logo" Grid.Column="1" Height="200" Width="200" Source="/logo.jpg"/>
-        <Button x:Name="NewGame" Content="НОВАЯ ИГРА" Margin="0,20,0,0" Grid.Row="1" VerticalAlignment="Top" Background="#FF7128BD" Foreground="White" FontFamily="Corbel Light" Height="60" FontSize="24" Grid.Column="1" Width="420"/>
-        <Button x:Name="LoadGame" Grid.Column="1" Margin="0,85,0,0" Grid.Row="1" Background="#FF7128BD" Foreground="White" FontFamily="Corbel Light" Height="60" FontSize="24" VerticalAlignment="Top" Content="ЗАГРУЗИТЬ ИГРУ" HorizontalAlignment="Center" Width="420"/>
-        <Button x:Name="SaveGame" Grid.Column="1" Margin="0,150,0,0" Grid.Row="1" Background="#FF7128BD" Foreground="White" FontFamily="Corbel Light" Height="60" FontSize="24" VerticalAlignment="Top" Content="СОХРАНИТЬ ИГРУ" HorizontalAlignment="Center" Width="420"/>
-        <Button x:Name="Setting" Grid.Column="1" Margin="0,215,0,0" Grid.Row="1" Background="#FF7128BD" Foreground="White" FontFamily="Corbel Light" Height="60" FontSize="24" VerticalAlignment="Top" Content="НАСТРОЙКИ" HorizontalAlignment="Center" Width="420"/>
-        <Button x:Name="FeedBack" Grid.Column="1" Margin="0,280,0,0" Grid.Row="1" Background="#FF7128BD" Foreground="White" FontFamily="Corbel Light" Height="60" FontSize="24" VerticalAlignment="Top" Content="ОБРАТНАЯ СВЯЗЬ" HorizontalAlignment="Center" Width="420"/>
-        <Button x:Name="Exit" Grid.Column="1" Margin="0,345,0,0" Grid.Row="1" Background="#FF7128BD" Foreground="White" FontFamily="Corbel Light" Height="60" FontSize="24" VerticalAlignment="Top" Content="ВЫХОД" HorizontalAlignment="Center" Width="420"/>
-    </Grid>
+        Title="Симулятор программиста: Меню"
+        Height="720"
+        Width="1280"
+        ShowInTaskbar="True"
+        >
+    <Window.Background>
+        <ImageBrush ImageSource="/background.jpg"
+                    ViewportUnits="Absolute"
+                    Viewport="0,0,186,2"
+                    TileMode="FlipY"
+                    Stretch="UniformToFill"
+                    AlignmentX="Left"
+                    AlignmentY="Top" />
+    </Window.Background>
+
+    <StackPanel x:Name="MainMenu">
+        <Image x:Name="Logo"
+               d:Height="200"
+               Width="200"
+               Source="/logo.jpg"/>
+    </StackPanel>
 </Window>
