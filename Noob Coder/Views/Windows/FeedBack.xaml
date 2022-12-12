@@ -8,7 +8,7 @@
         Title="Симулятор программиста: Обратная связь" Height="720" Width="1280">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/background.jpg"/>
+            <ImageBrush ImageSource="/Data/background.jpg"/>
         </Grid.Background>
         <TextBox HorizontalAlignment="Left" Height="295" Margin="155,149,0,0" TextWrapping="Wrap" Text="ТУТ БУДЕТ ФОРМА ОБРАТНОЙ СВЯЗИ" VerticalAlignment="Top" Width="910" Background="#FF1E1F21" FontFamily="Corbel Light" FontSize="14" Foreground="#FFCCD4B3"/>
 
