@@ -18,4 +18,8 @@
     <Resource Include="logo.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
 </Project>
