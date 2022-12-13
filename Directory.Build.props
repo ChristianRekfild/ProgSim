@@ -2,8 +2,9 @@
 
     <PropertyGroup>
         <VersionPrefix>0.0.1</VersionPrefix>
-        <Authors> TBD </Authors>
-        <Copyright> Copyright Info </Copyright>
+        <VersionSuffix>dev</VersionSuffix>
+        <Authors>TBD</Authors>
+        <Copyright>Copyright Info</Copyright>
     </PropertyGroup>
 
 </Project>
