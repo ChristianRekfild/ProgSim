@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Noob_Coder
+namespace NoobCoder
 {
   public partial class GameScene : Window
   {

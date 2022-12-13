@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Noob_Coder
+namespace NoobCoder
 {
   /// <summary>
   /// Логика взаимодействия для FeedBack.xaml

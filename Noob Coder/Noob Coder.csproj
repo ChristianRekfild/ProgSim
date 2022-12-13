@@ -3,10 +3,11 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <RootNamespace>Noob_Coder</RootNamespace>
+    <RootNamespace>NoobCoder</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <PackageVersion>0.0.1</PackageVersion>
+    <AssemblyName>NoobCoder</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
