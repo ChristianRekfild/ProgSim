@@ -1,4 +1,4 @@
-﻿<noobCoder:NcWindow x:Class="NoobCoder.MainWindow"
+﻿<Window x:Class="NoobCoder.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +6,15 @@
         xmlns:local="clr-namespace:NoobCoder"
         xmlns:noobCoder="clr-namespace:NoobCoder"
         mc:Ignorable="d"
-        Title="Симулятор программиста: Меню"
+        Title="Симулятор программиста"
         Height="720"
+        MinHeight="600"
         Width="1280"
+        MinWidth="600"
         ShowInTaskbar="True"
         >
-    <noobCoder:NcWindow.Background>
+
+    <Window.Background>
         <ImageBrush ImageSource="/background.jpg"
                     ViewportUnits="Absolute"
                     Viewport="0,0,186,2"
@@ -19,12 +22,5 @@
                     Stretch="UniformToFill"
                     AlignmentX="Left"
                     AlignmentY="Top" />
-    </noobCoder:NcWindow.Background>
-
-    <StackPanel x:Name="MainMenu">
-        <Image x:Name="Logo"
-               d:Height="200"
-               Width="200"
-               Source="/logo.jpg"/>
-    </StackPanel>
-</noobCoder:NcWindow>
+    </Window.Background>
+</Window>

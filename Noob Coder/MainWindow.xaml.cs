@@ -13,43 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NoobCoder;
+using NoobCoder.Views;
+using Menu = NoobCoder.Views.Menu;
 
 namespace NoobCoder
 {
-  
-  public partial class MainWindow : NcWindow
+  public partial class MainWindow : Window
   {
+    public static MainWindow MainWindowLink = new MainWindow();
     public MainWindow()
     {
       InitializeComponent();
-      AfterCreation();
+      MainWindowLink = this;
+      this.Content = new Menu();
     }
 
-    /// <summary>
-    /// Заполнение стартового окна кнопками, создание Action на изменение размера экрана
-    /// </summary>
-    private void AfterCreation()
-    {
-      MainMenu.VerticalAlignment = VerticalAlignment.Center;
-      var NewGame = GetMenuButton("НОВАЯ ИГРА");
-      var LoadGame = GetMenuButton("ЗАГРУЗИТЬ ИГРУ");
-      var SaveGame = GetMenuButton("СОХРАНИТЬ ИГРУ");
-      var Settings = GetMenuButton("НАСТРОЙКИ");
-      var FeedBack = GetMenuButton("ОБРАТНАЯ СВЯЗЬ");
-      var Exit = GetMenuButton("ВЫХОД");
-
-      MainMenu.Children.Add(NewGame);
-      MainMenu.Children.Add(LoadGame);
-      MainMenu.Children.Add(SaveGame);
-      MainMenu.Children.Add(Settings);
-      MainMenu.Children.Add(FeedBack);
-      MainMenu.Children.Add(Exit);
-
-      this.MinWidth = BtnMinWidth * 2;
-      this.MinHeight = MainMenu.Children.Count * 70;
-
-      CreateSizeChangedAction(MainMenu);
-
-    }
   }
 }

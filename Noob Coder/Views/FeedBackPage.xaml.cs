@@ -5,9 +5,9 @@ namespace NoobCoder
   /// <summary>
   /// Логика взаимодействия для FeedBack.xaml
   /// </summary>
-  public partial class FeedBack : Window
+  public partial class FeedBackPage : NcPage
   {
-    public FeedBack()
+    public FeedBackPage()
     {
       InitializeComponent();
     }

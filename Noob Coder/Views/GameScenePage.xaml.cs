@@ -2,9 +2,9 @@
 
 namespace NoobCoder
 {
-  public partial class GameScene : Window
+  public partial class GameScenePage : NcPage
   {
-    public GameScene()
+    public GameScenePage()
     {
       InitializeComponent();
     }

@@ -1,4 +1,4 @@
-﻿<Window x:Class="NoobCoder.FeedBack"
+﻿<local:NcPage x:Class="NoobCoder.FeedBackPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,4 +13,4 @@
         <TextBox HorizontalAlignment="Left" Height="295" Margin="155,149,0,0" TextWrapping="Wrap" Text="ТУТ БУДЕТ ФОРМА ОБРАТНОЙ СВЯЗИ" VerticalAlignment="Top" Width="910" Background="#FF1E1F21" FontFamily="Corbel Light" FontSize="14" Foreground="#FFCCD4B3"/>
 
     </Grid>
-</Window>
+</local:NcPage>
