@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <VersionPrefix>0.0.1</VersionPrefix>
-        <VersionSuffix> dev </VersionSuffix>
         <Authors> TBD </Authors>
         <Copyright> Copyright Info </Copyright>
     </PropertyGroup>

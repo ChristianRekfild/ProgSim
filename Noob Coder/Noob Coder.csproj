@@ -6,6 +6,7 @@
     <RootNamespace>Noob_Coder</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageVersion>0.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
