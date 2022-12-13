@@ -47,8 +47,7 @@ namespace Noob_Coder
       this.MinWidth = BtnMinWidth * 2;
       this.MinHeight = MainMenu.Children.Count * 70;
 
-      SizeChanged += SizeChangedAction;
-      //SizeChanged += SizeChangedAction(MainMenu, );
+      CreateSizeChangedAction(MainMenu);
 
     }
   }

@@ -49,23 +49,25 @@ public abstract class NcWindow : Window
     }
 
     /// <summary>
-    /// Изменять размеры кнопок в зависимости от размеров экрана
+    /// Создать Action, который будет менять размеры кнопок в указаном StackPanel
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="args"></param>
-    internal void SizeChangedAction(object sender, SizeChangedEventArgs args)
+    /// <param name="stack"></param>
+    internal void CreateSizeChangedAction(StackPanel stack)
     {
-        var stack = (StackPanel)sender;
-        var newWidth = this.Width - BtnMinWidth;
-        if (this.Width <= BtnMinWidth * 2)
+        SizeChanged += (sender, args) =>
         {
-            foreach (UIElement element in stack.Children)
-                if (element is Button button)
-                    button.Width = this.Width;
-        }
-        else
-            foreach (UIElement element in stack.Children)
-                if (element is Button button)
-                    button.Width = newWidth;
+            var newWidth = this.Width - BtnMinWidth;
+            if (this.Width <= BtnMinWidth * 2)
+            {
+                foreach (UIElement element in stack.Children)
+                    if (element is Button button)
+                        button.Width = this.Width;
+            }
+            else
+                foreach (UIElement element in stack.Children)
+                    if (element is Button button)
+                        button.Width = newWidth;
+        };
+
     }
 }
