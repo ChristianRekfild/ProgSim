@@ -97,6 +97,6 @@
                 VerticalAlignment="Top" 
                 Content="{Binding ExitButtonName}" 
                 HorizontalAlignment="Center" 
-                Width="420"/>
+                Width="420" Click="Exit_Click"/>
     </Grid>
 </Window>
