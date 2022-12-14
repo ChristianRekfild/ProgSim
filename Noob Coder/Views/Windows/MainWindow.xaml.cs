@@ -9,10 +9,5 @@ namespace Noob_Coder.Views.Windows
         {
             InitializeComponent();
         }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }
