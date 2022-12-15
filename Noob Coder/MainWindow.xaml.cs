@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Noob_Coder.ViewModels;
 
 namespace Noob_Coder
 {

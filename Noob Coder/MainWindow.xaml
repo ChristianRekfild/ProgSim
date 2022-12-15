@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Noob_Coder"
         xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels"
         xmlns:views="clr-namespace:Noob_Coder.Views"
-        xmlns:windows="clr-namespace:Noob_Coder.Views.Windows"
         mc:Ignorable="d"
         Height="720" Width="1280" ShowInTaskbar="True">
     <Grid>

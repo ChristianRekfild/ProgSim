@@ -1,8 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using Noob_Coder.Stores;
 using Noob_Coder.ViewModels;
-using Noob_Coder.Views.Windows;
 
 namespace Noob_Coder
 {
