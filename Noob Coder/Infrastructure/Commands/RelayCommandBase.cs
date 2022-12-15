@@ -7,12 +7,12 @@ using Noob_Coder.Infrastructure.Commands.Base;
 
 namespace Noob_Coder.Infrastructure.Commands
 {
-    internal class RelayCommand : Command
+    internal class RelayCommandBase : CommandBase
     {
         private readonly Action<object> _execute;
         private readonly Func<object, bool> _canExecute;
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommandBase(Action<object> execute, Func<object, bool> canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Automation;
+﻿using System.Windows;
+using System.Windows.Controls;
+using Noob_Coder.Stores;
 using Noob_Coder.ViewModels;
 using Noob_Coder.Views.Windows;
 
@@ -18,11 +13,14 @@ namespace Noob_Coder
   {
       protected override void OnStartup(StartupEventArgs e)
       {
+          var navigationStore = new NavigationStore();
+          navigationStore.CurrentViewModel = new MenuViewModel(navigationStore);
           MainWindow = new MainWindow()
           {
-              DataContext = new MainWindowViewModel(),
+              DataContext = new MainWindowViewModel(navigationStore),
           };
+          MainWindow.Show();
           base.OnStartup(e);
-      }
+        }
   }
 }

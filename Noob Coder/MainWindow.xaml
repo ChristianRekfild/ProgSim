@@ -1,4 +1,4 @@
-﻿<Window x:Class="Noob_Coder.Views.Windows.MainWindow"
+﻿<Window x:Class="Noob_Coder.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,16 +9,17 @@
         xmlns:windows="clr-namespace:Noob_Coder.Views.Windows"
         mc:Ignorable="d"
         Height="720" Width="1280" ShowInTaskbar="True">
-<Window.DataContext>
-    <viewmodels:MainWindowViewModel/>
-</Window.DataContext>
     <Grid>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:MenuViewModel}">
                 <views:MenuView/>
             </DataTemplate>
-        </Grid.Resources>
-        <ContentControl Content="{Binding CurrentViewModel}"/>
+            <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
+                <views:FeedBackView/>
+            </DataTemplate>
+        </Grid.Resources> 
+        
     </Grid>
     
 </Window>

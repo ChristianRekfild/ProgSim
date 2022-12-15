@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Noob_Coder.Infrastructure.Commands;
+﻿using Noob_Coder.Infrastructure.Commands;
 using System.Windows.Input;
+using Noob_Coder.Stores;
 using Noob_Coder.ViewModels.Base;
 
 namespace Noob_Coder.ViewModels
@@ -139,14 +135,15 @@ namespace Noob_Coder.ViewModels
 
         #region Commands
         public ICommand CloseApplicationCommand { get; }
+        public ICommand NavigateFeedBackFormCommand { get; }
 
         #endregion
-
-
-        public MenuViewModel()
+        
+        public MenuViewModel(NavigationStore navigationStore)
         {
             CloseApplicationCommand =
                 new CloseApplicationCommand();
+            NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
         }
     }
 }

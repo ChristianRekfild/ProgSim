@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:Noob_Coder"
         xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels">
     <Grid x:Name="MainMenu" ShowGridLines="False">
-        <Grid.DataContext>
-            <viewmodels:MenuViewModel/>
-        </Grid.DataContext>
         <Grid.Background>
             <ImageBrush ImageSource="{Binding BackgroundImagePath}"/>
         </Grid.Background>
@@ -22,7 +19,7 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Image x:Name="Logo" Grid.Column="1" Height="200" Width="200" Source="{Binding LogoImagePath}"/>
-        <Button x:Name="NewGame" 
+        <Button x:Name="NewGame" Style="{DynamicResource RoundButton}"
                 Content="{Binding NewGameButtonName}" 
                 Margin="0,20,0,0" 
                 Grid.Row="1" 
@@ -34,7 +31,7 @@
                 FontSize="24" 
                 Grid.Column="1" 
                 Width="420"/>
-        <Button x:Name="LoadGame" 
+        <Button x:Name="LoadGame" Style="{DynamicResource RoundButton}"
                 Grid.Column="1" 
                 Margin="0,85,0,0" 
                 Grid.Row="1" 
@@ -47,7 +44,7 @@
                 Content="{Binding LoadGameButtonName}" 
                 HorizontalAlignment="Center" 
                 Width="420"/>
-        <Button x:Name="SaveGame" 
+        <Button x:Name="SaveGame" Style="{DynamicResource RoundButton}"
                 Grid.Column="1" 
                 Margin="0,150,0,0" 
                 Grid.Row="1"
@@ -60,7 +57,7 @@
                 Content="{Binding SaveGameButtonName}" 
                 HorizontalAlignment="Center" 
                 Width="420"/>
-        <Button x:Name="Setting" 
+        <Button x:Name="Setting" Style="{DynamicResource RoundButton}"
                 Grid.Column="1" 
                 Margin="0,215,0,0" 
                 Grid.Row="1" Background="#FF7128BD" 
@@ -71,7 +68,7 @@
                 Content="{Binding SettingsButtonName}" 
                 HorizontalAlignment="Center" 
                 Width="420"/>
-        <Button x:Name="FeedBack" 
+        <Button x:Name="FeedBack" Style="{DynamicResource RoundButton}"
                 Grid.Column="1" 
                 Margin="0,280,0,0" 
                 Grid.Row="1" 
@@ -82,9 +79,11 @@
                 FontSize="24" 
                 VerticalAlignment="Top" 
                 Content="{Binding FeedbackButtonName}" 
+                Command="{Binding NavigateFeedBackFormCommand}"
+                CommandParameter="FeedBackForm"
                 HorizontalAlignment="Center" 
                 Width="420"/>
-        <Button x:Name="Exit" 
+        <Button x:Name="Exit" Style="{DynamicResource RoundButton}"
                 Grid.Column="1" 
                 Margin="0,345,0,0" 
                 Grid.Row="1" Background="#FF7128BD" 
