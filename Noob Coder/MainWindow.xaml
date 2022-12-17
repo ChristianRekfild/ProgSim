@@ -6,7 +6,8 @@
         xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels"
         xmlns:views="clr-namespace:Noob_Coder.Views"
         mc:Ignorable="d"
-        Height="720" Width="1280" ShowInTaskbar="True">
+        Height="720" Width="1280" ShowInTaskbar="True"
+        Title ="{Binding Title}">
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>
         <Grid.Resources>

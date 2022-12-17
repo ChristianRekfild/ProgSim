@@ -6,6 +6,7 @@ namespace Noob_Coder.ViewModels.Base
 {
     internal abstract class ViewModelBase : INotifyPropertyChanged
     {
+        public virtual string Title { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)

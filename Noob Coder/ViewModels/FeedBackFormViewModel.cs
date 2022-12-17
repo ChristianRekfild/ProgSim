@@ -14,7 +14,7 @@ namespace Noob_Coder.ViewModels
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
         }
 
-        public string Title
+        public override string Title
         {
             get => _title;
             set => SetField(ref _title, value);

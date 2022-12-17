@@ -15,8 +15,9 @@ namespace Noob_Coder.ViewModels
             get => _navigationStore.CurrentViewModel;
             set => SetField(ref _currentViewModel, value);
         }
+
         private string _title;
-        public string Title
+        public override string Title
         {
             get => _title;
             set => SetField(ref _title, value);
@@ -27,11 +28,13 @@ namespace Noob_Coder.ViewModels
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
+            Title = _navigationStore.CurrentViewModel.Title;
         }
 
         private void OnCurrentViewModelChanged()
         {
             OnPropertyChanged(nameof(CurrentViewModel));
+            Title = _navigationStore.CurrentViewModel.Title;
         }
     }
 }
