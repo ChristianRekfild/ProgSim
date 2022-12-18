@@ -15,6 +15,11 @@ namespace Noob_Coder
       private static IHost _host;
       public static IHost Host => _host ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
       /// <summary>
+      ///Метод возвращает путь к папке, в которой запущено приложение.
+      /// </summary>
+      /// <returns>Путь к текущей папке из которого запущено приложение в формате string </returns>
+      public static string CurrentAppRunningDirectory() => AppDomain.CurrentDomain.BaseDirectory;
+      /// <summary>
       /// Действия, выполняемые при старте приложения.
       /// </summary>
       /// <param name="e"></param>
@@ -49,6 +54,8 @@ namespace Noob_Coder
       /// </summary>
       public static void ConfigureServices(HostBuilderContext hostBuilderContext, IServiceCollection services)
       {
+
       }
+
   }
 }

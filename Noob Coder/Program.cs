@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Ribbon.Primitives;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
@@ -22,16 +17,13 @@ namespace Noob_Coder
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var builder = Host.CreateDefaultBuilder(args);
-            var appsettingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json");
-            builder.UseContentRoot(AppDomain.CurrentDomain.BaseDirectory);
-            builder.ConfigureAppConfiguration((host, config) =>
-            {
-                config.SetBasePath(AppDomain.CurrentDomain.BaseDirectory);
-                config.AddJsonFile(appsettingsPath, optional:false, reloadOnChange:true);
-            });
-
-            builder.ConfigureServices(App.ConfigureServices);
+            var appsettingsPath = Path.Combine(App.CurrentAppRunningDirectory(), "appsettings.json");
+            var builder = Host.CreateDefaultBuilder(args)
+                              .UseContentRoot(App.CurrentAppRunningDirectory())
+                              .ConfigureAppConfiguration((host, config) => 
+                                  config.SetBasePath(App.CurrentAppRunningDirectory())
+                                        .AddJsonFile(appsettingsPath, optional: false, reloadOnChange: true))
+                              .ConfigureServices(App.ConfigureServices);
 
             return builder;
         }
