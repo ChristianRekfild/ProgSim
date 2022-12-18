@@ -6,6 +6,7 @@
     <RootNamespace>Noob_Coder</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <StartupObject>Noob_Coder.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
