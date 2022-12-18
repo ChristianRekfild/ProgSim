@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Noob_Coder.Stores;
+using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels;
 
 namespace Noob_Coder

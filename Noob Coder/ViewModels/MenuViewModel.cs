@@ -1,129 +1,106 @@
-﻿using Noob_Coder.Infrastructure.Commands;
-using System.Windows.Input;
-using Noob_Coder.Stores;
+﻿using System.ComponentModel.DataAnnotations;
+using Noob_Coder.Infrastructure.Commands;
+using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
+using System.Windows.Input;
 
 namespace Noob_Coder.ViewModels
 {
+    /// <summary>
+    /// Класс модели-представления меню.
+    /// Содержит свойства отображаемых на странице главного меню элементов
+    /// и команды-обработчики событий. К свойствам этого класса привязана MenuView.
+    /// </summary>
     internal class MenuViewModel : ViewModelBase
     {
-        #region Properties
-        #region Window Title
-        /// <summary>
-        /// Заголовок окна
-        /// </summary>
-        private string _title = "Симулятор программиста: Меню";
+        #region Свойства
 
+        private string _title = "Симулятор программиста: Меню";
+        /// <summary>
+        /// Заголовок окна.
+        /// </summary>
         public override string Title
         {
             get => _title;
             set => SetField(ref _title, value);
         }
-        #endregion
-        #region New Game Button
-        /// <summary>
-        /// Кнопка "Начать игру"
-        /// </summary>
         private string _newGameButtonName = "Новая игра";
-
+        /// <summary>
+        /// Надпись на кнопке начала новой игры.
+        /// Имя привязанного элемента в разметке xaml - x:Name="NewGameMenuButton".
+        /// </summary>
         public string NewGameButtonName
         {
             get => _newGameButtonName;
             set => SetField(ref _newGameButtonName, value);
         }
-
-        #endregion
-
-        #region Load Game Button
-        /// <summary>
-        /// Кнопка "Загрузить игру"
-        /// </summary>
+        
         private string _loadGameButtonName = "Загрузить игру";
-
+        /// <summary>
+        /// Надпись на кнопке загрузки игры.
+        /// Имя привязанного элемента в разметке xaml - x:Name="LoadGameMenuButton".
+        /// </summary>
         public string LoadGameButtonName
         {
             get => _loadGameButtonName;
             set => SetField(ref _loadGameButtonName, value);
         }
-
-        #endregion
-
-        #region Save Game Button
-        /// <summary>
-        /// Кнопка "Сохранить игру"
-        /// </summary>
         private string _saveGameButtonName = "Сохранить игру";
-
+        /// <summary>
+        /// Надпись на кнопке сохранения игры.
+        /// Имя привязанного элемента в разметке xaml - x:Name="SaveGameMenuButton".
+        /// </summary>
         public string SaveGameButtonName
         {
             get => _saveGameButtonName;
             set => SetField(ref _saveGameButtonName, value);
         }
 
-        #endregion
-
-
-        #region Settings Button
-        /// <summary>
-        /// Кнопка "Настройки"
-        /// </summary>
         private string _settingsButtonName = "Настройки";
-
+        /// <summary>
+        /// Надпись на кнопке перехода на страницу настроек игры.
+        /// Имя привязанного элемента в разметке xaml - x:Name="NavigateSettingsMenuButton".
+        /// </summary>
         public string SettingsButtonName
         {
             get => _settingsButtonName;
             set => SetField(ref _settingsButtonName, value);
         }
-
-        #endregion
-
-        #region Feedback Button
-        /// <summary>
-        /// Кнопка "Обратная связь"
-        /// </summary>
         private string _feedbackButtonName = "Обратная связь";
-
+        /// <summary>
+        /// Надпись на кнопке перехода на страницу обратной связи
+        /// Имя привязанного элемента в разметке xaml - x:Name="NavigateFeedBackFormMenuButton".
+        /// </summary>
         public string FeedbackButtonName
         {
             get => _feedbackButtonName;
             set => SetField(ref _feedbackButtonName, value);
         }
-
-        #endregion
-
-        #region Exit Button
-        /// <summary>
-        /// Кнопка "Выход"
-        /// </summary>
+        
         private string _exitButtonName = "Выход";
-
+        /// <summary>
+        /// Надпись на кнопке закрытия приложения.
+        /// Имя привязанного элемента в разметке xaml - x:Name="ExitMenuButton".
+        /// </summary>
         public string ExitButtonName
         {
             get => _exitButtonName;
             set => SetField(ref _exitButtonName, value);
         }
-
-        #endregion
-
-        #region BackgroundImagePath
+        
+        private string _backgroundImagePath = "/Data/Resourses/Images/background.jpg";
         /// <summary>
-        /// Путь к фоновому изображению
+        /// Путь к фоновому изображению.
         /// </summary>
-        private string _backgroundImagePath = "/Data/Resourses/background.jpg";
-
         public string BackgroundImagePath
         {
             get => _backgroundImagePath;
             set => SetField(ref _backgroundImagePath, value);
         }
-        #endregion
-
-        #region LogoImagePath
+        private string _logoImagePath = "/Data/Resourses/Images/logo.jpg";
         /// <summary>
-        /// Путь к логотипу
+        /// Путь к изображению логотипа.
         /// </summary>
-        private string _logoImagePath = "/Data/Resourses/logo.jpg";
-
         public string LogoImagePath
         {
             get => _logoImagePath;
@@ -131,18 +108,21 @@ namespace Noob_Coder.ViewModels
         }
         #endregion
 
-        #endregion
-
-        #region Commands
+        #region Команды
+        /// <summary>
+        /// Команда-обработчик закрытия приложения.
+        /// </summary>
         public ICommand CloseApplicationCommand { get; }
+        /// <summary>
+        /// Команда-обработчик перехода на страницу обратной связи.
+        /// </summary>
         public ICommand NavigateFeedBackFormCommand { get; }
 
         #endregion
         
         public MenuViewModel(NavigationStore navigationStore)
         {
-            CloseApplicationCommand =
-                new CloseApplicationCommand();
+            CloseApplicationCommand = new CloseApplicationCommand();
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
         }
     }

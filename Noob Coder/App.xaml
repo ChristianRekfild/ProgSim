@@ -8,7 +8,7 @@
             <views:MenuView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
-            <views:FeedBackView/>
+            <views:FeedBackFormView/>
         </DataTemplate>
         <Style TargetType="{x:Type Button}" x:Key="RoundedButton">
             <Setter Property="Background" Value="#FF7128BD"/>

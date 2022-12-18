@@ -14,8 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Data\Resourses\background.jpg" />
-    <Resource Include="Data\Resourses\logo.jpg" />
+    <Resource Include="Data\Resourses\Images\background.jpg" />
+    <Resource Include="Data\Resourses\Images\logo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

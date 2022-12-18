@@ -3,11 +3,11 @@
 namespace Noob_Coder.Views
 {
     /// <summary>
-    /// Interaction logic for FeedBackView.xaml
+    /// Interaction logic for FeedBackFormView.xaml
     /// </summary>
-    public partial class FeedBackView : UserControl
+    public partial class FeedBackFormView : UserControl
     {
-        public FeedBackView()
+        public FeedBackFormView()
         {
             InitializeComponent();
         }
