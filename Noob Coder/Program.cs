@@ -2,6 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Noob_Coder.Infrastructure.HostBuilderExtensions;
 
 namespace Noob_Coder
 {
@@ -14,16 +15,17 @@ namespace Noob_Coder
             app.InitializeComponent();
             app.Run();
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args)
+        /// <summary>
+        /// Сборка хоста приложения и конфигурация контейнера внедрения зависимостей.
+        /// </summary>
+        /// <returns>Сконфигурированный экземпляр IHostBuilder</returns>
+        public static IHostBuilder CreateHostBuilder(string[] args = null)
         {
-            var appsettingsPath = Path.Combine(App.CurrentAppRunningDirectory(), "appsettings.json");
             var builder = Host.CreateDefaultBuilder(args)
-                              .UseContentRoot(App.CurrentAppRunningDirectory())
-                              .ConfigureAppConfiguration((host, config) => 
-                                  config.SetBasePath(App.CurrentAppRunningDirectory())
-                                        .AddJsonFile(appsettingsPath, optional: false, reloadOnChange: true))
-                              .ConfigureServices(App.ConfigureServices);
+                              .AddConfiguration()
+                              .AddStores()
+                              .AddViewModels()
+                              .AddViews();
 
             return builder;
         }

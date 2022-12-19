@@ -26,12 +26,10 @@ namespace Noob_Coder
       protected override async void OnStartup(StartupEventArgs e)
       {
           var host = Host;
-          var navigationStore = new NavigationStore();
+
+          var navigationStore = host.Services.GetService<NavigationStore>();
           navigationStore.CurrentViewModel = new MenuViewModel(navigationStore);
-          MainWindow = new MainWindow()
-          {
-              DataContext = new MainWindowViewModel(navigationStore),
-          };
+          MainWindow = _host.Services.GetService<MainWindow>();
           MainWindow.Show();
           base.OnStartup(e);
           await host.StartAsync().ConfigureAwait(false);
@@ -47,15 +45,5 @@ namespace Noob_Coder
           await host.StopAsync().ConfigureAwait(false);
           host.Dispose();
       }
-
-      /// <summary>
-      /// Метод конфигурации DI контейнера внедрения зависимостей.
-      /// Здесь добавляются сервисы и их реализации.
-      /// </summary>
-      public static void ConfigureServices(HostBuilderContext hostBuilderContext, IServiceCollection services)
-      {
-
-      }
-
   }
 }
