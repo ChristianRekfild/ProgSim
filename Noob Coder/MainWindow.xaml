@@ -15,7 +15,7 @@
                 <views:MenuView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
-                <views:FeedBackView/>
+                <views:FeedBackFormView/>
             </DataTemplate>
         </Grid.Resources> 
         
