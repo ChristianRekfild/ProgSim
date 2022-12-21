@@ -3,27 +3,111 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Noob_Coder.Views.GameSceneView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local="clr-namespace:Noob_Coder.Views" x:Class="Noob_Coder.Views.GameSceneView"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280"
              Height="720" Width="1280">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="33*"/>
-            <ColumnDefinition Width="47*"/>
-        </Grid.ColumnDefinitions>
-
-        <Button 
-                Content="Back to menu"
-                Command="{Binding NavigateMenuCommand}" Margin="247,418,0,0" Grid.Column="1"/>
-        <materialDesign:Card HorizontalAlignment="Center" Height="225" VerticalAlignment="Top" Width="508" Margin="0,10,0,0">
-            <materialDesign:Chip Margin="0,72,0,0" VerticalAlignment="Top" Height="40" Width="488" HorizontalAlignment="Center"/>
 
 
+        <materialDesign:Card HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="210" Width="426" RenderTransformOrigin="0.505,0.5">
+            <Grid>
+                <materialDesign:Chip Content="АВАТАРкА" Margin="10,10,0,0" VerticalAlignment="Top" Height="85" Width="89"/>
+                <Label Content="Имя Персонажа" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Height="26" Width="113"/>
+                <materialDesign:Chip HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="406">
+                    <Grid>
+                        <ProgressBar  HorizontalAlignment="Left" Height="22" Width="275"   Margin="107,2,0,1"/>
 
+
+                        <Label Content="Здоровье" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102"/>
+                    </Grid>
+                </materialDesign:Chip>
+                <materialDesign:Chip HorizontalAlignment="Center" Margin="0,135,0,0" VerticalAlignment="Top" Width="406">
+                    <Grid>
+                        <ProgressBar  HorizontalAlignment="Left" Height="22" Width="275"  Margin="107,2,0,1" Background="#FFF57F17" BorderBrush="#FFF57F17"/>
+
+
+                        <Label Content="Усатость" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102"/>
+                    </Grid>
+
+                </materialDesign:Chip>
+
+                <materialDesign:Chip HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="406">
+                    <Grid>
+                        <ProgressBar  HorizontalAlignment="Left" Height="22" Width="275"   Margin="107,2,0,1" Background="#FF00BCDA" BorderBrush="#FF00BCDA" Cursor="Hand"/>
+
+
+                        <Label Content="Полосатость" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102"/>
+                    </Grid>
+
+                </materialDesign:Chip>
+                <Label Content="Статус: Лошара" HorizontalAlignment="Left" Margin="104,70,0,0" VerticalAlignment="Top" Height="25"/>
+                <Label Content="Карма: 0" HorizontalAlignment="Left" Margin="105,41,0,0" VerticalAlignment="Top"/>
+                <Label Content="21.21.2022" HorizontalAlignment="Left" Margin="332,12,0,0" VerticalAlignment="Top" Width="84"/>
+                <Label Content="$ 10 000" HorizontalAlignment="Left" Margin="264,41,0,0" VerticalAlignment="Top" Height="49" Width="152" FontSize="36" FontWeight="Bold"/>
+
+
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card HorizontalAlignment="Left" Margin="456,10,0,0" VerticalAlignment="Top" Height="210
+                             " Width="426">
+            <Grid>
+                <Label Content="Теукщая работа" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                <materialDesign:Chip VerticalAlignment="Top" Height="42" Width="406" Margin="0,29,0,0" HorizontalAlignment="Center"  Cursor="Hand">
+                    <Grid>
+                        <Button Content="Уволиться" Width="103" HorizontalAlignment="right"/>
+                        <Label Content="Самый главный кассир в 'Шестерочке'" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    </Grid>
+                </materialDesign:Chip>
+
+                <Label Content="Подработка" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top"/>
+                <materialDesign:Chip VerticalAlignment="Top" Height="42" Width="406" Margin="0,100,0,0" HorizontalAlignment="Center" >
+                    <Grid>
+                        <Button Content="Уволиться" Width="103" HorizontalAlignment="right"/>
+                        <Label Content="Второй кассир в 'Шестерочке'" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    </Grid>
+                </materialDesign:Chip>
+                <Button Content="Найти работу на HH" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click"/>
+                <Button Content="Найти работу на FL" HorizontalAlignment="Left" Margin="213,160,0,0" VerticalAlignment="Top" Width="203"/>
+
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card HorizontalAlignment="Left" Height="579" Margin="900,10,0,0" VerticalAlignment="Top" Width="352">
+            <Grid>
+                <Label Content="Недвижимость" HorizontalAlignment="Left" Margin="6,4,0,0" VerticalAlignment="Top"/>
+                <materialDesign:Chip  Margin="6,33,0,0" VerticalAlignment="Top" Width="332" Height="100">
+                    <Grid Height="81">
+                        <Label Content="Описание"/>
+                        <Button Content="Поменять" Width="103" HorizontalAlignment="right" VerticalAlignment="Bottom"></Button>
+                    </Grid>
+                </materialDesign:Chip>
+                <Label Content="Автомобиль" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
+                <materialDesign:Chip  Margin="0,167,0,0" VerticalAlignment="Top" Width="332" Height="100" HorizontalAlignment="Center">
+                    <Grid Height="81">
+                        <Label Content="Описание"/>
+                        <Button Content="Поменять" Width="103" HorizontalAlignment="right" VerticalAlignment="Bottom"></Button>
+                    </Grid>
+                </materialDesign:Chip>
+                <Label Content="Компьютер" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                <materialDesign:Chip  Margin="12,306,0,0" VerticalAlignment="Top" Width="332" Height="242">
+                    <Grid Height="218">
+                        <Label Content="Описание"/>
+                        <Button Content="Поменять" Width="103" HorizontalAlignment="right" VerticalAlignment="Bottom"></Button>
+                    </Grid>
+                </materialDesign:Chip>
+            </Grid>
 
         </materialDesign:Card>
-        <materialDesign:Chip Content="Chip" Margin="23,156,0,0" VerticalAlignment="Top" Width="495"/>
+        <materialDesign:Card HorizontalAlignment="Left" Height="56" Margin="900,607,0,0" VerticalAlignment="Top" Width="352">
+            <Button Content="Завершить игру" HorizontalAlignment="Center" VerticalAlignment="Center" Height="36" Width="332" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
+        </materialDesign:Card>
+        <materialDesign:Card Content="Блок обучения" HorizontalAlignment="Left" Margin="10,447,0,0" VerticalAlignment="Top" Height="216" Width="426"/>
+        <materialDesign:Card Content="Блок Банковских операций" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Height="188" Width="426"/>
+        <materialDesign:Card Content="А В ЭТОМ ЗАМЕЧАТЕЛЬНОМ БЛОКЕ МЫ БУДЕМ УЧИТЬСЯ ГОТОВИТЬ БОРЩ!" HorizontalAlignment="Left" Margin="456,240,0,0" VerticalAlignment="Top" Height="423" Width="426"/>
+
+
 
     </Grid>
 

@@ -22,7 +22,7 @@
                  FontFamily="Corbel Light" FontSize="14"/>
         <Button Grid.Row="1" 
                 Content="Back to menu"
-                Command="{Binding NavigateMenuCommand}">
+                Command="{Binding NavigateMenuCommand}" Cursor="Hand">
         </Button>
     </Grid>
 </UserControl>

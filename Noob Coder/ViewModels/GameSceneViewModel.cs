@@ -29,12 +29,12 @@ namespace Noob_Coder.ViewModels
         /// <summary>
         /// Команда перехода в главное меню.
         /// </summary>
-
+        public ICommand NavigateMenuCommand { get; }
 
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
-            
+            NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
         }
     }
 }
