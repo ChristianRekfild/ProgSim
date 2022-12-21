@@ -2,40 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:views="clr-namespace:Noob_Coder.Views"
-             xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels">
+             xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:MenuViewModel}">
-            <views:MenuView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
-            <views:FeedBackFormView/>
-        </DataTemplate>
-        <Style TargetType="{x:Type Button}" x:Key="RoundedButton">
-            <Setter Property="Background" Value="#FF7128BD"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Height" Value="60"/>
-            <Setter Property="Width" Value="320"></Setter>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="FontFamily" Value="Corbel Light"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="Border" Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="DarkBlue" TargetName="Border" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Style.Resources>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

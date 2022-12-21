@@ -2,9 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid x:Name="MainMenu" ShowGridLines="False">
-        <Grid.Background>
-            <ImageBrush ImageSource="{Binding BackgroundImagePath}"/>
-        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -15,37 +13,38 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Image x:Name="Logo" Grid.Column="1" Height="200" Width="200" Source="{Binding LogoImagePath}"/>
-        <Button x:Name="NewGameMenuButton" Style="{DynamicResource RoundedButton}"
+        <Button x:Name="NewGameMenuButton" 
                 Grid.Row="1" Grid.Column="1" 
                 Margin="0,20,0,0" 
                 VerticalAlignment="Top"
-                Content="{Binding NewGameButtonName}"/>
-        <Button x:Name="LoadGameMenuButton" Style="{DynamicResource RoundedButton}"
+                Content="{Binding NewGameButtonName}"
+                Command="{Binding NavigateNewGameCommand}"/>
+        <Button x:Name="LoadGameMenuButton" 
                 Grid.Column="1" Grid.Row="1"  
                 Margin="0,85,0,0" 
-                VerticalAlignment="Top" HorizontalAlignment="Center"
-                Content="{Binding LoadGameButtonName}"/>
-        <Button x:Name="SaveGameMenuButton" Style="{DynamicResource RoundedButton}"
+                VerticalAlignment="Top" 
+                Content="{Binding LoadGameButtonName}" />
+        <Button x:Name="SaveGameMenuButton" 
                 Grid.Column="1" Grid.Row="1" 
                 Margin="0,150,0,0" 
-                VerticalAlignment="Top" HorizontalAlignment="Center"
-                Content="{Binding SaveGameButtonName}"/>
-        <Button x:Name="NavigateSettingMenuButton" Style="{DynamicResource RoundedButton}"
+                VerticalAlignment="Top" 
+                Content="{Binding SaveGameButtonName}" />
+        <Button x:Name="NavigateSettingMenuButton" 
                 Grid.Column="1" Grid.Row="1" 
                 Margin="0,215,0,0" 
-                VerticalAlignment="Top" HorizontalAlignment="Center"
-                Content="{Binding SettingsButtonName}"/>
-        <Button x:Name="NavigateFeedBackFormMenuButton" Style="{DynamicResource RoundedButton}"
+                VerticalAlignment="Top" 
+                Content="{Binding SettingsButtonName}" />
+        <Button x:Name="NavigateFeedBackFormMenuButton" 
                 Grid.Column="1" Grid.Row="1"
                 Margin="0,280,0,0" 
-                VerticalAlignment="Top" HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
                 Content="{Binding FeedbackButtonName}" 
-                Command="{Binding NavigateFeedBackFormCommand}"/>
-        <Button x:Name="ExitMenuButton" Style="{DynamicResource RoundedButton}"
+                Command="{Binding NavigateFeedBackFormCommand}" />
+        <Button x:Name="ExitMenuButton" 
                 Grid.Column="1" Grid.Row="1"
                 Margin="0,345,0,0"   
-                VerticalAlignment="Top" HorizontalAlignment="Center"
+                VerticalAlignment="Top" 
                 Content="{Binding ExitButtonName}" 
-                Command="{Binding CloseApplicationCommand}"/>
+                Command="{Binding CloseApplicationCommand}" />
     </Grid>
 </UserControl>
