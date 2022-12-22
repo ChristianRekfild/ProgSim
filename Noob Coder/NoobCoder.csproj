@@ -35,12 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Syncfusion.Shared.WPF">
-      <HintPath>..\..\..\..\..\.nuget\packages\syncfusion.shared.wpf\20.4.0.38\lib\net6.0-windows7.0\Syncfusion.Shared.WPF.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
