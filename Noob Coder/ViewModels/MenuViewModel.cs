@@ -97,7 +97,7 @@ namespace Noob_Coder.ViewModels
             get => _backgroundImagePath;
             set => SetField(ref _backgroundImagePath, value);
         }
-        private string _logoImagePath = "/Data/Resourses/Images/logo.jpg";
+        private string _logoImagePath = "/Data/Resourses/Images/Logos.png";
         /// <summary>
         /// Путь к изображению логотипа.
         /// </summary>

@@ -91,10 +91,10 @@
                     </Grid>
 
                     <Grid  HorizontalAlignment="Left" Width="150" Margin="320,0,0,0">
-                        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" Width="150" Value="25" Foreground="#FF69F0AE" Background="#5469F0AE" BorderBrush="#5469F0AE"/>
+                        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" Width="150" Value="25" Foreground="#FFFFEB3A" Background="#54FFEB3A" BorderBrush="#54FFEB3A"/>
                         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                            <fa5:ImageAwesome Icon="Solid_Heart" Height="16" Foreground="#FF69F0AE"/>
-                            <TextBlock  TextWrapping="Wrap" Text="  Здоровье" FontSize="14"   Height="21"/>
+                            <fa5:ImageAwesome Icon="Solid_ChartLine" Height="16" Foreground="#FFFFEB3A"/>
+                            <TextBlock  TextWrapping="Wrap" Text="  Полосатость" FontSize="14"   Height="21"/>
                         </StackPanel>
                     </Grid>
 

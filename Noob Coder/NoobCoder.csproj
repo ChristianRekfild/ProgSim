@@ -11,12 +11,16 @@
 
   <ItemGroup>
     <None Remove="background.jpg" />
+    <None Remove="Logos.png" />
     <None Remove="logo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Data\Resourses\Images\background.jpg" />
     <Resource Include="Data\Resourses\Images\logo.jpg" />
+    <Resource Include="Data\Resourses\Images\Logos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
