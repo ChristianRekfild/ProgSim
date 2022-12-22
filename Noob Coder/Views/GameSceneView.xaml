@@ -71,7 +71,7 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <materialDesign:Card HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="638">
+            <materialDesign:Card HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="70" Width="640">
                 <Grid Margin="5,5,5,5" >
 
                     <Grid  HorizontalAlignment="left" Width="150">
@@ -109,7 +109,7 @@
                 </Grid>
 
             </materialDesign:Card>
-            <materialDesign:Card  HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top" Height="70" Width="316">
+            <materialDesign:Card  HorizontalAlignment="Left" Margin="665,10,0,0" VerticalAlignment="Top" Height="70" Width="315">
                 <Grid>
                     <materialDesign:Chip  Margin="10,0,0,0" VerticalAlignment="Center" Height="50" Width="204">
                         <StackPanel  Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Bottom">
