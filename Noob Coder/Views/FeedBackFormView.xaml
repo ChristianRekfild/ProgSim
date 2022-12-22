@@ -1,28 +1,52 @@
-﻿<UserControl x:Class="Noob_Coder.Views.FeedBackFormView"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Noob_Coder.Views.FeedBackFormView"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="720" d:DesignWidth="1280"
              Height="720" Width="1280">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="{Binding BackgroundImagePath}"/>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" HorizontalAlignment="Left" 
-                 Height="295" Width="910"
-                 Margin="155,149,0,0" 
-                 TextWrapping="Wrap" Text="ТУТ БУДЕТ ФОРМА ОБРАТНОЙ СВЯЗИ" 
-                 VerticalAlignment="Top" Background="#FF1E1F21" Foreground="#FFCCD4B3"
-                 FontFamily="Corbel Light" FontSize="14"/>
-        <Button Grid.Row="1" 
-                Content="Back to menu"
-                Command="{Binding NavigateMenuCommand}" Cursor="Hand">
-        </Button>
+
+
+
+
+        <materialDesign:Card HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="512" Width="1191">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Пожалйста, заполните форму" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Margin="10,80,0,0" TextWrapping="Wrap" Text="Ваше имя" VerticalAlignment="Top" Width="327"/>
+                <TextBox HorizontalAlignment="Left" Margin="10,136,0,0" TextWrapping="Wrap" Text="E-mail для обратной связи" VerticalAlignment="Top" Width="323"/>
+                <RichTextBox Margin="10,186,20,122">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="Текст отзыва"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+
+                <materialDesign:Chip Margin="900,30,0,0" VerticalAlignment="Top" Height="178" Width="271">
+                    <Grid Height="148">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="149*"/>
+                            <ColumnDefinition Width="98*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Left" Margin="90,-1,0,0" TextWrapping="Wrap" Text="Опрос" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,28,0,0" TextWrapping="Wrap" Text="Вам понравилась игра?" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="237"/>
+                        <RadioButton Content="Да, понравилась" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                        <RadioButton Content="Безусловно понравилась" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <RadioButton Content="Она Великолепна! Это Шедевр!" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </materialDesign:Chip>
+
+            </Grid>
+        </materialDesign:Card>
+        <Button Content="Вернуться" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
+        <Button Content="Отправить отзыв" HorizontalAlignment="Left" Margin="1091,535,0,0" VerticalAlignment="Top"/>
+
+
+
+
+
     </Grid>
 </UserControl>
