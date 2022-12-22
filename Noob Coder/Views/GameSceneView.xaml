@@ -43,7 +43,7 @@
                 </materialDesign:Chip>
                 <Label Content="Статус: Лошара" HorizontalAlignment="Left" Margin="104,70,0,0" VerticalAlignment="Top" Height="25"/>
                 <Label Content="Карма: 0" HorizontalAlignment="Left" Margin="105,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding GameDate}" HorizontalAlignment="Left" Margin="332,12,0,0" VerticalAlignment="Top" Width="130"/>
+                <TextBlock Text="{Binding GameDate, StringFormat={}{0:d}, ConverterCulture=ru-RU}" HorizontalAlignment="Left" Margin="332,12,0,0" VerticalAlignment="Top" Width="130"/>
                 <Label Content="$ 10 000" HorizontalAlignment="Left" Margin="264,41,0,0" VerticalAlignment="Top" Height="49" Width="152" FontSize="36" FontWeight="Bold"/>
 
 
