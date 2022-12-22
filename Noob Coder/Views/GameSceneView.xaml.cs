@@ -12,14 +12,6 @@ namespace Noob_Coder.Views
             InitializeComponent();
         }
 
-        private void ProgressBar_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-
-        }
+  
     }
 }

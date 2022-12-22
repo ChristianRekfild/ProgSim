@@ -3,111 +3,139 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local="clr-namespace:Noob_Coder.Views" x:Class="Noob_Coder.Views.GameSceneView"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280"
              Height="720" Width="1280">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-
-        <materialDesign:Card HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="210" Width="426" RenderTransformOrigin="0.505,0.5">
-            <Grid>
-                <materialDesign:Chip Content="АВАТАРкА" Margin="10,10,0,0" VerticalAlignment="Top" Height="85" Width="89"/>
-                <Label Content="Имя Персонажа" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Height="26" Width="113"/>
-                <materialDesign:Chip HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="406">
-                    <Grid>
-                        <ProgressBar  HorizontalAlignment="Left" Height="22" Width="275"   Margin="107,2,0,1"/>
-
-
-                        <Label Content="Здоровье" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102"/>
-                    </Grid>
-                </materialDesign:Chip>
-                <materialDesign:Chip HorizontalAlignment="Center" Margin="0,135,0,0" VerticalAlignment="Top" Width="406">
-                    <Grid>
-                        <ProgressBar  HorizontalAlignment="Left" Height="22" Width="275"  Margin="107,2,0,1" Background="#FFF57F17" BorderBrush="#FFF57F17"/>
-
-
-                        <Label Content="Усатость" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102"/>
-                    </Grid>
-
-                </materialDesign:Chip>
-
-                <materialDesign:Chip HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="406">
-                    <Grid>
-                        <ProgressBar  HorizontalAlignment="Left" Height="22" Width="275"   Margin="107,2,0,1" Background="#FF00BCDA" BorderBrush="#FF00BCDA" Cursor="Hand"/>
-
-
-                        <Label Content="Полосатость" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102"/>
-                    </Grid>
-
-                </materialDesign:Chip>
-                <Label Content="Статус: Лошара" HorizontalAlignment="Left" Margin="104,70,0,0" VerticalAlignment="Top" Height="25"/>
-                <Label Content="Карма: 0" HorizontalAlignment="Left" Margin="105,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="21.21.2022" HorizontalAlignment="Left" Margin="332,12,0,0" VerticalAlignment="Top" Width="84"/>
-                <Label Content="$ 10 000" HorizontalAlignment="Left" Margin="264,41,0,0" VerticalAlignment="Top" Height="49" Width="152" FontSize="36" FontWeight="Bold"/>
-
-
+        <Grid Grid.Column="0" Background="#000000">
+            <TextBlock Margin="7,7,7,0" TextWrapping="Wrap" Text="UserName" FontSize="16" Foreground="White" FontWeight="Bold" DockPanel.Dock="Top" Height="21" VerticalAlignment="Top" />
+            <Grid Margin="7, 28, 7, 0" Height="21" VerticalAlignment="top">
+                <TextBlock  TextWrapping="Wrap" Text="Статус: " FontSize="14" Foreground="#FF7F7F7F"  DockPanel.Dock="Top" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBlock  TextWrapping="Wrap" Text="Лошара " FontSize="14" Foreground="#FF7F7F7F"  DockPanel.Dock="Top" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="47,0,0,0"/>
             </Grid>
-        </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Margin="456,10,0,0" VerticalAlignment="Top" Height="210
-                             " Width="426">
-            <Grid>
-                <Label Content="Теукщая работа" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
-                <materialDesign:Chip VerticalAlignment="Top" Height="42" Width="406" Margin="0,29,0,0" HorizontalAlignment="Center"  Cursor="Hand">
-                    <Grid>
-                        <Button Content="Уволиться" Width="103" HorizontalAlignment="right"/>
-                        <Label Content="Самый главный кассир в 'Шестерочке'" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-                    </Grid>
-                </materialDesign:Chip>
-
-                <Label Content="Подработка" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top"/>
-                <materialDesign:Chip VerticalAlignment="Top" Height="42" Width="406" Margin="0,100,0,0" HorizontalAlignment="Center" >
-                    <Grid>
-                        <Button Content="Уволиться" Width="103" HorizontalAlignment="right"/>
-                        <Label Content="Второй кассир в 'Шестерочке'" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-                    </Grid>
-                </materialDesign:Chip>
-                <Button Content="Найти работу на HH" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click"/>
-                <Button Content="Найти работу на FL" HorizontalAlignment="Left" Margin="213,160,0,0" VerticalAlignment="Top" Width="203"/>
-
+            <Rectangle Margin="0, 52, 0, 0" Stroke="#FF7F7F7F" Width="auto" Fill="#FF7F7F7F" VerticalAlignment="top" Height="1"/>
+            <Grid Margin="12,62,7,480">
+                <Button  VerticalAlignment="Top" Margin="0,12,0,0">
+                    <StackPanel  Orientation="Horizontal" Width="200">
+                        <fa5:ImageAwesome Icon="Solid_GripHorizontal" Height="16" Foreground="White"  />
+                        <TextBlock Text="  Главная" />
+                    </StackPanel>
+                </Button>
+                <Button VerticalAlignment="Top" Margin="0,54,0,0" Background="Black" BorderBrush="Black">
+                    <StackPanel  Orientation="Horizontal" Width="200">
+                        <fa5:ImageAwesome Icon="Solid_MoneyBillWave" Height="16" Foreground="#FF7F7F7F"  />
+                        <TextBlock Text="  Финансы" Foreground="#FF7F7F7F"/>
+                    </StackPanel>
+                </Button>
+                <Button VerticalAlignment="Top" Margin="0,96,0,0" Background="Black" BorderBrush="Black">
+                    <StackPanel  Orientation="Horizontal" Width="200">
+                        <fa5:ImageAwesome Icon="Solid_LaptopHouse" Height="16" Foreground="#FF7F7F7F"  />
+                        <TextBlock Text="  Имущество" Foreground="#FF7F7F7F"/>
+                    </StackPanel>
+                </Button>
+                <Button  VerticalAlignment="Top" Margin="0,138,0,0" Background="Black" BorderBrush="Black">
+                    <StackPanel  Orientation="Horizontal" Width="200">
+                        <fa5:ImageAwesome Icon="Solid_GraduationCap" Height="16" Foreground="#FF7F7F7F"  />
+                        <TextBlock Text="  Обучение" Foreground="#FF7F7F7F"/>
+                    </StackPanel>
+                </Button>
             </Grid>
-        </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Height="579" Margin="900,10,0,0" VerticalAlignment="Top" Width="352">
-            <Grid>
-                <Label Content="Недвижимость" HorizontalAlignment="Left" Margin="6,4,0,0" VerticalAlignment="Top"/>
-                <materialDesign:Chip  Margin="6,33,0,0" VerticalAlignment="Top" Width="332" Height="100">
-                    <Grid Height="81">
-                        <Label Content="Описание"/>
-                        <Button Content="Поменять" Width="103" HorizontalAlignment="right" VerticalAlignment="Bottom"></Button>
-                    </Grid>
-                </materialDesign:Chip>
-                <Label Content="Автомобиль" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
-                <materialDesign:Chip  Margin="0,167,0,0" VerticalAlignment="Top" Width="332" Height="100" HorizontalAlignment="Center">
-                    <Grid Height="81">
-                        <Label Content="Описание"/>
-                        <Button Content="Поменять" Width="103" HorizontalAlignment="right" VerticalAlignment="Bottom"></Button>
-                    </Grid>
-                </materialDesign:Chip>
-                <Label Content="Компьютер" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Center"/>
-                <materialDesign:Chip  Margin="12,306,0,0" VerticalAlignment="Top" Width="332" Height="242">
-                    <Grid Height="218">
-                        <Label Content="Описание"/>
-                        <Button Content="Поменять" Width="103" HorizontalAlignment="right" VerticalAlignment="Bottom"></Button>
-                    </Grid>
-                </materialDesign:Chip>
-            </Grid>
+            <Rectangle Margin="0, 612, 0, 0" Stroke="#FF7F7F7F" Width="auto" Fill="#FF7F7F7F" VerticalAlignment="top" Height="1"/>
+            <StackPanel  Orientation="Horizontal" Margin="12,0,7,0" HorizontalAlignment="center">
+                <Button  VerticalAlignment="Top" Margin="0,628,0,0">
+                    <StackPanel  Orientation="Horizontal">
+                        <fa5:ImageAwesome Icon="Solid_Save" Height="16" Foreground="White"  />
 
-        </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Height="56" Margin="900,607,0,0" VerticalAlignment="Top" Width="352">
-            <Button Content="Завершить игру" HorizontalAlignment="Center" VerticalAlignment="Center" Height="36" Width="332" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
-        </materialDesign:Card>
-        <materialDesign:Card Content="Блок обучения" HorizontalAlignment="Left" Margin="10,447,0,0" VerticalAlignment="Top" Height="216" Width="426"/>
-        <materialDesign:Card Content="Блок Банковских операций" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Height="188" Width="426"/>
-        <materialDesign:Card Content="А В ЭТОМ ЗАМЕЧАТЕЛЬНОМ БЛОКЕ МЫ БУДЕМ УЧИТЬСЯ ГОТОВИТЬ БОРЩ!" HorizontalAlignment="Left" Margin="456,240,0,0" VerticalAlignment="Top" Height="423" Width="426"/>
+                    </StackPanel>
+                </Button>
+                <Button  VerticalAlignment="Top" Margin="28,628,0,0">
+                    <StackPanel  Orientation="Horizontal">
+                        <fa5:ImageAwesome Icon="Solid_Upload" Height="16" Foreground="White"  />
+
+                    </StackPanel>
+                </Button>
+                <Button  VerticalAlignment="Top" Margin="28,628,0,0" Command="{Binding NavigateMenuCommand}" Cursor="Hand">
+                    <StackPanel  Orientation="Horizontal">
+                        <fa5:ImageAwesome Icon="Solid_WindowClose" Height="16" Foreground="White"  />
+
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <materialDesign:Card HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" Width="638">
+                <Grid Margin="5,5,5,5" >
+
+                    <Grid  HorizontalAlignment="left" Width="150">
+                        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" Width="150" Value="43" Foreground="#FF9A67EA" Background="#549A67EA" BorderBrush="#549A67EA"/>
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <fa5:ImageAwesome Icon="Solid_Heart" Height="16" Foreground="#FF9967EA"/>
+                            <TextBlock  TextWrapping="Wrap" Text="  Здоровье" FontSize="14"   Height="21"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid  HorizontalAlignment="Left" Width="150" Margin="160,0,0,0">
+                        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" Width="150" Value="77" Foreground="#FFB00020" Background="#54B00020" BorderBrush="#54B00017"/>
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <fa5:ImageAwesome Icon="Solid_Cat" Height="16" Foreground="#FFB00020"/>
+                            <TextBlock  TextWrapping="Wrap" Text="  Усатость" FontSize="14"   Height="21"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid  HorizontalAlignment="Left" Width="150" Margin="320,0,0,0">
+                        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" Width="150" Value="25" Foreground="#FF69F0AE" Background="#5469F0AE" BorderBrush="#5469F0AE"/>
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <fa5:ImageAwesome Icon="Solid_Heart" Height="16" Foreground="#FF69F0AE"/>
+                            <TextBlock  TextWrapping="Wrap" Text="  Здоровье" FontSize="14"   Height="21"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid  HorizontalAlignment="Left" Width="150" Margin="480,0,0,0">
+                        <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" Width="150" Value="63" Foreground="#FFFF3D00" Background="#54FF3D00" BorderBrush="#54FF3D00"/>
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <fa5:ImageAwesome Icon="Solid_BirthdayCake" Height="16" Foreground="#FFFF3D00"/>
+                            <TextBlock  TextWrapping="Wrap" Text="  Настроение" FontSize="14"   Height="21"/>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+
+            </materialDesign:Card>
+            <materialDesign:Card  HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top" Height="70" Width="316">
+                <Grid>
+                    <materialDesign:Chip  Margin="10,0,0,0" VerticalAlignment="Center" Height="50" Width="204">
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Bottom">
+                            <fa5:ImageAwesome Icon="Solid_DollarSign" Height="24" Foreground="Black"/>
+                            <TextBlock  TextWrapping="Wrap" Text=" 10 000" FontSize="26"  FontWeight="Bold"/>
+                        </StackPanel>
+                    </materialDesign:Chip>
+                    <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Height="50" Width="79">
+                        <fa5:ImageAwesome Icon="Solid_Calendar" Height="14" Foreground="Black" HorizontalAlignment="Center"/>
+                        <TextBlock  TextWrapping="Wrap" Text="25 августа" FontSize="14" HorizontalAlignment="Center" />
+                        <TextBlock  TextWrapping="Wrap" Text="2020" FontSize="14" HorizontalAlignment="Center" />
+                    </StackPanel>
+
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Content="Card" HorizontalAlignment="Left" Height="512" Margin="15,0,0,0" VerticalAlignment="Center" Width="315"/>
+            <materialDesign:Card Content="Card" HorizontalAlignment="Left" VerticalAlignment="Center" Height="512" Width="315" Margin="340,0,0,0"/>
+            <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="665,104,0,0" VerticalAlignment="Top" Height="256" Width="315"/>
+            <materialDesign:Card HorizontalAlignment="Left" Height="237" Margin="665,379,0,0" VerticalAlignment="Top" Width="315">
+                <materialDesign:Flipper HorizontalAlignment="Left" Margin="118,110,0,0" VerticalAlignment="Top" Height="63" Width="106"/>
+            </materialDesign:Card>
 
 
+
+
+        </Grid>
 
     </Grid>
 
