@@ -1,4 +1,5 @@
-﻿using Noob_Coder.Infrastructure.Commands.Base;
+﻿using System.Threading;
+using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels;
 
@@ -20,6 +21,11 @@ namespace Noob_Coder.Infrastructure.Commands
 
         public override void Execute(object? parameter)
         {
+            if (_navigationStore.CurrentViewModel is GameSceneViewModel gameScene)
+            {
+                gameScene.CancelTimer();
+            }
+
             _navigationStore.CurrentViewModel = new MenuViewModel(_navigationStore);
         }
     }
