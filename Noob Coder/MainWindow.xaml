@@ -8,7 +8,9 @@
         xmlns:views="clr-namespace:Noob_Coder.Views"
         mc:Ignorable="d"
         Height="720" Width="1280" ShowInTaskbar="True"
-        Title ="{Binding Title}">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title ="{Binding Title}" Background="#FFD8D8D8">
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>
         <Grid.Resources>
