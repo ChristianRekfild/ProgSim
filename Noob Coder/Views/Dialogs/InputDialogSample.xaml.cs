@@ -5,7 +5,7 @@ namespace Noob_Coder
 {
 	public partial class InputDialogSample : Window
 	{
-		public InputDialogSample(string question, string defaultAnswer = "")
+		public InputDialogSample()
 		{
 			InitializeComponent();
 		}
