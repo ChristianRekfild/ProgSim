@@ -8,8 +8,7 @@
          mc:Ignorable="d" >
     <Grid Background="#FFD8D8D8">
         <materialDesign:Card HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="565" Width="335">
-            <Button Content="Всплывающее окно" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Cursor="Hand" />
-
+            <Button Name="btnEnterName"  Click="btnEnterName_Click">Всплывающее окно</Button>
         </materialDesign:Card>
         <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Height="565" Width="335"/>
         <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Height="270" Width="335"/>

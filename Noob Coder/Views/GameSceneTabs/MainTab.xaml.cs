@@ -11,6 +11,15 @@ namespace Noob_Coder.Views.User_Controls
             InitializeComponent();
         }
 
+
+     
+
+        private void btnEnterName_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            InputDialogSample inputDialog = new InputDialogSample("Please enter your name:", "John Doe");
+            if (inputDialog.ShowDialog() == true) ;
+                
+        }
     }
 
 
