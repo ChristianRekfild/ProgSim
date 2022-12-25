@@ -11,20 +11,20 @@
              d:DesignHeight="720" 
              d:DesignWidth="1280">
 
-
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <!--Верхняя строка экрана-->
         <Grid Grid.Row="0" Name="TopGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <!--Имя пользователя и статус-->
             <Grid Grid.Column="0" Name="UserInfoGrid" Background="#ff000000">
-                <!--Имя пользователя и статус-->
-                <StackPanel  Orientation="Horizontal" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left">
+                 <StackPanel  Orientation="Horizontal" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <fa5:FontAwesome Icon="Solid_User"  FontSize="24" Foreground="White" Name="UserIcon"/>
                     <TextBlock Margin="12,-4,0,0" Text="NooB Coder" FontSize="24" Foreground="White" FontWeight="Bold"/>
                 </StackPanel>
@@ -33,52 +33,53 @@
                     <TextBlock Margin="52, -19, 0, 0"  TextWrapping="Wrap" Text="Лошара " FontSize="14" Foreground="#FF7F7F7F"  />
                 </StackPanel>
                 <Rectangle Height="1" Stroke="#FF7F7F7F" VerticalAlignment="Bottom"/>
-                <!--//Имя пользователя и статус-->
             </Grid>
+            <!--//Имя пользователя и статус-->
+            <!--Постоянные индикаторы игрового персонажа-->
             <Grid Grid.Column="1" Name="UserIndicatorsGrid">
-
                 <uc:UserIndicatorsTab />
-                <!---//Постоянные показатели игрового персонажа//-->
             </Grid>
+            <!---//Постоянные показатели игрового персонажа//-->
         </Grid>
+        <!--//Верхняя строка экрана//-->
+        <!--Нижняя строка экрана с меню вкладок и кнопками выхода-->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
+            <!--Основной контент страницы с меню вкладок-->
             <Grid Grid.Row="0" Name="ContentGrid" Background="black" Grid.RowSpan="2">
-                <!---Основной контент стратицы с переключателем вкладок-->
                 <TabControl Grid.Row="0" TabStripPlacement="Left" Height="720">
+                    <!--Стиль вывода пункта меню вкладок-->
                     <TabControl.Resources>
                         <Style TargetType="{x:Type TabItem}">
-
-
-
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <!--Элементы стиля пункта меню-->
                                         <Grid  Background="black" Height="72">
                                             <Border Name="Button" VerticalAlignment="Top" Margin="15,12,15,0" Height="48" CornerRadius="4" >
-                                                <ContentPresenter ContentSource="Header" x:Name="ContentSite"  VerticalAlignment="Center" HorizontalAlignment="left" Margin="25,0, 0,0" >
-
-                                                </ContentPresenter>
+                                                <ContentPresenter ContentSource="Header" x:Name="ContentSite"  VerticalAlignment="Center" HorizontalAlignment="left" Margin="25,0, 0,0"  />
                                             </Border>
                                         </Grid>
+                                        <!--//Элементы стиля пункта меню//-->
+                                        <!--Триггеры пункта меню (нажато, наведена мышка и т.д.)-->
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsSelected" Value="True">
                                                 <Setter Property="FontWeight" Value="Bold" />
                                                 <Setter TargetName="Button" Property="Background" Value="#FF673AB7" />
                                                 <Setter Property="Foreground" Value="white" />
-
                                             </Trigger>
                                             <Trigger Property="IsMouseOver" Value="true">
                                                 <Setter Property="FontWeight" Value="Bold" />
                                             </Trigger>
                                         </ControlTemplate.Triggers>
-
+                                        <!--//Триггеры пункта меню//-->
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
+                            <!--Постоянные свойства стиля пункта меню-->
                             <Setter Property="Width" Value="200" />
                             <Setter Property="Background" Value="#FF000000" />
                             <Setter Property="Margin" Value="0" />
@@ -87,14 +88,12 @@
                             <Setter Property="VerticalAlignment" Value="center" />
                             <Setter Property="HorizontalAlignment" Value="left" />
                             <Setter Property="Foreground" Value="#FF7F7F7F" />
-
+                            <!--//Постоянные свойства стиля пункта меню//-->
                         </Style>
-
-
-
                     </TabControl.Resources>
+                    <!--//Стиль вывода пункта меню вкладок//-->
 
-
+                    <!--Вкладка главная-->
                     <TabItem>
                         <TabItem.Header>
                             <Grid>
@@ -103,14 +102,13 @@
                                     <TextBlock Text="Главная" Margin="10,-4,0,0" />
                                 </StackPanel>
                             </Grid>
-
                         </TabItem.Header>
-                        <!--Вкладка "Главная" -> GameSceneTabs/MainTab.xaml -->
+                        <!--Поле вкладки "Главная" -> GameSceneTabs/MainTab.xaml -->
                         <uc:MainTab />
-                        </TabItem>
+                    </TabItem>
+                    <!--//Вкладка главная//-->
 
-
-
+                    <!--Вкладка имущество-->
                     <TabItem>
                         <TabItem.Header>
                             <Grid>
@@ -119,13 +117,13 @@
                                     <TextBlock Text="Имущество" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Grid>
-
                         </TabItem.Header>
-                        <!--Вкладка "Имущество" -> GameSceneTabs/PropertyTab.xaml -->
+                        <!--Поле вкладки "Имущество" -> GameSceneTabs/PropertyTab.xaml -->
                         <uc:PropertyTab />
-                        
                     </TabItem>
-
+                    <!--//Вкладка имущество//-->
+                    
+                    <!--Вкладка Обучение-->
                     <TabItem>
                         <TabItem.Header>
                             <Grid>
@@ -134,13 +132,13 @@
                                     <TextBlock Text="Обучение" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Grid>
-
                         </TabItem.Header>
-                        <!--Вкладка "Обучение" -> GameSceneTabs/EducationTab.xaml -->
+                        <!--Поле вкладки "Обучение" -> GameSceneTabs/EducationTab.xaml -->
                         <uc:PropertyTab />
-
                     </TabItem>
-
+                    <!--//Вкладка Обучение//-->
+                                        
+                    <!--Вкладка Финансы-->
                     <TabItem>
                         <TabItem.Header>
                             <Grid>
@@ -149,40 +147,44 @@
                                     <TextBlock Text="Финансы" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Grid>
-
                         </TabItem.Header>
-                        <!--Вкладка "Финансы" -> GameSceneTabs/FinanceTab.xaml -->
+                        <!--Поле вкладки "Финансы" -> GameSceneTabs/FinanceTab.xaml -->
                         <uc:FinanceTab />
-                        
                     </TabItem>
-
+                    <!--//Вкладка финансы//-->
                 </TabControl>
-                <!---//Основной контент стратицы с 4переключателем вкладок//-->
             </Grid>
+            <!--Основной контент страницы с меню вкладок-->
+
+            <!--Нижние кнопки сохранения, загрузки и выхода в главное меню-->
             <Grid Grid.Row="1" Name="BottomButtonsGrid" Background="black" Margin="0,0,1065,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <!--Нижние кнопки сохранения, загрузки и выхода в главное меню-->
                 <Rectangle Height="1" Stroke="#FF7F7F7F" VerticalAlignment="top" Width="200" />
                 <StackPanel  Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="center" VerticalAlignment="Center">
+                    <!--Кнопка сохранения-->
                     <Button  VerticalAlignment="Top" >
                         <StackPanel  Orientation="Horizontal">
                             <fa5:FontAwesome Icon="Solid_Save"  Foreground="White"  />
                         </StackPanel>
                     </Button>
+                    <!--//=Кнопка сохранения//-->
+                    <!--Кнопка Загрузки-->
                     <Button  VerticalAlignment="Top" Margin="20, 0, 20 ,0" Cursor="Hand">
                         <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
                             <fa5:FontAwesome Icon="Solid_Upload"  Foreground="White"  />
-
                         </StackPanel>
                     </Button>
+                    <!--Кнопка загрузки//-->
+                    <!--Кнопка выхода-->
                     <Button  VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand">
                         <StackPanel  Orientation="Horizontal">
                             <fa5:FontAwesome Icon="Solid_WindowClose"  Foreground="White"  />
-
                         </StackPanel>
                     </Button>
+                    <!--//Кнопка выхода//-->
                 </StackPanel>
-                <!--//Нижние кнопки сохранения, загрузки и выхода в главное меню//-->
-            </Grid>
+             </Grid>
+            <!--//Нижние кнопки сохранения, загрузки и выхода в главное меню//-->
         </Grid>
+        <!--//Нижняя строка экрана с меню вкладок и кнопками выхода//-->
     </Grid>
 </UserControl>
