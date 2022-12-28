@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="Noob_Coder.Views.User_Controls.MainTab"
+﻿
+    <UserControl x:Class="Noob_Coder.Views.GameSceneTabs.MainTab"
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,12 +7,12 @@
          xmlns:fa5="http://schemas.fontawesome.com/icons/"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          mc:Ignorable="d" >
-    <Grid Background="#FFD8D8D8">
-        <materialDesign:Card HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="565" Width="335">
-            <Button Name="btnEnterName"  Click="btnEnterName_Click">Всплывающее окно</Button>
-        </materialDesign:Card>
-        <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Height="565" Width="335"/>
-        <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Height="270" Width="335"/>
-        <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="715,295,0,0" VerticalAlignment="Top" Height="280" Width="335"/>
-    </Grid>
-</UserControl>
+        <Grid Background="#FFD8D8D8"  Cursor="">
+            <materialDesign:Card HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="565" Width="335">
+            <Button Name="btnEnterName" Content="Всплывающее окно"  Command="{Binding OpenPopUpWindowCommand}"/>
+            </materialDesign:Card>
+            <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Height="565" Width="335"/>
+            <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Height="270" Width="335"/>
+            <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="715,295,0,0" VerticalAlignment="Top" Height="280" Width="335"/>
+        </Grid>
+    </UserControl>

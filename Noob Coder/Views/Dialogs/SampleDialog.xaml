@@ -1,4 +1,4 @@
-﻿<Window x:Class="Noob_Coder.InputDialogSample"
+﻿<Window x:Class="Noob_Coder.Views.SampleDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Input" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
@@ -28,7 +28,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="top">
 
-                        <TextBlock TextWrapping="Wrap" Text="Заголовок всплывающего окна" />
+                        <TextBlock TextWrapping="Wrap" Text="Заголовок окна" FontSize="36"  />
 
                     </Grid>                
                 </Grid>
@@ -37,7 +37,7 @@
         </Grid>
         
         <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0">
-            <Button IsDefault="True" Name="btnDialogOk" Click="btnDialogOk_Click" Width="100" Margin="0,0,10,0">Принять</Button>
+            <Button IsDefault="True" Width="100" Margin="0,0,10,0">Применить</Button>
             <Button IsCancel="True" Width="100">Закрыть</Button>
         </WrapPanel>
     </Grid>

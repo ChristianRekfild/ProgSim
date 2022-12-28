@@ -51,12 +51,16 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand NavigateMenuCommand { get; }
 
+        public ICommand OpenPopUpWindowCommand { get; }
+
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
+            OpenPopUpWindowCommand = new OpenSampleDialogWindowCommand();
             RunTimer().WaitAsync(_cts.Token);
         }
+
 
         private CancellationTokenSource _cts = new CancellationTokenSource();
 

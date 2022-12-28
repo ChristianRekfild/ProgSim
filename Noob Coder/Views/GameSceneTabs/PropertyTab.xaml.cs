@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Controls;
 
-namespace Noob_Coder.Views.User_Controls
+namespace Noob_Coder.Views.GameSceneTabs
 {
     public partial class PropertyTab : UserControl
     {

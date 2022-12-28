@@ -6,7 +6,7 @@
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:Noob_Coder.Views" x:Class="Noob_Coder.Views.GameSceneView"
-             xmlns:uc="clr-namespace:Noob_Coder.Views.User_Controls"         
+             xmlns:uc="clr-namespace:Noob_Coder.Views.GameSceneTabs"         
              mc:Ignorable="d"
              d:DesignHeight="720" 
              d:DesignWidth="1280">
@@ -104,7 +104,9 @@
                             </Grid>
                         </TabItem.Header>
                         <!--Поле вкладки "Главная" -> GameSceneTabs/MainTab.xaml -->
+                        <Grid Name="MainTabGrid">
                         <uc:MainTab />
+                        </Grid>
                     </TabItem>
                     <!--//Вкладка главная//-->
 
@@ -134,7 +136,9 @@
                             </Grid>
                         </TabItem.Header>
                         <!--Поле вкладки "Обучение" -> GameSceneTabs/EducationTab.xaml -->
+                        <Grid Name="PropertyTabGrid">
                         <uc:PropertyTab />
+                        </Grid>
                     </TabItem>
                     <!--//Вкладка Обучение//-->
                                         
@@ -149,7 +153,9 @@
                             </Grid>
                         </TabItem.Header>
                         <!--Поле вкладки "Финансы" -> GameSceneTabs/FinanceTab.xaml -->
+                        <Grid Name="FinanceTabGrid">
                         <uc:FinanceTab />
+                        </Grid>
                     </TabItem>
                     <!--//Вкладка финансы//-->
                 </TabControl>
