@@ -9,7 +9,7 @@
          mc:Ignorable="d" >
         <Grid Background="#FFD8D8D8"  Cursor="">
             <materialDesign:Card HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="565" Width="335">
-            <Button Name="btnEnterName" Content="Всплывающее окно"  Command="{Binding OpenPopUpWindowCommand}"/>
+            <Button Name="btnEnterName" Content="Всплывающее окно"  Command="{Binding OpenSampleDialogWindowCommand}"/>
             </materialDesign:Card>
             <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Height="565" Width="335"/>
             <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Height="270" Width="335"/>

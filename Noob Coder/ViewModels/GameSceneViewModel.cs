@@ -51,13 +51,16 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand NavigateMenuCommand { get; }
 
-        public ICommand OpenPopUpWindowCommand { get; }
+        /// <summary>
+        /// Команда открытия всплывающего окна.
+        /// </summary>
+        public ICommand OpenSampleDialogWindowCommand { get; }
 
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
-            OpenPopUpWindowCommand = new OpenSampleDialogWindowCommand();
+            OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand();
             RunTimer().WaitAsync(_cts.Token);
         }
 
