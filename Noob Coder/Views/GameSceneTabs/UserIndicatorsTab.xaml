@@ -13,15 +13,15 @@
             <Grid Margin="10,5,5,5" >
 
                 <Grid  HorizontalAlignment="left" Width="160">
-                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Health}" Foreground="#FF9A67EA" Background="#549A67EA" BorderBrush="#549A67EA"/>
+                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Health}" Foreground="#FF9A67EA" Background="#549A67EA" BorderBrush="#549A67EA"/>
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_Heart" Height="16" Foreground="#FF9967EA"/>
-                        <TextBlock  TextWrapping="Wrap" Text="  Здоровье" FontSize="14"   Height="21"/>
+                        <TextBlock  TextWrapping="Wrap" Text="   Здоровье" FontSize="14"   Height="21"/>
                     </StackPanel>
                 </Grid>
 
                 <Grid  HorizontalAlignment="Left" Width="160" Margin="170,0,0,0">
-                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="77" Foreground="#FFB00020" Background="#54B00020" BorderBrush="#54B00017"/>
+                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Mustache}" Foreground="#FFB00020" Background="#54B00020" BorderBrush="#54B00017"/>
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_Cat" Height="16" Foreground="#FFB00020"/>
                         <TextBlock  TextWrapping="Wrap" Text="  Усатость" FontSize="14"   Height="21"/>
@@ -54,7 +54,7 @@
                 <materialDesign:Chip  Margin="10,0,0,0" VerticalAlignment="Center" Height="50" Width="220" Cursor="Hand">
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_DollarSign" Margin="0,5,0,0"  Foreground="Black" FontSize="26"/>
-                        <TextBlock  TextWrapping="Wrap" Text=" 10 000" FontSize="26"  FontWeight="Bold"/>
+                        <TextBlock  TextWrapping="Wrap" Text="{Binding Protagonist.Money}" FontSize="26"  FontWeight="Bold"/>
                     </StackPanel>
                 </materialDesign:Chip>
                 <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="240,0,0,0" Height="50" Width="90">
