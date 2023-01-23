@@ -13,7 +13,8 @@
             <Grid Margin="10,5,5,5" >
 
                 <Grid  HorizontalAlignment="left" Width="160">
-                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Health}" Foreground="#FF9A67EA" Background="#549A67EA" BorderBrush="#549A67EA"/>
+                    <ProgressBar HorizontalAlignment="Left" Height="29" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Health}" Foreground="#FF9A67EA" Background="#549A67EA" BorderBrush="#549A67EA" Name="HealthProgressBar"/>
+                    <TextBlock Text="{Binding ElementName=HealthProgressBar, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="14" Foreground="White" />
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_Heart" Height="16" Foreground="#FF9967EA"/>
                         <TextBlock  TextWrapping="Wrap" Text="   Здоровье" FontSize="14"   Height="21"/>
@@ -21,7 +22,8 @@
                 </Grid>
 
                 <Grid  HorizontalAlignment="Left" Width="160" Margin="170,0,0,0">
-                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Mustache}" Foreground="#FFB00020" Background="#54B00020" BorderBrush="#54B00017"/>
+                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Mustache}" Foreground="#FFB00020" Background="#54B00020" BorderBrush="#54B00017" Name="MustacheProgressBar"/>
+                    <TextBlock Text="{Binding ElementName=MustacheProgressBar, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="14" Foreground="White" />
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_Cat" Height="16" Foreground="#FFB00020"/>
                         <TextBlock  TextWrapping="Wrap" Text="  Усатость" FontSize="14"   Height="21"/>

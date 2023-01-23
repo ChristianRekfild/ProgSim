@@ -63,12 +63,18 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand OpenSampleDialogWindowCommand { get; }
 
+
+        /// <summary>
+        /// Команда добавления здоровья главному герою.
+        /// </summary>
+        public ICommand AddProtagonistHealthCommand { get; }
+
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
 
             /// <summary>
-            /// Создание команд.
+            /// Создание навигационных команд.
             /// </summary>
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
             OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand();
@@ -80,6 +86,12 @@ namespace Noob_Coder.ViewModels
             Protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
             Protagonist.Money = 10000; // значение наличных денег по умолчанию
             Protagonist.Mustache = 0;  // значение усатости главного героя игры по умолчанию
+
+
+            /// <summary>
+            /// Создание комманд взаимодействия с главным героем.
+            /// </summary>
+            AddProtagonistHealthCommand = new AddProtagonistHealthCommand(Protagonist, 20);//добавить 20 единиц здоровья
 
             RunTimer().WaitAsync(_cts.Token);
         }

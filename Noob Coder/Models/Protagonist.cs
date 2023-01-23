@@ -37,11 +37,11 @@ namespace Noob_Coder.Models
         }
 
        
-        private int _mustache;
+        private double _mustache;
         /// <summary>
         /// Усатость главного героя игры.
         /// </summary>
-        public int Mustache
+        public double Mustache
         {
             get => _mustache;
             set => SetField(ref _mustache, value);
@@ -49,18 +49,18 @@ namespace Noob_Coder.Models
 
         #endregion
 
-        #region методы
+        #region Методы
         /// <summary>
         /// Метод, вычисляющий, что случилось с главным героем игры за заданный промежуток времени.
         /// </summary>
         public void AnowerFuckingDay()
         {
             Health = _health - 1; 
-            Mustache = _mustache + 5;
+            Mustache = _mustache + 0.5f;
         }
 
         /// <summary>
-        /// Метод, проверяющий жив ли глывный герой.
+        /// Метод, проверяющий жив ли главный герой.
         /// </summary>
         public bool IsNotDie()
         {
@@ -69,6 +69,17 @@ namespace Noob_Coder.Models
             if (Mustache > 100) result = false;
             return result;
         }
+
+        /// <summary>
+        /// Метод добавляющий здоровья главному герою
+        /// </summary>
+        public void AddHealth(int value)
+        {
+            int result = Health + value;
+            if (result > 100) Health = 100;
+            else Health = result;
+        }
+
         #endregion
 
 

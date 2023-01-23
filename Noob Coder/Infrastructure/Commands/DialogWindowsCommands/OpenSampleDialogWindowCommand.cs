@@ -11,7 +11,7 @@ namespace Noob_Coder.Infrastructure.Commands
     /// </summary>
     internal class OpenSampleDialogWindowCommand : CommandBase
     {
-        
+
         public override bool CanExecute(object? parameter) => true;
         /// <summary>
         /// Действие при выполнении команды
