@@ -24,6 +24,16 @@ namespace Noob_Coder.ViewModels
             get => _title;
             set => SetField(ref _title, value);
         }
+        private string _resumeGameButtonName = "Продолжить игру";
+        /// <summary>
+        /// Надпись на кнопке продолжения игры.
+        /// Имя привязанного элемента в разметке xaml - x:Name="ResumeGameMenuButton".
+        /// </summary>
+        public string ResumeGameButtonName
+        {
+            get => _resumeGameButtonName;
+            set => SetField(ref _resumeGameButtonName, value);
+        }
         private string _newGameButtonName = "Новая игра";
         /// <summary>
         /// Надпись на кнопке начала новой игры.
@@ -45,17 +55,6 @@ namespace Noob_Coder.ViewModels
             get => _loadGameButtonName;
             set => SetField(ref _loadGameButtonName, value);
         }
-        private string _saveGameButtonName = "Сохранить игру";
-        /// <summary>
-        /// Надпись на кнопке сохранения игры.
-        /// Имя привязанного элемента в разметке xaml - x:Name="SaveGameMenuButton".
-        /// </summary>
-        public string SaveGameButtonName
-        {
-            get => _saveGameButtonName;
-            set => SetField(ref _saveGameButtonName, value);
-        }
-
         private string _settingsButtonName = "Настройки";
         /// <summary>
         /// Надпись на кнопке перехода на страницу настроек игры.
@@ -114,6 +113,10 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand CloseApplicationCommand { get; }
         /// <summary>
+        /// Команда-обработчик перехода на страницу продолжения игры.
+        /// </summary>
+        public ICommand NavigateResumeGameCommand { get; }
+        /// <summary>
         /// Команда-обработчик перехода на страницу новой игры.
         /// </summary>
         public ICommand NavigateNewGameCommand { get; }
@@ -127,6 +130,7 @@ namespace Noob_Coder.ViewModels
         public MenuViewModel(NavigationStore navigationStore)
         {
             CloseApplicationCommand = new CloseApplicationCommand();
+            NavigateResumeGameCommand = new NavigateResumeGameCommand(navigationStore);
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
 
