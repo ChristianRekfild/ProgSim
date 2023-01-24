@@ -1,5 +1,6 @@
 ﻿using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.Infrastructure.Stores;
+using Noob_Coder.Models;
 using Noob_Coder.ViewModels;
 
 namespace Noob_Coder.Infrastructure.Commands
@@ -21,7 +22,19 @@ namespace Noob_Coder.Infrastructure.Commands
 
         public override void Execute(object? parameter)
         {
+
             _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
+
+
+            if (_navigationStore.CurrentViewModel is GameSceneViewModel gameScene)
+            {           
+                /// <summary>
+                /// Установка параметров главного героя при запуске новой игры.
+                /// </summary>
+                gameScene.Protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
+                gameScene.Protagonist.Money = 15842; // значение наличных денег по умолчанию
+                gameScene.Protagonist.Mustache = 0;  // значение усатости главного героя игры по умолчанию
+            }
         }
     }
 }

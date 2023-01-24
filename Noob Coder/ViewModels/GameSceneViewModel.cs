@@ -83,10 +83,6 @@ namespace Noob_Coder.ViewModels
             /// Создание нового главного героя игры.
             /// </summary>
             Protagonist = new Protagonist();
-            Protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
-            Protagonist.Money = 10000; // значение наличных денег по умолчанию
-            Protagonist.Mustache = 0;  // значение усатости главного героя игры по умолчанию
-
 
             /// <summary>
             /// Создание комманд взаимодействия с главным героем.

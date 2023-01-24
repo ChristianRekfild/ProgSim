@@ -2,6 +2,7 @@
 using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.ViewModels;
 using Noob_Coder.Models;
+using Noob_Coder.Infrastructure.Stores;
 
 
 namespace Noob_Coder.Infrastructure.Commands
@@ -11,12 +12,12 @@ namespace Noob_Coder.Infrastructure.Commands
     /// </summary>
     internal class AddProtagonistHealthCommand : CommandBase
     {
-        Protagonist _protagonist;
-        int _addHealthValue;
+        Protagonist Protagonist { get; set; }   
+        int AddHealthValue { get; set;}
         public AddProtagonistHealthCommand(Protagonist protagonist, int value)
         {
-            _protagonist = protagonist;
-            _addHealthValue = value;
+            Protagonist = protagonist;
+            AddHealthValue = value;
         }
         /// <summary>
         /// Проверяет доступность команды для выполнения.
@@ -31,7 +32,9 @@ namespace Noob_Coder.Infrastructure.Commands
         /// <param name="parameter"></param>
         public override void Execute(object? parameter)
         {
-            _protagonist.AddHealth(_addHealthValue);
+            
+         Protagonist.AddHealth(AddHealthValue);
+          
         }
     }
 }
