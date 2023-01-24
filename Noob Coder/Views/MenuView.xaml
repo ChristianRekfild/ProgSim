@@ -18,7 +18,8 @@
                 Margin="0,20,0,0" 
                 VerticalAlignment="Top"
                 Content="{Binding ResumeGameButtonName}"
-                Command="{Binding NavigateResumeGameCommand}" Cursor=""/>
+                Command="{Binding NavigateResumeGameCommand}"
+                Visibility="{Binding ResumeGameButtonVisibilityStatus}" Cursor=""/>
         <Button x:Name="NewGameMenuButton" 
                 Grid.Column="1" Grid.Row="1"  
                 Margin="0,85,0,0" 

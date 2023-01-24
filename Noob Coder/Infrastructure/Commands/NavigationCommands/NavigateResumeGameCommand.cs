@@ -42,9 +42,9 @@ namespace Noob_Coder.Infrastructure.Commands
                     jsonSaveString = sr.ReadLine();
                 }
                 var saveProtagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
-                gameScene.Protagonist.Health = saveProtagonist.Health; // значение здоровья главного героя игры по умолчанию
-                gameScene.Protagonist.Money = saveProtagonist.Money; // значение наличных денег по умолчанию
-                gameScene.Protagonist.Mustache = saveProtagonist.Mustache;  // значение усатости главного героя игры по умолчанию
+                gameScene.Protagonist.Health = saveProtagonist.Health; // значение здоровья главного героя игры
+                gameScene.Protagonist.Money = saveProtagonist.Money; // значение наличных денег
+                gameScene.Protagonist.Mustache = saveProtagonist.Mustache;  // значение усатости главного героя игры 
                 
             }
         }

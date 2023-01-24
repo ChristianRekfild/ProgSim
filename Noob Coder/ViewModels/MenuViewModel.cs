@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
+using System.IO;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 using System.Windows.Input;
+using System.Windows;
 
 namespace Noob_Coder.ViewModels
 {
@@ -34,6 +37,16 @@ namespace Noob_Coder.ViewModels
             get => _resumeGameButtonName;
             set => SetField(ref _resumeGameButtonName, value);
         }
+        private string _resumeGameButtonVisibilityStatus = "hidden";
+        /// <summary>
+        /// Статус кнопки продолжит игру показывать или нет.
+        /// /// </summary>
+        public string ResumeGameButtonVisibilityStatus
+        {
+            get => _resumeGameButtonVisibilityStatus;
+            set => SetField(ref _resumeGameButtonVisibilityStatus, value);
+        }
+        
         private string _newGameButtonName = "Новая игра";
         /// <summary>
         /// Надпись на кнопке начала новой игры.
@@ -133,6 +146,11 @@ namespace Noob_Coder.ViewModels
             NavigateResumeGameCommand = new NavigateResumeGameCommand(navigationStore);
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
+
+            /// <summary>
+            /// Если существует файл LastAutoSave.noob показывать кнопу "Продолжить игру"
+            /// </summary>
+            if (File.Exists("LastAutoSave.noob")) ResumeGameButtonVisibilityStatus = "visable";
 
         }
     }
