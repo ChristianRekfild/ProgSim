@@ -56,7 +56,7 @@
                 <materialDesign:Chip  Margin="10,0,0,0" VerticalAlignment="Center" Height="50" Width="220" Cursor="Hand">
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_DollarSign" Margin="0,5,0,0"  Foreground="Black" FontSize="26"/>
-                        <TextBlock  TextWrapping="Wrap" Text="{Binding Protagonist.Money}" FontSize="26"  FontWeight="Bold"/>
+                        <TextBlock  TextWrapping="Wrap" Text="{Binding Protagonist.Money, StringFormat={}{0:0 000}}" FontSize="26"  FontWeight="Bold"/>
                     </StackPanel>
                 </materialDesign:Chip>
                 <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="240,0,0,0" Height="50" Width="90">
