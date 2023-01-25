@@ -10,6 +10,7 @@
         Height="720" Width="1280" ShowInTaskbar="True"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        Icon="/Data/Resourses/Images/Icon.png"
         Title ="{Binding Title}" Background="#FFD8D8D8">
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>

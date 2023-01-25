@@ -7,20 +7,25 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <StartupObject>Noob_Coder.Program</StartupObject>
+    <ApplicationIcon>Data\Resourses\Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="background.jpg" />
     <None Remove="Logos.png" />
     <None Remove="logo.jpg" />
+	<None Remove="Icon.jpg" />	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Resourses\Images\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Data\Resourses\Images\background.jpg" />
     <Resource Include="Data\Resourses\Images\logo.jpg" />
-    <Resource Include="Data\Resourses\Images\Logos.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Data\Resourses\Images\Logos.png" />
+	<Resource Include="Data\Resourses\Images\Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
