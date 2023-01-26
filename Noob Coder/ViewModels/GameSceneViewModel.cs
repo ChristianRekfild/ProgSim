@@ -69,6 +69,11 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand AddProtagonistHealthCommand { get; }
 
+        /// <summary>
+        /// Команда позволяющая грабить корованы.
+        /// </summary>
+        public ICommand RobCaravanCommand { get; }
+
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
@@ -88,6 +93,7 @@ namespace Noob_Coder.ViewModels
             /// Создание комманд взаимодействия с главным героем.
             /// </summary>
             AddProtagonistHealthCommand = new AddProtagonistHealthCommand(Protagonist, 20);//добавить 20 единиц здоровья
+            RobCaravanCommand = new RobCaravanCommand(Protagonist); //попробовать ограбить корован
 
             RunTimer().WaitAsync(_cts.Token);
         }
