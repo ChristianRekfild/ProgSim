@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
+using System.IO;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 using System.Windows.Input;
+using System.Windows;
 
 namespace Noob_Coder.ViewModels
 {
@@ -24,6 +27,26 @@ namespace Noob_Coder.ViewModels
             get => _title;
             set => SetField(ref _title, value);
         }
+        private string _resumeGameButtonName = "Продолжить игру";
+        /// <summary>
+        /// Надпись на кнопке продолжения игры.
+        /// Имя привязанного элемента в разметке xaml - x:Name="ResumeGameMenuButton".
+        /// </summary>
+        public string ResumeGameButtonName
+        {
+            get => _resumeGameButtonName;
+            set => SetField(ref _resumeGameButtonName, value);
+        }
+        private string _resumeGameButtonVisibilityStatus = "hidden";
+        /// <summary>
+        /// Статус кнопки продолжит игру показывать или нет.
+        /// /// </summary>
+        public string ResumeGameButtonVisibilityStatus
+        {
+            get => _resumeGameButtonVisibilityStatus;
+            set => SetField(ref _resumeGameButtonVisibilityStatus, value);
+        }
+        
         private string _newGameButtonName = "Новая игра";
         /// <summary>
         /// Надпись на кнопке начала новой игры.
@@ -45,17 +68,6 @@ namespace Noob_Coder.ViewModels
             get => _loadGameButtonName;
             set => SetField(ref _loadGameButtonName, value);
         }
-        private string _saveGameButtonName = "Сохранить игру";
-        /// <summary>
-        /// Надпись на кнопке сохранения игры.
-        /// Имя привязанного элемента в разметке xaml - x:Name="SaveGameMenuButton".
-        /// </summary>
-        public string SaveGameButtonName
-        {
-            get => _saveGameButtonName;
-            set => SetField(ref _saveGameButtonName, value);
-        }
-
         private string _settingsButtonName = "Настройки";
         /// <summary>
         /// Надпись на кнопке перехода на страницу настроек игры.
@@ -97,7 +109,7 @@ namespace Noob_Coder.ViewModels
             get => _backgroundImagePath;
             set => SetField(ref _backgroundImagePath, value);
         }
-        private string _logoImagePath = "/Data/Resourses/Images/logo.jpg";
+        private string _logoImagePath = "/Data/Resourses/Images/Logos.png";
         /// <summary>
         /// Путь к изображению логотипа.
         /// </summary>
@@ -114,6 +126,14 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand CloseApplicationCommand { get; }
         /// <summary>
+        /// Команда-обработчик перехода на страницу продолжения игры.
+        /// </summary>
+        public ICommand NavigateResumeGameCommand { get; }
+        /// <summary>
+        /// Команда-обработчик перехода на страницу новой игры.
+        /// </summary>
+        public ICommand NavigateNewGameCommand { get; }
+        /// <summary>
         /// Команда-обработчик перехода на страницу обратной связи.
         /// </summary>
         public ICommand NavigateFeedBackFormCommand { get; }
@@ -123,7 +143,15 @@ namespace Noob_Coder.ViewModels
         public MenuViewModel(NavigationStore navigationStore)
         {
             CloseApplicationCommand = new CloseApplicationCommand();
+            NavigateResumeGameCommand = new NavigateResumeGameCommand(navigationStore);
+            NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
+
+            /// <summary>
+            /// Если существует файл LastAutoSave.noob показывать кнопу "Продолжить игру"
+            /// </summary>
+            if (File.Exists("LastAutoSave.noob")) ResumeGameButtonVisibilityStatus = "visable";
+
         }
     }
 }

@@ -7,31 +7,75 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <StartupObject>Noob_Coder.Program</StartupObject>
+    <ApplicationIcon>Data\Resourses\Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="background.jpg" />
+    <None Remove="Logos.png" />
     <None Remove="logo.jpg" />
+	<None Remove="Icon.jpg" />	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\Resourses\Images\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Data\Resourses\Images\background.jpg" />
     <Resource Include="Data\Resourses\Images\logo.jpg" />
+    <Resource Include="Data\Resourses\Images\Logos.png" />
+	<Resource Include="Data\Resourses\Images\Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.11" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\GameSceneTabs\UserIndicatorsTab.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\GameSceneTabs\EducationTab.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\GameSceneTabs\FinanceTab.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\GameSceneTabs\PropertyTab.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\GameSceneTabs\UserIndicatorsTab.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GameSceneTabs\EducationTab.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GameSceneTabs\FinanceTab.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GameSceneTabs\PropertyTab.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

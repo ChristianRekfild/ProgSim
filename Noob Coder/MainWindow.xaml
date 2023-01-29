@@ -3,16 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels"
         xmlns:views="clr-namespace:Noob_Coder.Views"
         mc:Ignorable="d"
         Height="720" Width="1280" ShowInTaskbar="True"
-        Title ="{Binding Title}">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Data/Resourses/Images/Icon.png"
+        Title ="{Binding Title}" Background="#FFD8D8D8">
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type viewmodels:MenuViewModel}">
                 <views:MenuView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:GameSceneViewModel}">
+                <views:GameSceneView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
                 <views:FeedBackFormView/>

@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Noob_Coder.Views.GameSceneTabs.UserIndicatorsTab"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:fa5="http://schemas.fontawesome.com/icons/"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         mc:Ignorable="d" >
+    <Grid Background="#FFD8D8D8">
+        <!---Постоянные показатели игрового персонажа-->
+        <materialDesign:Card Margin="15,10,0,0" HorizontalAlignment="Left" Height="70" Width="685">
+            <!--Прогрессбары с основными характеристиками игрового персонажа-->
+            <Grid Margin="10,5,5,5" >
+
+                <Grid  HorizontalAlignment="left" Width="160">
+                    <ProgressBar HorizontalAlignment="Left" Height="29" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Health}" Foreground="#FF9A67EA" Background="#549A67EA" BorderBrush="#549A67EA" Name="HealthProgressBar"/>
+                    <TextBlock Text="{Binding ElementName=HealthProgressBar, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="14" Foreground="White" />
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <fa5:FontAwesome Icon="Solid_Heart" Height="16" Foreground="#FF9967EA"/>
+                        <TextBlock  TextWrapping="Wrap" Text="   Здоровье" FontSize="14"   Height="21"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid  HorizontalAlignment="Left" Width="160" Margin="170,0,0,0">
+                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="{Binding Protagonist.Mustache}" Foreground="#FFB00020" Background="#54B00020" BorderBrush="#54B00017" Name="MustacheProgressBar"/>
+                    <TextBlock Text="{Binding ElementName=MustacheProgressBar, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="14" Foreground="White" />
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <fa5:FontAwesome Icon="Solid_Cat" Height="16" Foreground="#FFB00020"/>
+                        <TextBlock  TextWrapping="Wrap" Text="  Усатость" FontSize="14"   Height="21"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid  HorizontalAlignment="Left" Width="160" Margin="340,0,0,0">
+                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="25" Foreground="#FFFFEB3A" Background="#54FFEB3A" BorderBrush="#54FFEB3A"/>
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <fa5:FontAwesome Icon="Solid_ChartLine" Height="16" Foreground="#FFFFEB3A"/>
+                        <TextBlock  TextWrapping="Wrap" Text="  Полосатость" FontSize="14"   Height="21"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid  HorizontalAlignment="Left" Width="160" Margin="510,0,0,0">
+                    <ProgressBar HorizontalAlignment="Left" Height="30" Margin="5,5,0,0" VerticalAlignment="Top" Width="145" Value="63" Foreground="#FFFF3D00" Background="#54FF3D00" BorderBrush="#54FF3D00"/>
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <fa5:FontAwesome Icon="Solid_BirthdayCake" Height="16" Foreground="#FFFF3D00"/>
+                        <TextBlock  TextWrapping="Wrap" Text="  Настроение" FontSize="14"   Height="21"/>
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+            <!--//Прогрессбары с основными характеристиками игрового персонажа//-->
+        </materialDesign:Card>
+
+        <materialDesign:Card  Margin="715,10,0,0" HorizontalAlignment="Left" Height="70" Width="335">
+            <!--Деньги и дата-->
+            <Grid>
+                <materialDesign:Chip  Margin="10,0,0,0" VerticalAlignment="Center" Height="50" Width="220" Cursor="Hand">
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Bottom">
+                        <fa5:FontAwesome Icon="Solid_DollarSign" Margin="0,5,0,0"  Foreground="Black" FontSize="26"/>
+                        <TextBlock  TextWrapping="Wrap" Text="{Binding Protagonist.Money, StringFormat={}{0:0 000}}" FontSize="26"  FontWeight="Bold"/>
+                    </StackPanel>
+                </materialDesign:Chip>
+                <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="240,0,0,0" Height="50" Width="90">
+                    <fa5:FontAwesome Icon="Solid_Calendar" FontSize="14" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:M}, ConverterCulture=ru-RU}" FontSize="14" HorizontalAlignment="Center" />
+                    <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" FontSize="14" HorizontalAlignment="Center" />
+                </StackPanel>
+
+            </Grid>
+            <!--//Деньги и дата//-->
+        </materialDesign:Card>
+    </Grid>
+
+</UserControl>

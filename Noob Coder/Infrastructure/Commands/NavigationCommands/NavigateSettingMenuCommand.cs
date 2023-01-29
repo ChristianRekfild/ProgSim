@@ -5,22 +5,23 @@ using Noob_Coder.ViewModels;
 namespace Noob_Coder.Infrastructure.Commands
 {
     /// <summary>
-    /// Команда перехода на страницу главного меню.
+    /// Команда перехода на страницу настроек.
     /// </summary>
-    internal class NavigateMenuCommand : CommandBase
+    internal class NavigateSettingMenuCommand : CommandBase
     {
         private NavigationStore _navigationStore;
 
-        public NavigateMenuCommand(NavigationStore navigationStore)
+        public NavigateSettingMenuCommand(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
 
         public override bool CanExecute(object? parameter) => true;
+        
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new MenuViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new SettingMenuViewModel(_navigationStore);
         }
     }
 }
