@@ -11,8 +11,8 @@
             <materialDesign:Card HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="565" Width="335">
             <Grid>
             <Button Name="btnEnterName" Content="Всплывающее окно"  Command="{Binding OpenSampleDialogWindowCommand}" Margin="143,266,10,267"/>
-            <Button Name="AddProtagonistHealth" Content="Подлечиться"  Command="{Binding AddProtagonistHealthCommand}" Margin="10,266,197,267"/>
-                <Button Name="RobCaravan"  Command="{Binding RobCaravanCommand}" Margin="10,303,10,197" Height="64">
+            <Button Name="AddProtagonistHealth" Content="Подлечиться"  Command="{Binding AddProtagonistHealthCommand}" CommandParameter="{Binding Protagonist}" Margin="10,266,197,267"/>
+                <Button Name="RobCaravan"  Command="{Binding RobCaravanCommand}" CommandParameter="{Binding Protagonist}" Margin="10,303,10,197" Height="64">
                     <TextBlock TextWrapping="Wrap" TextAlignment="Center"> Большая красивая фиолетовая кнопка позволяющая огроблять корованы </TextBlock>
                 </Button>
             </Grid>

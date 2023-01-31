@@ -29,24 +29,22 @@ namespace Noob_Coder.Infrastructure.Commands
             _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
 
 
-            if (_navigationStore.CurrentViewModel is GameSceneViewModel gameScene)
-            {
+
+
+                var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
                 /// <summary>
                 /// Установка параметров главного героя при запуске новой игры.
                 /// Чтение из файла LastAutoSave.noob
                 /// </summary>
-                
                 string jsonSaveString;
                 using (StreamReader sr = new StreamReader("LastAutoSave.noob"))
                 {
                     jsonSaveString = sr.ReadLine();
                 }
-                var saveProtagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
-                gameScene.Protagonist.Health = saveProtagonist.Health; // значение здоровья главного героя игры
-                gameScene.Protagonist.Money = saveProtagonist.Money; // значение наличных денег
-                gameScene.Protagonist.Mustache = saveProtagonist.Mustache;  // значение усатости главного героя игры 
+                gameScene.Protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
                 
-            }
+                
+            
         }
     }
 }

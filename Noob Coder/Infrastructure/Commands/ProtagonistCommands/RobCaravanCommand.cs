@@ -12,25 +12,21 @@ namespace Noob_Coder.Infrastructure.Commands
     /// </summary>
     internal class RobCaravanCommand : CommandBase
     {
-        Protagonist Protagonist { get; set; }   
-        public RobCaravanCommand(Protagonist protagonist)
-        {
-            Protagonist = protagonist;
-        }
-        /// <summary>
+          /// <summary>
         /// Проверяет доступность команды для выполнения.
         /// Если метод возвращает false - команду выполнить нельзя.
         /// </summary>
         /// <param name="parameter">object</param>
         /// <returns>bool</returns>
-        public override bool CanExecute(object? parameter) => true;
+        public override bool CanExecute(object? parameter) => parameter is Protagonist;
         /// <summary>
         /// Действие при выполнении команды
         /// </summary>
         /// <param name="parameter"></param>
         public override void Execute(object? parameter)
         {
-             Protagonist.RobCaravan();
+            var protogonist = (Protagonist)parameter;
+            protogonist.RobCaravan();
         }
     }
 }

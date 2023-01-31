@@ -92,8 +92,8 @@ namespace Noob_Coder.ViewModels
             /// <summary>
             /// Создание комманд взаимодействия с главным героем.
             /// </summary>
-            AddProtagonistHealthCommand = new AddProtagonistHealthCommand(Protagonist, 20);//добавить 20 единиц здоровья
-            RobCaravanCommand = new RobCaravanCommand(Protagonist); //попробовать ограбить корован
+            AddProtagonistHealthCommand = new AddProtagonistHealthCommand();//добавить 20 единиц здоровья
+            RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
 
             RunTimer().WaitAsync(_cts.Token);
         }
