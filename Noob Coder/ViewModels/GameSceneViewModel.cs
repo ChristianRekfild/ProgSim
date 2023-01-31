@@ -49,7 +49,6 @@ namespace Noob_Coder.ViewModels
             set => SetField(ref _protagonist, value);
         }
 
-        
         #endregion
 
         #region Команды
@@ -74,6 +73,12 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand RobCaravanCommand { get; }
 
+        /// <summary>
+        /// Команда смены языка интерфейса.
+        /// </summary>
+        public ICommand ChangeLanguageToENGCommand { get;  }
+        public ICommand ChangeLanguageToRUSCommand { get; }
+
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
@@ -83,6 +88,12 @@ namespace Noob_Coder.ViewModels
             /// </summary>
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
             OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand();
+
+            /// <summary>
+            /// Создание интерфейсных комманд.
+            /// </summary>
+            ChangeLanguageToENGCommand = new ChangeLanguageToENGCommand();
+            ChangeLanguageToRUSCommand = new ChangeLanguageToRUSCommand();
 
             /// <summary>
             /// Создание нового главного героя игры.
@@ -96,7 +107,8 @@ namespace Noob_Coder.ViewModels
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
 
             RunTimer().WaitAsync(_cts.Token);
-        }
+
+         }
 
 
         private CancellationTokenSource _cts = new CancellationTokenSource();

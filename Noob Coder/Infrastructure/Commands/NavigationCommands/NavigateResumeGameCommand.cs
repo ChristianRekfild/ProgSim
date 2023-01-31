@@ -26,10 +26,10 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
 
-            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
 
+                UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
 
-
+                _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
 
                 var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
                 /// <summary>
@@ -41,6 +41,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 {
                     jsonSaveString = sr.ReadLine();
                 }
+                gameScene.UserSettings = UserSettings;
                 gameScene.Protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
                 
                 

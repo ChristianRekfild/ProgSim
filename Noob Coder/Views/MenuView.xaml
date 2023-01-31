@@ -17,36 +17,36 @@
                 Grid.Row="1" Grid.Column="1" 
                 Margin="0,20,0,0" 
                 VerticalAlignment="Top"
-                Content="{Binding ResumeGameButtonName}"
+                Content="{Binding UserSettings.UserInterface.ResumeGameButtonName}"
                 Command="{Binding NavigateResumeGameCommand}"
                 Visibility="{Binding ResumeGameButtonVisibilityStatus}" Cursor=""/>
         <Button x:Name="NewGameMenuButton" 
                 Grid.Column="1" Grid.Row="1"  
                 Margin="0,85,0,0" 
                 VerticalAlignment="Top" 
-                Content="{Binding NewGameButtonName}"
+                Content="{Binding UserSettings.UserInterface.NewGameButtonName}"
                 Command="{Binding NavigateNewGameCommand}" Cursor=""/>
         <Button x:Name="LoadGameMenuButton" 
                 Grid.Column="1" Grid.Row="1" 
                 Margin="0,150,0,0" 
                 VerticalAlignment="Top" 
-                Content="{Binding LoadGameButtonName}" />
+                Content="{Binding UserSettings.UserInterface.LoadGameButtonName}" />
         <Button x:Name="NavigateSettingMenuButton" 
                 Grid.Column="1" Grid.Row="1" 
                 Margin="0,215,0,0" 
                 VerticalAlignment="Top" 
-                Content="{Binding SettingsButtonName}" />
+                Content="{Binding UserSettings.UserInterface.SettingsButtonName}" />
         <Button x:Name="NavigateFeedBackFormMenuButton" 
                 Grid.Column="1" Grid.Row="1"
                 Margin="0,280,0,0" 
                 VerticalAlignment="Top" 
-                Content="{Binding FeedbackButtonName}" 
+                Content="{Binding UserSettings.UserInterface.FeedbackButtonName}" 
                 Command="{Binding NavigateFeedBackFormCommand}" />
         <Button x:Name="ExitMenuButton" 
                 Grid.Column="1" Grid.Row="1"
                 Margin="0,345,0,0"   
                 VerticalAlignment="Top" 
-                Content="{Binding ExitButtonName}" 
+                Content="{Binding UserSettings.UserInterface.ExitButtonName}" 
                 Command="{Binding CloseApplicationCommand}" />
           </Grid>
 </UserControl>

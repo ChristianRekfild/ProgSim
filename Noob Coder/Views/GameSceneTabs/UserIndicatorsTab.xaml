@@ -17,7 +17,7 @@
                     <TextBlock Text="{Binding ElementName=HealthProgressBar, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="14" Foreground="White" />
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                         <fa5:FontAwesome Icon="Solid_Heart" Height="16" Foreground="#FF9967EA"/>
-                        <TextBlock  TextWrapping="Wrap" Text="   Здоровье" FontSize="14"   Height="21"/>
+                        <TextBlock  TextWrapping="Wrap" Text="{Binding UserSettings.UserInterface.Health}" FontSize="14"   Height="21"/>
                     </StackPanel>
                 </Grid>
 

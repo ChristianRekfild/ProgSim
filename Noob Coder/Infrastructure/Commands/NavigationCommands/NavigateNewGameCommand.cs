@@ -23,18 +23,18 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
 
+            UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
             _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
-
-
-            if (_navigationStore.CurrentViewModel is GameSceneViewModel gameScene)
-            {           
+            var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
+            gameScene.UserSettings = UserSettings;
+         
                 /// <summary>
                 /// Установка параметров главного героя при запуске новой игры.
                 /// </summary>
                 gameScene.Protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
                 gameScene.Protagonist.Money = 15842; // значение наличных денег по умолчанию
                 gameScene.Protagonist.Mustache = 0;  // значение усатости главного героя игры по умолчанию
-            }
+           
         }
     }
 }
