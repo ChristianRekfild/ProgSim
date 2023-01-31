@@ -35,7 +35,8 @@
                 Grid.Column="1" Grid.Row="1" 
                 Margin="0,215,0,0" 
                 VerticalAlignment="Top" 
-                Content="{Binding UserSettings.UserInterface.SettingsButtonName}" />
+                Command="{Binding NavigateSettingMenuCommand}"
+                Content="{Binding UserSettings.UserInterface.SettingsButtonName}" Cursor="Hand" />
         <Button x:Name="NavigateFeedBackFormMenuButton" 
                 Grid.Column="1" Grid.Row="1"
                 Margin="0,280,0,0" 

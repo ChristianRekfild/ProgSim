@@ -21,6 +21,9 @@
             <DataTemplate DataType="{x:Type viewmodels:GameSceneViewModel}">
                 <views:GameSceneView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:SettingMenuViewModel}">
+                <views:SettingMenuView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
                 <views:FeedBackFormView/>
             </DataTemplate>
