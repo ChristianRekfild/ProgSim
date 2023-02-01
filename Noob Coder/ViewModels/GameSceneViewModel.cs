@@ -38,15 +38,26 @@ namespace Noob_Coder.ViewModels
         }
 
 
+
+        private Protagonist _protagonist;
         /// <summary>
         /// Переменная главного героя игры.
         /// </summary>
-        private Protagonist _protagonist;
-
         public Protagonist Protagonist
         {
             get => _protagonist;
             set => SetField(ref _protagonist, value);
+        }
+
+
+        private int _addedHealthValue;
+        /// <summary>
+        /// Количество добавляемого здоровья.
+        /// </summary>
+        public int AddedHealthValue
+        {
+            get => _addedHealthValue;
+            set => SetField(ref _addedHealthValue, value);
         }
 
         #endregion
@@ -67,7 +78,8 @@ namespace Noob_Coder.ViewModels
         /// Команда добавления здоровья главному герою.
         /// </summary>
         public ICommand AddProtagonistHealthCommand { get; }
-
+        public ICommand AddProtagonistHealth10Command { get; }
+        public ICommand AddProtagonistHealth20Command { get; }
         /// <summary>
         /// Команда позволяющая грабить корованы.
         /// </summary>
@@ -92,7 +104,8 @@ namespace Noob_Coder.ViewModels
             /// <summary>
             /// Создание комманд взаимодействия с главным героем.
             /// </summary>
-            AddProtagonistHealthCommand = new AddProtagonistHealthCommand();//добавить 20 единиц здоровья
+            AddProtagonistHealth10Command = new AddProtagonistHealthCommand(10);//добавить 20 единиц здоровья
+            AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
 
             RunTimer().WaitAsync(_cts.Token);

@@ -13,6 +13,20 @@ namespace Noob_Coder.Infrastructure.Commands
     internal class AddProtagonistHealthCommand : CommandBase
     {
 
+        private int _addedHealthValue;
+        /// <summary>
+        /// Количество добавляемого здоровья.
+        /// </summary>
+        public int AddedHealthValue
+        {
+            get => _addedHealthValue;
+            set => _addedHealthValue = value;
+        }
+
+        public AddProtagonistHealthCommand(int value)
+        {
+            AddedHealthValue = value;
+        }
 
         /// <summary>
         /// Проверяет доступность команды для выполнения.
@@ -28,7 +42,7 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
             var protogonist = (Protagonist) parameter;
-            protogonist.AddHealth(20);
+            protogonist.AddHealth(AddedHealthValue);
 
         }
     }
