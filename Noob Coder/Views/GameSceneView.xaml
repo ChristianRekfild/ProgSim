@@ -99,7 +99,7 @@
                             <Grid>
                                 <StackPanel  Orientation="Horizontal" >
                                     <fa5:FontAwesome Icon="Solid_GripHorizontal"  />
-                                    <TextBlock Text="Главная" Margin="10,-4,0,0" />
+                                    <TextBlock Text="{Binding UserSettings.UserInterface.GSTabItemMain}" Margin="10,-4,0,0" />
                                 </StackPanel>
                             </Grid>
                         </TabItem.Header>
@@ -116,7 +116,7 @@
                             <Grid>
                                 <StackPanel  Orientation="Horizontal">
                                     <fa5:FontAwesome Icon="Solid_LaptopHouse" Height="16" />
-                                    <TextBlock Text="Имущество" Margin="10,0,0,0" />
+                                    <TextBlock Text="{Binding UserSettings.UserInterface.GSTabItemProperty}" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Grid>
                         </TabItem.Header>
@@ -131,7 +131,7 @@
                             <Grid>
                                 <StackPanel  Orientation="Horizontal">
                                     <fa5:FontAwesome Icon="Solid_GraduationCap" Height="16" />
-                                    <TextBlock Text="Обучение" Margin="10,0,0,0" />
+                                    <TextBlock Text="{Binding UserSettings.UserInterface.GSTabItemEducation}" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Grid>
                         </TabItem.Header>
@@ -148,7 +148,7 @@
                             <Grid>
                                 <StackPanel  Orientation="Horizontal">
                                     <fa5:FontAwesome Icon="Solid_MoneyBillWave" Height="16" />
-                                    <TextBlock Text="Финансы" Margin="10,0,0,0" />
+                                    <TextBlock Text="{Binding UserSettings.UserInterface.GSTabItemFinance}" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Grid>
                         </TabItem.Header>

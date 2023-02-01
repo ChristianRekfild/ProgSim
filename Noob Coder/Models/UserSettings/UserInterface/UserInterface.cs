@@ -103,23 +103,64 @@ namespace Noob_Coder.Models
         #endregion
 
         #region GameScene
+        
+
+        private string _GSTabItemMain;
+        /// <summary>
+        /// Панель боковых вкладок. Главная.
+        /// </summary>
+        public string GSTabItemMain
+        {
+            get => _GSTabItemMain;
+            set => SetField(ref _GSTabItemMain, value);
+        }
+
+        private string _GSTabItemProperty;
+        /// <summary>
+        /// Панель боковых вкладок. Имущество.
+        /// </summary>
+        public string GSTabItemProperty
+        {
+            get => _GSTabItemProperty;
+            set => SetField(ref _GSTabItemProperty, value);
+        }
+
+        private string _GSTabItemEducation;
+        /// <summary>
+        /// Панель боковых вкладок. Образование.
+        /// </summary>
+        public string GSTabItemEducation
+        {
+            get => _GSTabItemEducation;
+            set => SetField(ref _GSTabItemEducation, value);
+        }
+
+        private string _GSTabItemFinance;
+        /// <summary>
+        /// Панель боковых вкладок. Финансы.
+        /// </summary>
+        public string GSTabItemFinance
+        {
+            get => _GSTabItemFinance;
+            set => SetField(ref _GSTabItemFinance, value);
+        }
+
         private string _health;
         /// <summary>
-        /// Здоровье главного героя игры.
+        /// Здоровье главного героя.
         /// </summary>
         public string Health
         {
             get => _health;
             set => SetField(ref _health, value);
         }
-
         #endregion
 
 
         #region SettingMenu 
         private string _settingMenuLanguage;
         /// <summary>
-        /// Здоровье главного героя игры.
+        /// Страницы настоек. Язык.
         /// </summary>
         public string SettingMenuLanguage
         {
@@ -129,7 +170,7 @@ namespace Noob_Coder.Models
 
         private string _settingMenuBackButtonName;
         /// <summary>
-        /// Здоровье главного героя игры.
+        /// Страница настроек. Кнопка назад.
         /// </summary>
         public string SettingMenuBackButtonName
         {

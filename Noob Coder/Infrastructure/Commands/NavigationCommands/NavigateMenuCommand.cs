@@ -47,7 +47,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 /// <summary>
                 /// Автосохранение параметров пользовательских настроек в файл settings.noob в формате JSON.
                 /// </summary>
-                string jsonSaveString = JsonSerializer.Serialize(ClosingSettingMenu.UserSettings);
+                string jsonSaveString = JsonSerializer.Serialize(ClosingSettingMenu.UserSettings.UserInterface.LanguageName);
                 using (StreamWriter sw = new StreamWriter("settings.noob"))
                 {
                     sw.WriteLine(jsonSaveString);

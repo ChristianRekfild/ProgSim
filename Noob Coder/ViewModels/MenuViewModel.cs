@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows;
 using Noob_Coder.Models;
 using System.Text.Json;
+using System.Xml.Linq;
 
 namespace Noob_Coder.ViewModels
 {
@@ -100,13 +101,14 @@ namespace Noob_Coder.ViewModels
 
             /// <summary>
             /// Задание базовых настоек интерфейса
+            /// !!! НЕОБХОДИМО ПЕРЕНЕСТИ В MAINWINDOW!!!
             /// </summary>
 
             /// <summary>
             /// Если существует файл settings.noob взять пользовательские настройки из него
             /// Иначе создат по умолчанию
             /// </summary>
-
+            
             if (File.Exists("settings.noob"))
             {
                 string jsonSaveString;
@@ -114,7 +116,20 @@ namespace Noob_Coder.ViewModels
                 {
                     jsonSaveString = sr.ReadLine();
                 }
-                UserSettings = JsonSerializer.Deserialize<UserSettings?>(jsonSaveString);
+                string language = JsonSerializer.Deserialize<String?>(jsonSaveString);
+                UserSettings = new Models.UserSettings();
+                switch (language)
+                {
+                    case "Русский":
+                        UserSettings.UserInterface = new RussianUI();
+                        break;
+                    case "English":
+                        UserSettings.UserInterface = new EnglishUI();
+                        break;
+                    
+                }
+  
+                    
             }
             else
             {

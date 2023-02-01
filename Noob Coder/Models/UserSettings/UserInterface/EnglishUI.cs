@@ -29,6 +29,11 @@ namespace Noob_Coder.Models
             #endregion
 
             #region
+            GSTabItemMain = "Main";
+            GSTabItemProperty = "Property";
+            GSTabItemEducation = "Education";
+            GSTabItemFinance = "Finance";
+
             Health = "Zdorovie";
             #endregion
 
