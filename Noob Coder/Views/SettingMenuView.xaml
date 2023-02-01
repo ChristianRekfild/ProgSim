@@ -15,17 +15,13 @@
         <materialDesign:Card HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="512" Width="1191">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Страница настроек" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="Язык" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-                <StackPanel Margin="76,73,976,417">
-                    <ComboBox>
-                        <TextBlock><Run Text="Руссский"/></TextBlock>
-                        <TextBlock><Run Text="Инглиш"/></TextBlock>
-                     </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="{Binding UserSettings.UserInterface.SettingMenuLanguage}" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                <StackPanel Margin="190,70,861,420">
+                    <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
                 </StackPanel>
             </Grid>
         </materialDesign:Card>
-        <Button Content="Вернуться" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
-        <Button Content="Применить" HorizontalAlignment="Left" Margin="1091,535,0,0" VerticalAlignment="Top"/>
+        <Button Content="{Binding UserSettings.UserInterface.SettingMenuBackButtonName}" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>               
 
 
 

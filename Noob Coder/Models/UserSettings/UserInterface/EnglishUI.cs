@@ -16,22 +16,31 @@ namespace Noob_Coder.Models
         #region Свойства
         public EnglishUI()
         {
-            #region Главное меню
+            LanguageName = "English";
+
+            #region MainMenu
             MenuViewTitle = "Stimulator of Pogromist: Tebu";
             ResumeGameButtonName = "Resume GAME";
             NewGameButtonName = "New Cool GAME";
             LoadGameButtonName = "Don't work";
-            SettingsButtonName = "Settings, Don'tWork";
+            SettingsButtonName = "Settings, It's Work!!!";
             FeedbackButtonName = "Say HELLO!";
             ExitButtonName = "POKEDOVA";
             #endregion
-            Health = "Zdorovie";
 
+            #region
+            Health = "Zdorovie";
+            #endregion
+
+            #region SettingMenu
+            SettingMenuLanguage = "Change :-P";
+            SettingMenuBackButtonName = "Go Home";
+            #endregion
         }
 
-        #endregion
+#endregion
 
-        
+
 
 
     }

@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\Commands\UserSettingsCommands\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

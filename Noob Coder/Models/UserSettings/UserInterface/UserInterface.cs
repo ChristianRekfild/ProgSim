@@ -14,7 +14,18 @@ namespace Noob_Coder.Models
     internal class UserInterface : ModelBase
     {
         #region Свойства
-        #region Главное меню
+        private string _languageName;
+        /// <summary>
+        /// Название языка.
+        /// Должно соответствовать switch SelectedLanguage из SettingMenuViewModel
+        /// </summary>
+        public string LanguageName
+        {
+            get => _languageName;
+            set => SetField(ref _languageName, value);
+        }
+
+        #region MainMenu
         private string _menuViewTitle;
         /// <summary>
         /// Здоровье главного героя игры.
@@ -90,6 +101,8 @@ namespace Noob_Coder.Models
         }
 
         #endregion
+
+        #region GameScene
         private string _health;
         /// <summary>
         /// Здоровье главного героя игры.
@@ -102,8 +115,30 @@ namespace Noob_Coder.Models
 
         #endregion
 
-        
 
+        #region SettingMenu 
+        private string _settingMenuLanguage;
+        /// <summary>
+        /// Здоровье главного героя игры.
+        /// </summary>
+        public string SettingMenuLanguage
+        {
+            get => _settingMenuLanguage;
+            set => SetField(ref _settingMenuLanguage, value);
+        }
+
+        private string _settingMenuBackButtonName;
+        /// <summary>
+        /// Здоровье главного героя игры.
+        /// </summary>
+        public string SettingMenuBackButtonName
+        {
+            get => _settingMenuBackButtonName;
+            set => SetField(ref _settingMenuBackButtonName, value);
+        }
+        #endregion
+
+        #endregion
 
     }
 }

@@ -42,7 +42,20 @@ namespace Noob_Coder.Infrastructure.Commands
                 }
               
             }
-            UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
+            if (_navigationStore.CurrentViewModel is SettingMenuViewModel ClosingSettingMenu)
+            {
+                /// <summary>
+                /// Автосохранение параметров пользовательских настроек в файл settings.noob в формате JSON.
+                /// </summary>
+                string jsonSaveString = JsonSerializer.Serialize(ClosingSettingMenu.UserSettings);
+                using (StreamWriter sw = new StreamWriter("settings.noob"))
+                {
+                    sw.WriteLine(jsonSaveString);
+                }
+
+            }    
+
+                UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
 
             _navigationStore.CurrentViewModel = new MenuViewModel(_navigationStore);
             var gameScene = (MenuViewModel)_navigationStore.CurrentViewModel;

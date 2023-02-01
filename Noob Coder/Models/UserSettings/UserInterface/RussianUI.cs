@@ -16,7 +16,9 @@ namespace Noob_Coder.Models
 
         public RussianUI ()
         {
-            #region Главное меню
+            LanguageName = "Русский";
+
+            #region MainMenu
             MenuViewTitle = "Симулятор программиста: Меню";
             ResumeGameButtonName = "Продолжить игру";
             NewGameButtonName = "Новая игра";
@@ -26,13 +28,20 @@ namespace Noob_Coder.Models
             ExitButtonName = "Выход";
             #endregion
 
+            #region
             Health = "Здоровье";
+            #endregion
+
+            #region SettingMenu
+            SettingMenuLanguage = "Выбор языка";
+            SettingMenuBackButtonName = "Вернуться";
+            #endregion
 
         }
 
 
 
-        
+
 
 
     }

@@ -6,6 +6,8 @@ using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 using System.Windows.Input;
 using System.Windows;
+using Noob_Coder.Models;
+using System.Text.Json;
 
 namespace Noob_Coder.ViewModels
 {
@@ -99,7 +101,30 @@ namespace Noob_Coder.ViewModels
             /// <summary>
             /// Задание базовых настоек интерфейса
             /// </summary>
-            UserSettings = new Models.UserSettings();
+
+            /// <summary>
+            /// Если существует файл settings.noob взять пользовательские настройки из него
+            /// Иначе создат по умолчанию
+            /// </summary>
+
+            if (File.Exists("settings.noob"))
+            {
+                string jsonSaveString;
+                using (StreamReader sr = new StreamReader("settings.noob"))
+                {
+                    jsonSaveString = sr.ReadLine();
+                }
+                UserSettings = JsonSerializer.Deserialize<UserSettings?>(jsonSaveString);
+            }
+            else
+            {
+                UserSettings = new Models.UserSettings();
+            }
+            
+
+            ///<summary>
+            ///Получение заголовка из файла пользовательских настроек
+            /// </summary>
             Title = UserSettings.UserInterface.Title;
         }
     }

@@ -73,12 +73,6 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand RobCaravanCommand { get; }
 
-        /// <summary>
-        /// Команда смены языка интерфейса.
-        /// </summary>
-        public ICommand ChangeLanguageToENGCommand { get;  }
-        public ICommand ChangeLanguageToRUSCommand { get; }
-
         #endregion
         public GameSceneViewModel(NavigationStore navigationStore)
         {
@@ -89,12 +83,7 @@ namespace Noob_Coder.ViewModels
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
             OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand();
 
-            /// <summary>
-            /// Создание интерфейсных комманд.
-            /// </summary>
-            ChangeLanguageToENGCommand = new ChangeLanguageToENGCommand();
-            ChangeLanguageToRUSCommand = new ChangeLanguageToRUSCommand();
-
+  
             /// <summary>
             /// Создание нового главного героя игры.
             /// </summary>
