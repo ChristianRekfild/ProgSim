@@ -12,7 +12,7 @@
 
 
 
-        <materialDesign:Card HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="512" Width="1191">
+       
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Пожалйста, заполните форму" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                 <TextBox HorizontalAlignment="Left" Margin="10,80,0,0" TextWrapping="Wrap" Text="Ваше имя" VerticalAlignment="Top" Width="327"/>
@@ -25,7 +25,7 @@
                     </FlowDocument>
                 </RichTextBox>
 
-                <materialDesign:Chip Margin="900,30,0,0" VerticalAlignment="Top" Height="178" Width="271">
+                
                     <Grid Height="148">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="149*"/>
@@ -37,12 +37,12 @@
                         <RadioButton Content="Безусловно понравилась" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                         <RadioButton Content="Она Великолепна! Это Шедевр!" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     </Grid>
-                </materialDesign:Chip>
+                
 
             </Grid>
-        </materialDesign:Card>
-        <Button Content="Вернуться" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
-        <Button Content="Отправить отзыв" HorizontalAlignment="Left" Margin="1091,535,0,0" VerticalAlignment="Top"/>
+ 
+        <Button Style="{StaticResource ButtonStyle}" Height="40" Content="Вернуться" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
+        <Button Style="{StaticResource ButtonStyle}" Height="40" Content="Отправить отзыв" HorizontalAlignment="Left" Margin="1091,535,0,0" VerticalAlignment="Top"/>
 
 
 

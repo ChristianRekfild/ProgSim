@@ -1,0 +1,12 @@
+﻿<UserControl
+             x:Class="Noob_Coder.Views.GameSceneElements.SectionFinance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+>
+    <Grid>
+        <Image x:Name="Logo" Grid.Column="1" Height="400" Width="400" Source="/Data/Resourses/Images/Finance.jpg"/>
+    </Grid>
+
+</UserControl>

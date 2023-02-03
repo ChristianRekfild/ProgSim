@@ -154,6 +154,16 @@ namespace Noob_Coder.Models
             get => _health;
             set => SetField(ref _health, value);
         }
+
+        private string _mustache;
+        /// <summary>
+        /// Усатость.
+        /// </summary>
+        public string Mustache
+        {
+            get => _mustache;
+            set => SetField(ref _mustache, value);
+        }
         #endregion
 
 

@@ -35,6 +35,7 @@ namespace Noob_Coder.Models
             GSTabItemFinance = "Финансы";
 
             Health = "Здоровье";
+            Mustache = "Усатость";
             #endregion
 
             #region SettingMenu

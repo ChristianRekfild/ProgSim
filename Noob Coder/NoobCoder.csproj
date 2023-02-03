@@ -14,7 +14,8 @@
     <None Remove="background.jpg" />
     <None Remove="Logos.png" />
     <None Remove="logo.jpg" />
-	<None Remove="Icon.jpg" />	  
+	<None Remove="Icon.png" />	 
+	 
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,9 @@
     <Resource Include="Data\Resourses\Images\logo.jpg" />
     <Resource Include="Data\Resourses\Images\Logos.png" />
 	<Resource Include="Data\Resourses\Images\Icon.png" />
+	<Resource Include="Data\Resourses\Images\Property.jpg" />
+	<Resource Include="Data\Resourses\Images\Education.jpg" />
+	<Resource Include="Data\Resourses\Images\Finance.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,22 +38,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FontAwesome5" Version="2.1.11" />
-    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\GameSceneTabs\UserIndicatorsTab.xaml.cs">
+    <Compile Update="Views\GameSceneElements\Sections\SectionFinance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\GameSceneTabs\EducationTab.xaml.cs">
+    <Compile Update="Views\GameSceneElements\Sections\SectionEducation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\GameSceneTabs\FinanceTab.xaml.cs">
+    <Compile Update="Views\GameSceneElements\Sections\SectionProperty.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\GameSceneTabs\PropertyTab.xaml.cs">
+    <Compile Update="Views\GameSceneElements\Sections\SectionMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\GameSceneElements\Sections\RightSection.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -61,21 +68,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Views\GameSceneTabs\UserIndicatorsTab.xaml">
+    <Page Update="Views\GameSceneElements\Sections\SectionFinance.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Views\GameSceneElements\Sections\SectionEducation.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Views\GameSceneElements\Sections\SectionProperty.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Views\GameSceneElements\Sections\SectionMain.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\GameSceneTabs\EducationTab.xaml">
+    <Page Update="Views\GameSceneElements\Sections\RightSection.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\GameSceneTabs\FinanceTab.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\GameSceneTabs\PropertyTab.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
 
