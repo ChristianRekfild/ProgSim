@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Noob_Coder.Views
 {
@@ -9,6 +10,12 @@ namespace Noob_Coder.Views
 		{
 			InitializeComponent();
 		}
-
+		private void SampleDialogWindow_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ChangedButton == MouseButton.Left)
+			{
+				this.DragMove();
+			}
+		}
 	}
 }

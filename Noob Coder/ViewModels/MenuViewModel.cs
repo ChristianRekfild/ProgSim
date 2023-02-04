@@ -6,6 +6,9 @@ using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 using System.Windows.Input;
 using System.Windows;
+using Noob_Coder.Models;
+using System.Text.Json;
+using System.Xml.Linq;
 
 namespace Noob_Coder.ViewModels
 {
@@ -18,7 +21,7 @@ namespace Noob_Coder.ViewModels
     {
         #region Свойства
 
-        private string _title = "Симулятор программиста: Меню";
+        private string _title;
         /// <summary>
         /// Заголовок окна.
         /// </summary>
@@ -27,16 +30,7 @@ namespace Noob_Coder.ViewModels
             get => _title;
             set => SetField(ref _title, value);
         }
-        private string _resumeGameButtonName = "Продолжить игру";
-        /// <summary>
-        /// Надпись на кнопке продолжения игры.
-        /// Имя привязанного элемента в разметке xaml - x:Name="ResumeGameMenuButton".
-        /// </summary>
-        public string ResumeGameButtonName
-        {
-            get => _resumeGameButtonName;
-            set => SetField(ref _resumeGameButtonName, value);
-        }
+
         private string _resumeGameButtonVisibilityStatus = "hidden";
         /// <summary>
         /// Статус кнопки продолжит игру показывать или нет.
@@ -47,58 +41,6 @@ namespace Noob_Coder.ViewModels
             set => SetField(ref _resumeGameButtonVisibilityStatus, value);
         }
         
-        private string _newGameButtonName = "Новая игра";
-        /// <summary>
-        /// Надпись на кнопке начала новой игры.
-        /// Имя привязанного элемента в разметке xaml - x:Name="NewGameMenuButton".
-        /// </summary>
-        public string NewGameButtonName
-        {
-            get => _newGameButtonName;
-            set => SetField(ref _newGameButtonName, value);
-        }
-        
-        private string _loadGameButtonName = "Загрузить игру";
-        /// <summary>
-        /// Надпись на кнопке загрузки игры.
-        /// Имя привязанного элемента в разметке xaml - x:Name="LoadGameMenuButton".
-        /// </summary>
-        public string LoadGameButtonName
-        {
-            get => _loadGameButtonName;
-            set => SetField(ref _loadGameButtonName, value);
-        }
-        private string _settingsButtonName = "Настройки";
-        /// <summary>
-        /// Надпись на кнопке перехода на страницу настроек игры.
-        /// Имя привязанного элемента в разметке xaml - x:Name="NavigateSettingsMenuButton".
-        /// </summary>
-        public string SettingsButtonName
-        {
-            get => _settingsButtonName;
-            set => SetField(ref _settingsButtonName, value);
-        }
-        private string _feedbackButtonName = "Обратная связь";
-        /// <summary>
-        /// Надпись на кнопке перехода на страницу обратной связи
-        /// Имя привязанного элемента в разметке xaml - x:Name="NavigateFeedBackFormMenuButton".
-        /// </summary>
-        public string FeedbackButtonName
-        {
-            get => _feedbackButtonName;
-            set => SetField(ref _feedbackButtonName, value);
-        }
-        
-        private string _exitButtonName = "Выход";
-        /// <summary>
-        /// Надпись на кнопке закрытия приложения.
-        /// Имя привязанного элемента в разметке xaml - x:Name="ExitMenuButton".
-        /// </summary>
-        public string ExitButtonName
-        {
-            get => _exitButtonName;
-            set => SetField(ref _exitButtonName, value);
-        }
         
         private string _backgroundImagePath = "/Data/Resourses/Images/background.jpg";
         /// <summary>
@@ -134,6 +76,10 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand NavigateNewGameCommand { get; }
         /// <summary>
+        /// Команда-обработчик перехода на страницу настроек.
+        /// </summary>
+        public ICommand NavigateSettingMenuCommand { get; }
+        /// <summary>
         /// Команда-обработчик перехода на страницу обратной связи.
         /// </summary>
         public ICommand NavigateFeedBackFormCommand { get; }
@@ -145,6 +91,7 @@ namespace Noob_Coder.ViewModels
             CloseApplicationCommand = new CloseApplicationCommand();
             NavigateResumeGameCommand = new NavigateResumeGameCommand(navigationStore);
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
+            NavigateSettingMenuCommand = new NavigateSettingMenuCommand(navigationStore);
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
 
             /// <summary>
@@ -152,6 +99,50 @@ namespace Noob_Coder.ViewModels
             /// </summary>
             if (File.Exists("LastAutoSave.noob")) ResumeGameButtonVisibilityStatus = "visable";
 
+            /// <summary>
+            /// Задание базовых настоек интерфейса
+
+            /// </summary>
+            
+            //TODO !!! НЕОБХОДИМО ПЕРЕНЕСТИ В MAINWINDOW!!!
+            
+            /// <summary>
+            /// Если существует файл settings.noob взять пользовательские настройки из него
+            /// Иначе создат по умолчанию
+            /// </summary>
+
+            if (File.Exists("settings.noob"))
+            {
+                string jsonSaveString;
+                using (StreamReader sr = new StreamReader("settings.noob"))
+                {
+                    jsonSaveString = sr.ReadLine();
+                }
+                string language = JsonSerializer.Deserialize<String?>(jsonSaveString);
+                UserSettings = new Models.UserSettings();
+                switch (language)
+                {
+                    case "Русский":
+                        UserSettings.UserInterface = new RussianUI();
+                        break;
+                    case "English":
+                        UserSettings.UserInterface = new EnglishUI();
+                        break;
+                    
+                }
+  
+                    
+            }
+            else
+            {
+                UserSettings = new Models.UserSettings();
+            }
+            
+
+            ///<summary>
+            ///Получение заголовка из файла пользовательских настроек
+            /// </summary>
+            Title = UserSettings.UserInterface.Title;
         }
     }
 }

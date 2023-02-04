@@ -10,22 +10,22 @@ namespace Noob_Coder.Infrastructure.Commands
     /// <summary>
     /// Команда добавления здоровья главному герою.
     /// </summary>
-    internal class AddProtagonistHealthCommand : CommandBase
+    internal class ChangeMoodCommand : CommandBase
     {
 
-        private int _addedHealthValue;
+        private int _mood;
         /// <summary>
         /// Количество добавляемого здоровья.
         /// </summary>
-        public int AddedHealthValue
+        public int Mood
         {
-            get => _addedHealthValue;
-            set => _addedHealthValue = value;
+            get => _mood;
+            set => _mood = value;
         }
 
-        public AddProtagonistHealthCommand(int value)
+        public ChangeMoodCommand(int value)
         {
-            AddedHealthValue = value;
+            Mood = value;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
             var protogonist = (Protagonist) parameter;
-            protogonist.AddHealth(AddedHealthValue);
+            protogonist.MoodChange(Mood);
 
         }
     }

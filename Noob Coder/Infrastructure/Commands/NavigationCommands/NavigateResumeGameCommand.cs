@@ -26,27 +26,24 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
 
-            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
 
+                UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
 
-            if (_navigationStore.CurrentViewModel is GameSceneViewModel gameScene)
-            {
-                /// <summary>
-                /// Установка параметров главного героя при запуске новой игры.
-                /// Чтение из файла LastAutoSave.noob
-                /// </summary>
-                
+                _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
+
+                var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
+                // Установка параметров главного героя при запуске новой игры.
+                // Чтение из файла LastAutoSave.noob
                 string jsonSaveString;
                 using (StreamReader sr = new StreamReader("LastAutoSave.noob"))
                 {
                     jsonSaveString = sr.ReadLine();
                 }
-                var saveProtagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
-                gameScene.Protagonist.Health = saveProtagonist.Health; // значение здоровья главного героя игры
-                gameScene.Protagonist.Money = saveProtagonist.Money; // значение наличных денег
-                gameScene.Protagonist.Mustache = saveProtagonist.Mustache;  // значение усатости главного героя игры 
+                gameScene.UserSettings = UserSettings;
+                gameScene.Protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
                 
-            }
+                
+            
         }
     }
 }

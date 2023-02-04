@@ -38,18 +38,28 @@ namespace Noob_Coder.ViewModels
         }
 
 
+
+        private Protagonist _protagonist;
         /// <summary>
         /// Переменная главного героя игры.
         /// </summary>
-        private Protagonist _protagonist;
-
         public Protagonist Protagonist
         {
             get => _protagonist;
             set => SetField(ref _protagonist, value);
         }
 
-        
+
+        private int _addedHealthValue;
+        /// <summary>
+        /// Количество добавляемого здоровья.
+        /// </summary>
+        public int AddedHealthValue
+        {
+            get => _addedHealthValue;
+            set => SetField(ref _addedHealthValue, value);
+        }
+
         #endregion
 
         #region Команды
@@ -68,7 +78,10 @@ namespace Noob_Coder.ViewModels
         /// Команда добавления здоровья главному герою.
         /// </summary>
         public ICommand AddProtagonistHealthCommand { get; }
+        public ICommand AddProtagonistHealth10Command { get; }
+        public ICommand AddProtagonistHealth20Command { get; }
 
+        public ICommand ChangeMoodCommand { get; }
         /// <summary>
         /// Команда позволяющая грабить корованы.
         /// </summary>
@@ -84,6 +97,7 @@ namespace Noob_Coder.ViewModels
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
             OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand();
 
+  
             /// <summary>
             /// Создание нового главного героя игры.
             /// </summary>
@@ -92,12 +106,16 @@ namespace Noob_Coder.ViewModels
             /// <summary>
             /// Создание комманд взаимодействия с главным героем.
             /// </summary>
-            AddProtagonistHealthCommand = new AddProtagonistHealthCommand(Protagonist, 20);//добавить 20 единиц здоровья
-            RobCaravanCommand = new RobCaravanCommand(Protagonist); //попробовать ограбить корован
+            AddProtagonistHealth10Command = new AddProtagonistHealthCommand(10);//добавить 20 единиц здоровья
+            AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
+            RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
+
+
+            ChangeMoodCommand = new ChangeMoodCommand(-10); //испортитьт настроение
 
             RunTimer().WaitAsync(_cts.Token);
-        }
 
+         }
 
         private CancellationTokenSource _cts = new CancellationTokenSource();
 
@@ -110,7 +128,7 @@ namespace Noob_Coder.ViewModels
         {
             while (!_cts.IsCancellationRequested)
             {
-                Task.Yield();
+               // Task.Yield();
                 await Task.Delay(1000);
                 Protagonist.AnowerFuckingDay(); //проживаем один день
                 if (!Protagonist.IsNotDie()) System.Windows.Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
