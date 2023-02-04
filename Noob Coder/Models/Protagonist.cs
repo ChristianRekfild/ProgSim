@@ -36,7 +36,18 @@ namespace Noob_Coder.Models
 
         }
 
-       
+        private int _mood;
+        /// <summary>
+        /// Настроение.
+        /// </summary>
+        public int Mood
+        {
+            get => _mood;
+            set => SetField(ref _mood, value);
+
+        }
+
+
         private double _mustache;
         /// <summary>
         /// Усатость главного героя игры.
@@ -90,6 +101,14 @@ namespace Noob_Coder.Models
 
             if (value < 5) Health = Health / 2;
             else Money = Money + value * 1000;
+        }
+
+        /// <summary>
+        /// Метод, позволяющий грабить корованы
+        /// </summary>
+        public void MoodChange(int value)
+        {
+            Mood = Mood + value;
         }
         #endregion
 

@@ -59,7 +59,7 @@
             <Separator Background="#cfd5e5" Margin="10 0 10 10" Height="0.8"/>
 
             <lvc:Gauge x:Name="ProtagonistHappyGauge" Width="200" Height="100"
-                   From="0" To="100" Value="88"
+                   From="0" To="100" Value="{Binding Protagonist.Mood}"
                    LabelsVisibility="Collapsed" Foreground="Transparent">
                 <lvc:Gauge.GaugeActiveFill>
                     <LinearGradientBrush>

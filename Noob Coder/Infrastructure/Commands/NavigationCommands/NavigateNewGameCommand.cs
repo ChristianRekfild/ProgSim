@@ -34,7 +34,8 @@ namespace Noob_Coder.Infrastructure.Commands
                 gameScene.Protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
                 gameScene.Protagonist.Money = 15842; // значение наличных денег по умолчанию
                 gameScene.Protagonist.Mustache = 0;  // значение усатости главного героя игры по умолчанию
-           
+                gameScene.Protagonist.Mood = 100;  // значение настроения
+
         }
     }
 }

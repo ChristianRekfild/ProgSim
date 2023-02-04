@@ -80,6 +80,8 @@ namespace Noob_Coder.ViewModels
         public ICommand AddProtagonistHealthCommand { get; }
         public ICommand AddProtagonistHealth10Command { get; }
         public ICommand AddProtagonistHealth20Command { get; }
+
+        public ICommand ChangeMoodCommand { get; }
         /// <summary>
         /// Команда позволяющая грабить корованы.
         /// </summary>
@@ -108,10 +110,12 @@ namespace Noob_Coder.ViewModels
             AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
 
+
+            ChangeMoodCommand = new ChangeMoodCommand(-10); //испортитьт настроение
+
             RunTimer().WaitAsync(_cts.Token);
 
          }
-
 
         private CancellationTokenSource _cts = new CancellationTokenSource();
 
@@ -124,7 +128,7 @@ namespace Noob_Coder.ViewModels
         {
             while (!_cts.IsCancellationRequested)
             {
-                Task.Yield();
+               // Task.Yield();
                 await Task.Delay(1000);
                 Protagonist.AnowerFuckingDay(); //проживаем один день
                 if (!Protagonist.IsNotDie()) System.Windows.Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)

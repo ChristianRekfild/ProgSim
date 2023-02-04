@@ -101,14 +101,16 @@ namespace Noob_Coder.ViewModels
 
             /// <summary>
             /// Задание базовых настоек интерфейса
-            /// !!! НЕОБХОДИМО ПЕРЕНЕСТИ В MAINWINDOW!!!
-            /// </summary>
 
+            /// </summary>
+            
+            //TODO !!! НЕОБХОДИМО ПЕРЕНЕСТИ В MAINWINDOW!!!
+            
             /// <summary>
             /// Если существует файл settings.noob взять пользовательские настройки из него
             /// Иначе создат по умолчанию
             /// </summary>
-            
+
             if (File.Exists("settings.noob"))
             {
                 string jsonSaveString;

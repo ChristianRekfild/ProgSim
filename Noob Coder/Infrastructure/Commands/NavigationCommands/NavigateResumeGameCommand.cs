@@ -32,10 +32,8 @@ namespace Noob_Coder.Infrastructure.Commands
                 _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
 
                 var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
-                /// <summary>
-                /// Установка параметров главного героя при запуске новой игры.
-                /// Чтение из файла LastAutoSave.noob
-                /// </summary>
+                // Установка параметров главного героя при запуске новой игры.
+                // Чтение из файла LastAutoSave.noob
                 string jsonSaveString;
                 using (StreamReader sr = new StreamReader("LastAutoSave.noob"))
                 {
