@@ -66,7 +66,7 @@ namespace Noob_Coder.Models
         /// </summary>
         public void AnowerFuckingDay()
         {
-            Health = _health - 1; 
+            Health = _health - (110-Mood)/10; 
             Mustache = _mustache + 0.5f;
         }
 

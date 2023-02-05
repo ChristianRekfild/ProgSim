@@ -5,83 +5,53 @@
              xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              x:Class="Noob_Coder.Views.GameSceneElements.RightSection"
 >
-    <Border Background="#ffffff" Grid.Column="2" CornerRadius="0 40 40 0">
- 
-        <StackPanel>
-            <lvc:Gauge x:Name="ProtagonistHealthGauge" Width="200" Height="100" To="100" Value="{Binding Protagonist.Health}"          
-                   LabelsVisibility="Collapsed" Foreground="Transparent" Margin="0 70 0 0">
-                <lvc:Gauge.GaugeActiveFill>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#877eb9" Offset="0.0" />
-                        <GradientStop Color="#8d82c8" Offset="0.5" />
-                        <GradientStop Color="#54479c" Offset="1.0" />
-                    </LinearGradientBrush>
-                </lvc:Gauge.GaugeActiveFill>
-            </lvc:Gauge>
-            <Icon:PackIconMaterial Kind="Heart" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-55,0,0" FontSize="24" Height="30" Width="30" Foreground="#54479c"/>
-            <TextBlock Text="{Binding ElementName=ProtagonistHealthGauge, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-30,0,0" FontSize="24" FontWeight="Bold" Foreground="#54479c" />
-            <TextBlock Text="{Binding UserSettings.UserInterface.Health}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Height="21"/>
+    <Border Grid.Column="2" Style="{StaticResource gs_RightSection_Border}">
+       <StackPanel>
+            <!--#region индикатор здоровья-->
+            <lvc:Gauge x:Name="ProtagonistHealthGauge" Style="{StaticResource gs_RightSection_ProtagonistHealthGauge}" Value="{Binding Protagonist.Health}" Margin="0 70 0 0" />
+            <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource gs_RightSection_ProtagonistHealthIcon}" />
+            <TextBlock Text="{Binding ElementName=ProtagonistHealthGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistHealthGaugeValue}" />
+            <TextBlock Text="{Binding UserSettings.UserInterface.Health}" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
+            <!--#endregion-->
+           
+            <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
 
+            <!--#region индикатор усатости-->
+            <lvc:Gauge x:Name="ProtagonistMustacheGauge" Style="{StaticResource gs_RightSection_ProtagonistMustacheGauge}" Value="{Binding Protagonist.Mustache}" />
+            <Icon:PackIconMaterial Kind="Mustache" Style="{StaticResource gs_RightSection_ProtagonistMustacheIcon}" />
+            <TextBlock Text="{Binding ElementName=ProtagonistMustacheGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistMustacheGaugeValue}" />
+            <TextBlock Text="{Binding UserSettings.UserInterface.Mustache}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
+            <!--#endregion-->
+           
+            <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10" />
+
+           <!--#region индикатор полосатости-->
+            <lvc:Gauge x:Name="ProtagonistBandingGauge" Style="{StaticResource gs_RightSection_ProtagonistBandingGauge}" Value="79" />
+            <Icon:PackIconMaterial Kind="Cat" Style="{StaticResource gs_RightSection_ProtagonistBandingIcon}" />
+            <TextBlock Text="{Binding ElementName=ProtagonistBandingGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistBandingGaugeValue}" />
+            <TextBlock Text="Полосатость" Style="{StaticResource gs_RightSection_GaugeTitle}" />
+            <!--#endregion-->
+                      
+            <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
+
+            <!--#region  индикатор настроения-->
+            <lvc:Gauge x:Name="ProtagonistHappyGauge" Style="{StaticResource gs_RightSection_ProtagonistMoodGauge}" Value="{Binding Protagonist.Mood}" />
+            <Icon:PackIconMaterial Kind="RobotHappy" Style="{StaticResource gs_RightSection_ProtagonistMoodIcon}" />
+            <TextBlock Text="{Binding ElementName=ProtagonistHappyGauge, Path=Value, StringFormat={}{0:0}}" Style ="{StaticResource gs_RightSection_ProtagonistMoodGaugeValue}"/>
+            <TextBlock Text="Настроение" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
+            <!--#endregion-->
+           
             <Separator Background="#cfd5e5" Margin="10 0 10 10" Height="0.8"/>
 
-            <lvc:Gauge x:Name="ProtagonistMustacheGauge" Width="200" Height="100" 
-                   From="0" To="100" Value="{Binding Protagonist.Mustache}"
-                   LabelsVisibility="Collapsed" Foreground="Transparent">
-                <lvc:Gauge.GaugeActiveFill>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#8bef9e" Offset="0.0" />
-                        <GradientStop Color="#74ec8c" Offset="0.5" />
-                        <GradientStop Color="#48e666" Offset="1.0" />
-                    </LinearGradientBrush>
-                </lvc:Gauge.GaugeActiveFill>
-            </lvc:Gauge>
-            <Icon:PackIconMaterial Kind="Mustache" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-55,0,0" Height="30" Width="30" Foreground="#48e666"/>
-            <TextBlock Text="{Binding ElementName=ProtagonistMustacheGauge, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-30,0,0" FontSize="24" FontWeight="Bold" Foreground="#48e666" />
-            <TextBlock Text="{Binding UserSettings.UserInterface.Mustache}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Height="21"/>
-
-            <Separator Background="#cfd5e5" Margin="10 0 10 10" Height="0.8"/>
-
-            <lvc:Gauge x:Name="ProtagonistBandingGauge" Width="200" Height="100"
-                   From="0" To="100" Value="79"
-                   LabelsVisibility="Collapsed" Foreground="Transparent">
-                <lvc:Gauge.GaugeActiveFill>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#ef8baa" Offset="0.0" />
-                        <GradientStop Color="#ec7499" Offset="0.5" />
-                        <GradientStop Color="#e95e89" Offset="1.0" />
-                    </LinearGradientBrush>
-                </lvc:Gauge.GaugeActiveFill>
-            </lvc:Gauge>
-            <Icon:PackIconMaterial Kind="Cat" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-55,0,0" Height="30" Width="30" Foreground="#e95e89"/>
-            <TextBlock Text="{Binding ElementName=ProtagonistBandingGauge, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-30,0,0" FontSize="24" FontWeight="Bold" Foreground="#e95e89" />
-            <TextBlock Text="Полосатость" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Height="21"/>
-
-            <Separator Background="#cfd5e5" Margin="10 0 10 10" Height="0.8"/>
-
-            <lvc:Gauge x:Name="ProtagonistHappyGauge" Width="200" Height="100"
-                   From="0" To="100" Value="{Binding Protagonist.Mood}"
-                   LabelsVisibility="Collapsed" Foreground="Transparent">
-                <lvc:Gauge.GaugeActiveFill>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#ecc874" Offset="0.0" />
-                        <GradientStop Color="#e9bf5e" Offset="0.5" />
-                        <GradientStop Color="#e6b648" Offset="1.0" />
-                    </LinearGradientBrush>
-                </lvc:Gauge.GaugeActiveFill>
-            </lvc:Gauge>
-            <Icon:PackIconMaterial Kind="RobotHappy" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-55,0,0" Height="30" Width="30" Foreground="#e6b648"/>
-            <TextBlock Text="{Binding ElementName=ProtagonistHappyGauge, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-30,0,0" FontSize="24" FontWeight="Bold" Foreground="#e6b648" />
-            <TextBlock Text="Настроение" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Height="21"/>
-
-            <Separator Background="#cfd5e5" Margin="10 0 10 10" Height="0.8"/>
-
-            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0" Height="50" Width="140">
-                <Icon:PackIconMaterial Kind="ClockOutline" HorizontalAlignment="left" Height="40" Width="30" Foreground="#478f9c"/>
-                <StackPanel Margin="10 0 0 0">
-                    <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:M}, ConverterCulture=ru-RU}" FontSize="14" HorizontalAlignment="Left" />
-                    <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" FontSize="14" HorizontalAlignment="left" />
-                </StackPanel>
+           <!--#region текущая игровая дата-->
+            <StackPanel Style="{StaticResource gs_RightSection_Panel}" />
+            <Icon:PackIconMaterial Kind="ClockOutline" Style="{StaticResource gs_RightSection_ClockIcon}" />
+            <StackPanel Margin="10 0 0 0">
+                <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:M}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}"  />
+                <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
             </StackPanel>
+
+            <!--#endregion-->
         </StackPanel>
     </Border>
 

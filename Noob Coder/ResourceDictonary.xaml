@@ -1,9 +1,34 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             
-                    xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks">
+                    xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
 
+    <!--#region стили окна-->
 
-    <Style x:Key="ButtonStyle" TargetType="Button">
+    <!--внешняя рамка -->
+    <Style x:Key="window_ExternalFrame" TargetType="Border">
+        <Setter Property="Background"  Value="#cfd5e5"/>
+        <Setter Property="CornerRadius" Value="40" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="#cbedf3" />
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    
+    <!--внешний border -->
+    <LinearGradientBrush x:Key="window_ExternalBorderBackground" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Offset="0" Color="#fefefe"/>
+        <GradientStop Offset="1" Color="#bdbfc1"/>
+    </LinearGradientBrush>
+    <Style x:Key="window_ExternalBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="40"/>
+        <Setter Property="Background" Value="{StaticResource window_ExternalBorderBackground}"/>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region общие элементы приложения-->
+    <!--кнопка (элемент button)-->
+    <Style x:Key="button" TargetType="Button">
         <Setter Property="Background" Value="#7163ba"/>
         <Setter Property="Margin" Value="0.5"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -29,9 +54,27 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!--#endregion-->
+    
+    <!--#region  Страница главного меню-->
+    <!--кнопки-->
+    <Style x:Key="mainMenuButton"  TargetType="Button" BasedOn="{StaticResource button}">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    <!--#endregion-->
 
-
-    <Style x:Key="LeftMenu_Button" TargetType="Button">
+    <!--#region страница игры-->
+    
+    <!--#region левая секция с кнопками-->
+    <!--внешняя рамка секции-->
+    <Style x:Key="gs_LeftSection_MainBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="30"/>
+        <Setter Property="Background" Value="#7163ba"/>
+    </Style>
+    
+    <!--кнопки-->
+    <Style x:Key="gs_LeftSection_Button" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Width" Value="50"/>
         <Setter Property="Height" Value="50"/>
@@ -53,15 +96,9 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    
-    <Style x:Key="LeftMenu_ButtonIcon" TargetType="Icon:PackIconMaterial">
-        <Setter Property="Foreground" Value="#ffffff"/>
-        <Setter Property="Width" Value="25"/>
-        <Setter Property="Height" Value="25"/>
-    </Style>
 
-    <Style x:Key="LeftMenu_TopButton" TargetType="Button" BasedOn="{StaticResource LeftMenu_Button}">
+    <!--кнопка выбора главной секции-->
+    <Style x:Key="gs_LeftSection_TopButton" TargetType="Button" BasedOn="{StaticResource gs_LeftSection_Button}">
         <Setter Property="Margin" Value="0 30 0 20"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -74,12 +111,191 @@
         </Setter>
     </Style>
 
+    <!--иконки на кпонках-->
+    <Style x:Key="gs_LeftSection_ButtonIcon" TargetType="Icon:PackIconMaterial">
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Height" Value="25"/>
+    </Style>
+
+    <!--сепаратор между кнопками-->
+    <Style x:Key="gs_LeftSection_Separator" TargetType="Separator">
+        <Setter Property="Background" Value="#877cc5"/>
+        <Setter Property="Height" Value="0.8"/>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region главная секция-->
+    
+    <!--#endregion-->
+
+    <!--#region правая секция с индикаторами-->
+    <!--внешняя рамка секции-->
+    <Style x:Key="gs_RightSection_Border" TargetType="Border">
+        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="CornerRadius" Value="0 40 40 0" />
+    </Style>
+    
+    <!--круговой индикатор-->
+    <Style x:Key="gs_RightSection_Gauge" TargetType="lvc:Gauge">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="From" Value="0"/>
+        <Setter Property="To" Value="100"/>
+        <Setter Property="LabelsVisibility" Value="Hidden" />
+        <Setter Property="Foreground" Value="Transparent"/>
+    </Style>
+
+    <!--иконка кругового индикатора-->
+    <Style x:Key="gs_RightSection_Icon" TargetType="Icon:PackIconMaterial">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0, -55, 0, 0"/>
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="30" />
+    </Style>
+
+    <!--значение кругового индикатора-->
+    <Style x:Key="gs_RightSection_GaugeValue" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0, -30, 0, 0" />
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <!--подписи индикаторов-->
+    <Style x:Key="gs_RightSection_GaugeTitle" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="21"/>
+    </Style>
+
+    <!--сепаратор-->
+    <Style x:Key="gs_RightSection_Separator" TargetType="Separator">
+        <Setter Property="Background" Value="#cfd5e5"/>
+        <Setter Property="Height" Value="0.8"/>
+    </Style>
+
+    <!--круговой индикатор здоровья-->
+    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistHealthGaugeBackground">
+        <GradientStop Color="#877eb9" Offset="0.0" />
+        <GradientStop Color="#8d82c8" Offset="0.5" />
+        <GradientStop Color="#54479c" Offset="1.0" />
+    </LinearGradientBrush>
+    
+    <Style x:Key="gs_RightSection_ProtagonistHealthGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
+        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistHealthGaugeBackground}"/>
+    </Style>
+
+    <!--икнока индикатора здоровья-->
+    <Style x:Key="gs_RightSection_ProtagonistHealthIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistHealthGaugeBackground}"/>
+    </Style>
+    
+    <!--значение индикатора здоровья-->
+    <Style x:Key="gs_RightSection_ProtagonistHealthGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistHealthGaugeBackground}" />
+    </Style>
+
+    <!--круговой индикатор усатости-->
+    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistMustacheGaugeBackground">
+        <GradientStop Color="#8bef9e" Offset="0.0" />
+        <GradientStop Color="#74ec8c" Offset="0.5" />
+        <GradientStop Color="#48e666" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <Style x:Key="gs_RightSection_ProtagonistMustacheGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
+        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistMustacheGaugeBackground}"/>
+    </Style>
+
+    <!--икнока индикатора усатости-->
+    <Style x:Key="gs_RightSection_ProtagonistMustacheIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistMustacheGaugeBackground}"/>
+    </Style>
+
+    <!--значение индикатора усатости-->
+    <Style x:Key="gs_RightSection_ProtagonistMustacheGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistMustacheGaugeBackground}" />
+    </Style>
+
+    <!--круговой индикатор полосатости-->
+    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistBandingGaugeBackground">
+        <GradientStop Color="#ef8baa" Offset="0.0" />
+        <GradientStop Color="#ec7499" Offset="0.5" />
+        <GradientStop Color="#e95e89" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <Style x:Key="gs_RightSection_ProtagonistBandingGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
+        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistBandingGaugeBackground}"/>
+    </Style>
+
+    <!--икнока индикатора полосатости-->
+    <Style x:Key="gs_RightSection_ProtagonistBandingIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistBandingGaugeBackground}"/>
+    </Style>
+
+    <!--значение индикатора полосатости-->
+    <Style x:Key="gs_RightSection_ProtagonistBandingGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistBandingGaugeBackground}" />
+    </Style>
+    
+        <!--круговой индикатор настроения-->
+    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistMoodGaugeBackground">
+        <GradientStop Color="#ecc874" Offset="0.0" />
+        <GradientStop Color="#e9bf5e" Offset="0.5" />
+        <GradientStop Color="#e6b648" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <Style x:Key="gs_RightSection_ProtagonistMoodGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
+        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistMoodGaugeBackground}"/>
+    </Style>
+
+    <!--икнока индикатора настроения-->
+    <Style x:Key="gs_RightSection_ProtagonistMoodIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistMoodGaugeBackground}"/>
+    </Style>
+
+    <!--значение индикатора настроения-->
+    <Style x:Key="gs_RightSection_ProtagonistMoodGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistMoodGaugeBackground}" />
+    </Style>
+
+    <!--панель с текущей игровой датой-->
+    <Style x:Key="gs_RightSection_Panel" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0, 20, 0, 0" />
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="140" />
+    </Style>
+
+    <!--иконка часов-->
+    <Style x:Key="gs_RightSection_ClockIcon" TargetType="Icon:PackIconMaterial">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Foreground" Value="#478f9c" />
+    </Style>
+    
+    <!--текст текущей игровой даты-->
+    <Style x:Key="gs_RightSection_Date" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    <!--#endregion-->
+
+
+
     <Style x:Key="titleText" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#594e7f"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        
+ 
     </Style>
 
 

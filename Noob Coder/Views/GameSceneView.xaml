@@ -13,13 +13,13 @@
             <ColumnDefinition Width="260"/>
         </Grid.ColumnDefinitions>
 
-        <!--Левое меню с кнопками-->
-        <Grid x:Name="LeftSection" Grid.Column="0">
-            <Border CornerRadius="30" Background="#7163ba" Margin="20">
+        <!--#region левая секция с кнопками-->
+        <Grid x:Name="leftSection" Grid.Column="0">
+            <Border Style="{StaticResource gs_LeftSection_MainBorder}" Margin="20">
                 <Grid>
-                    <StackPanel VerticalAlignment="Top">
-
-                        <Button x:Name="LeftMenu_HomeButton" Style="{StaticResource LeftMenu_TopButton}">
+                    <StackPanel>
+                        <Button x:Name="gs_LeftSection_MainSectionButton" Style="{StaticResource gs_LeftSection_TopButton}" Cursor="Hand">
+                            <!--#region триггеры кнопки выбора главной секции-->
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
@@ -52,12 +52,14 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Icon:PackIconMaterial Kind="Menu" Style="{StaticResource LeftMenu_ButtonIcon}"/>
+                            <!--#endregion-->
+                            <Icon:PackIconMaterial Kind="Menu" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
 
-                        <Separator Background="#877cc5" Margin="20 0 20 10" Height="0.8"/>
+                        <Separator Style="{StaticResource gs_LeftSection_Separator}"  Margin="20 0 20 10" />
 
-                        <Button x:Name="LeftMenu_PropertyButton" Style="{StaticResource LeftMenu_Button}">
+                        <Button x:Name="gs_LeftSection_PropertySectionButton" Style="{StaticResource gs_LeftSection_Button}">
+                            <!--#region триггеры кнопки выбора страницы имущества-->
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
@@ -90,10 +92,12 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Icon:PackIconMaterial Kind="HomeCity" Style="{StaticResource LeftMenu_ButtonIcon}"/>
+                            <!--#endregion-->
+                            <Icon:PackIconMaterial Kind="HomeCity" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
 
-                        <Button x:Name="LeftMenu_EducationButton" Style="{StaticResource LeftMenu_Button}">
+                        <Button x:Name="gs_LeftSection_EducationSectionButton" Style="{StaticResource gs_LeftSection_Button}">
+                            <!--#region триггеры кнопки выбора страницы знаний и навыков-->
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
@@ -126,10 +130,12 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Icon:PackIconMaterial Kind="School" Style="{StaticResource LeftMenu_ButtonIcon}"/>
+                            <!--#endregion-->
+                            <Icon:PackIconMaterial Kind="School" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
 
-                        <Button x:Name="LeftMenu_FinanceButton" Style="{StaticResource LeftMenu_Button}">
+                        <Button x:Name="gs_LeftSection_FinanceSectionButton" Style="{StaticResource gs_LeftSection_Button}">
+                            <!--#region триггеры кнопки выбора страницы финансов-->
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
@@ -162,33 +168,43 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Icon:PackIconMaterial Kind="PiggyBank" Style="{StaticResource LeftMenu_ButtonIcon}"/>
+                            <!--#endregion-->
+                            <Icon:PackIconMaterial Kind="PiggyBank" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
 
+                        <Separator Style="{StaticResource gs_LeftSection_Separator}" Margin="20 180 20 10"/>
 
-                        <Separator Background="#877cc5" Margin="20 180 20 10" Height="0.8"/>
-                        <Button x:Name="LeftMenu_Save" Style="{StaticResource LeftMenu_Button}">
-                            <Icon:PackIconMaterial Kind="ContentSave" Style="{StaticResource LeftMenu_ButtonIcon}"/>
+                        <Button x:Name="gs_LeftSection_SaveButton" Style="{StaticResource gs_LeftSection_Button}" Cursor="Hand">
+                            <Icon:PackIconMaterial Kind="ContentSave" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
-                        <Button x:Name="LeftMenu_Load" Style="{StaticResource LeftMenu_Button}">
-                            <Icon:PackIconMaterial Kind="UploadOutline" Style="{StaticResource LeftMenu_ButtonIcon}"/>
+
+                        <Button x:Name="gs_LeftSection_LoadButton" Style="{StaticResource gs_LeftSection_Button}">
+                            <Icon:PackIconMaterial Kind="UploadOutline" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
-                        <Separator Background="#877cc5" Margin="20 0 20 10" Height="0.8"/>
-                        <Button x:Name="LeftMenu_Exit" Style="{StaticResource LeftMenu_Button}" Command="{Binding NavigateMenuCommand}">
-                            <Icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource LeftMenu_ButtonIcon}" Flip="Horizontal" />
+                        
+                        <Separator Style="{StaticResource gs_LeftSection_Separator}" Margin="20 0 20 10"/>
+
+                        <Button x:Name="gs_LeftSection_ExitButton" Style="{StaticResource gs_LeftSection_Button}" Command="{Binding NavigateMenuCommand}">
+                            <Icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource gs_LeftSection_ButtonIcon}" Flip="Horizontal" />
                         </Button>
 
                     </StackPanel>
                 </Grid>
             </Border>
         </Grid>
-         <!--Main section-->
+        <!--#endregion-->
+        
+        <!--#region основная секция-->
         <Grid x:Name="SectionMain" Grid.Column="1" Visibility="Visible"><uc:SectionMain Margin="0,0,0,20" /></Grid>
         <Grid x:Name="SectionProperty" Grid.Column="1" Visibility="Hidden"><uc:SectionProperty Margin="0,0,0,20" /></Grid>
         <Grid x:Name="SectionEducation" Grid.Column="1" Visibility="Hidden"><uc:SectionEducation Margin="0,0,0,20" /></Grid>
         <Grid x:Name="SectionFinance" Grid.Column="1" Visibility="Hidden"><uc:SectionFinance Margin="0,0,0,20" /></Grid>
-        <!--Right section-->
+        <!--#endregion-->
+        
+        <!--#region правая секция с индикаторами-->
         <Grid x:Name="RightSecrion" Grid.Column="2"><uc:RightSection Margin="20,0,0,0"/></Grid>
+        <!--#endregion-->
+        
     </Grid>
 
 </UserControl>
