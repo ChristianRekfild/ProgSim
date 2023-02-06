@@ -4,58 +4,53 @@
         xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels"
         xmlns:views="clr-namespace:Noob_Coder.Views"
         Background="Transparent" ResizeMode="NoResize"
-        SizeToContent="WidthAndHeight"
+        SizeToContent="WidthAndHeight" ShowInTaskbar="False"
         AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
-                     xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         Title ="{Binding Title}">
+    
     <Grid MouseDown="SampleDialogWindow_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <!--Header section-->
-        <Border CornerRadius="20" Background="#7163ba" Width="60" Height="68" VerticalAlignment="Top" Margin="0 5 0 0" Panel.ZIndex="1">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Direction="270" Color="#7163ba"/>
-            </Border.Effect>
-            <Icon:PackIconMaterial Kind="GuitarAcoustic" Width="30" Height="30" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!--region заглавная иконка-->
+        <Border Style="{StaticResource gs_DialogWindow_TopIconBorder}">
+            <Icon:PackIconMaterial Kind="GuitarAcoustic" Style="{StaticResource gs_DialogWindow_TopIcon}"/>
         </Border>
-        <Border Grid.Row="1" Margin="5, -35, 5, 5" Background="#ffffff" CornerRadius="20" Padding="10" BorderThickness="1" BorderBrush="#7163ba">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Direction="270" Color="#7163ba"/>
-            </Border.Effect>
+        <!--endregion-->
+        <!--#region тело окна-->
+        <Border Style="{StaticResource gs_DialogWindow_BodyBorder}" Grid.Row="1">
             <Grid Margin="0 10 0 0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                     <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="top" Height="150">
-
                         <TextBlock TextWrapping="Wrap" Text="Заголовок окна" FontSize="36"  />
-
                     </Grid>                
                 </Grid>
-          
-
-        </Grid>
-        
-        <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0">
-            <Button Style="{StaticResource button}" IsDefault="True" Width="110" Margin="0,0,10,0">Применить</Button>
-            <Button Style="{StaticResource button}" IsCancel="True" Width="110">Закрыть</Button>
-        </WrapPanel>
-    </Grid>
+            </Grid>
+            <!--#region кнопки управления-->
+            <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0">
+                <Button Style="{StaticResource button}" IsDefault="True" Width="110" Margin="0,0,10,0">Применить</Button>
+                <Button Style="{StaticResource button}" IsCancel="True" Width="110">Закрыть</Button>
+            </WrapPanel>
+        <!--#endregion-->
+            </Grid>
         </Border>
+        <!--#endregion-->
     </Grid>
 </Window>

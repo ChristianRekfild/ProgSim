@@ -18,54 +18,49 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!--3-->
+        <!--#region блок титульного текста-->
         <StackPanel Margin="7 10 8 25" Grid.Column="0" Grid.Row="0">
-            <TextBlock Text="Primary" Foreground="#797295" FontSize="13"/>
-            <TextBlock Text="Dashboard" Style="{StaticResource titleText}"/>
+            <TextBlock Text="Primary" Style="{StaticResource gs_MainSection_SmallTitleText}"/>
+            <TextBlock Text="Dashboard" Style="{StaticResource gs_MainSection_BigTitleText}"/>
         </StackPanel>
+        <!--#endregion-->
 
-        <!-- Search section-->
-        <Grid Grid.Column="2" VerticalAlignment="Top" Margin="0 10 0 0">
+        <!--#region блок с наличными-->
+        <Grid Grid.Column="2" Grid.Row="0" Margin="0 10 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <!-- search textbox-->
+            <!--наличные-->
             <Grid>
-                <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="right" VerticalAlignment="Bottom">
-                    <Icon:PackIconFontAwesome Kind="DollarSignSolid" Width="20" Height="40" />
-                    <TextBlock TextWrapping="Wrap" Text="{Binding Protagonist.Money, StringFormat={}{0:0 000}}" FontSize="26"  FontWeight="Bold"/>
+                <StackPanel  Grid.Row="0" Style="{StaticResource gs_MainSection_CashPanel}">
+                    <Icon:PackIconFontAwesome Kind="RubleSignSolid" Style="{StaticResource gs_MainSection_CashIcon}" />
+                    <TextBlock Text="{Binding Protagonist.Money, StringFormat={}{0:0 000}}" Style="{StaticResource gs_MainSection_CahsText}" />
                 </StackPanel>
             </Grid>
-
-            <Ellipse Width="45" Height="45" Margin="15 0 7 0" Grid.Column="1">
+            <!--аватарка-->
+            <Ellipse Style="{StaticResource gs_MainSection_DuckAvatar}" Grid.Column="1">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Data/Resourses/Images/Icon.png"/>
                 </Ellipse.Fill>
             </Ellipse>
         </Grid>
-
-        <!-- Main middke chart section-->
-        <Border Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="30" Margin="0 0 20 50">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#645dac" Offset="0"/>
-                    <GradientStop Color="#54479c" Offset="1.2"/>
-                </LinearGradientBrush>
-            </Border.Background>
-
+        <!--#endregion-->
+        
+        <!--#region большой блок-->
+        <Border Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource gs_MainSection_BigBlockBorder}" Margin="0 0 20 50">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <Border Background="#6e60b5" BorderThickness="2" BorderBrush="#8276c8" CornerRadius="30" Margin="0 0 0 -10"/>
+                <!--верхняя часть блока-->
+                <Border Style="{StaticResource gs_MainSection_BigBlockTopBorder}"/>
+                <TextBlock Style="{StaticResource gs_MainSection_BigBlockTextBig}" Text="Большой тексt"  Margin="32 25 0 0"/>
+                <TextBlock Style="{StaticResource gs_MainSection_BigBlockTextMedium}" Text="Текст"  Margin="0 27 35 0" HorizontalAlignment="Right"/>
 
-                <!--Titles-->
-                <TextBlock Text="Большой тексt" Foreground="#f0eff6" FontSize="18" FontWeight="SemiBold" Margin="32 25 0 0"/>
-                <TextBlock Text="Текст" Foreground="#f0eff6" FontSize="16" FontWeight="SemiBold" Margin="0 27 35 0" HorizontalAlignment="Right"/>
-
+                <!--нижняя часть блока-->
                 <Grid Grid.Row="1" Margin="10 20 10 15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -73,258 +68,144 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <!--TextInfocard-->
-                    <Border BorderThickness="2" CornerRadius="20" Padding="0 10">
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#6e60b5"/>
-                                        <Setter Property="BorderBrush" Value="#8276c8" />
-                                    </Trigger>
-
-                                </Style.Triggers>
-
-                            </Style>
-                        </Border.Style>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="TEXT!" Foreground="#b1abd1" FontSize="14" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Tex122" Foreground="#ffffff" FontSize="24" HorizontalAlignment="Center" FontWeight="SemiBold"/>
-                            <TextBlock Text="sadae2ed" Foreground="#c8c4c0" FontSize="16" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                    <!--Нижняя карточка-->
+                    <Border Style="{StaticResource gs_MainSection_BigBlockBottomBorder}">
+                        <StackPanel>
+                            <TextBlock Text="TEXT!" Style="{StaticResource gs_MainSection_BigBlockTextMedium}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Tex122" Style="{StaticResource gs_MainSection_BigBlockTextBig}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="sadae2ed" Style="{StaticResource gs_MainSection_BigBlockTextSmall}" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
-
-
                     </Border>
 
 
-                    <Border BorderThickness="2" CornerRadius="20" Padding="0 10" Grid.Column="1">
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#6e60b5"/>
-                                        <Setter Property="BorderBrush" Value="#8276c8" />
-                                    </Trigger>
-
-                                </Style.Triggers>
-
-                            </Style>
-                        </Border.Style>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="TEXT!" Foreground="#b1abd1" FontSize="14" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Tex122" Foreground="#ffffff" FontSize="24" HorizontalAlignment="Center" FontWeight="SemiBold"/>
-                            <TextBlock Text="sadae2ed" Foreground="#c8c4c0" FontSize="16" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                    <!--Нижняя карточка-->
+                    <Border Style="{StaticResource gs_MainSection_BigBlockBottomBorder}" Grid.Column="1">
+                        <StackPanel>
+                            <TextBlock Text="TEXT!" Style="{StaticResource gs_MainSection_BigBlockTextMedium}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Tex122" Style="{StaticResource gs_MainSection_BigBlockTextBig}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="sadae2ed" Style="{StaticResource gs_MainSection_BigBlockTextSmall}" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
-
-
                     </Border>
 
-                    <Border BorderThickness="2" CornerRadius="20" Padding="0 10" Grid.Column="2">
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#6e60b5"/>
-                                        <Setter Property="BorderBrush" Value="#8276c8" />
-                                    </Trigger>
-
-                                </Style.Triggers>
-
-                            </Style>
-                        </Border.Style>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="TEXT!" Foreground="#b1abd1" FontSize="14" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Tex122" Foreground="#ffffff" FontSize="24" HorizontalAlignment="Center" FontWeight="SemiBold"/>
-                            <TextBlock Text="sadae2ed" Foreground="#c8c4c0" FontSize="16" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                    <!--Нижняя карточка-->
+                    <Border Style="{StaticResource gs_MainSection_BigBlockBottomBorder}" Grid.Column="2">
+                        <StackPanel>
+                            <TextBlock Text="TEXT!" Style="{StaticResource gs_MainSection_BigBlockTextMedium}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Tex122" Style="{StaticResource gs_MainSection_BigBlockTextBig}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="sadae2ed" Style="{StaticResource gs_MainSection_BigBlockTextSmall}" FontSize="16" HorizontalAlignment="Center"/>
                         </StackPanel>
-
-
                     </Border>
 
                 </Grid>
             </Grid>
-
         </Border>
+        <!--#endregion-->
+        
 
-        <!--middle right section-->
         <Grid Grid.Column="2" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!--Top BOX-->
-            <Border CornerRadius="30" Background="#7163ba">
-                <StackPanel Orientation="Horizontal">
-                    <Border Background="#8d82c8" CornerRadius="22" Width="70" Height="70" Margin="17" BorderThickness="1" BorderBrush="#aea6d8">
-                        <Icon:PackIconMaterial Kind="Duck" Width="35" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#ffffff"/>
+        <!--region средний блок-->
+            <Border Style="{StaticResource gs_MainSection_MiddleBlockBorder}">
+                <StackPanel  Style="{StaticResource gs_MainSection_MiddleBlockPanel}">
+                    <!--иконка блока-->
+                    <Border Style="{StaticResource gs_MainSection_MiddleBlockIconBorder}">
+                        <Icon:PackIconMaterial Kind="Duck" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
                     </Border>
-
-                    <TextBlock Text="Duck?" FontSize="28" FontWeight="Bold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <!--текст блока-->
+                    <TextBlock Text="Duck?" Style="{StaticResource gs_MainSection_MiddleBlockText}"/>
                 </StackPanel>
             </Border>
+            <!--#endregion-->
 
-            <!--Bottom box-->
-            <Border CornerRadius="30" Background="#e95e89" Grid.Row="1" Margin="0 20 0 50">
-
-
+        <!--region акцентный блок-->
+            <Border Style="{StaticResource gs_MainSection_AccentBlockBorder}" Grid.Row="1" Margin="0 20 0 50">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-
-                    <Border CornerRadius="30" Background="#fd91b3" VerticalAlignment="Top" BorderThickness="1" BorderBrush="#fc9cba">
-                        <StackPanel Orientation="Horizontal">
-                            <Border Background="#feaec7" CornerRadius="25" Width="70" Height="70" Margin="20" BorderThickness="1" BorderBrush="#fec5d6">
-                                <Icon:PackIconMaterial Kind="Run" Width="35" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#ffffff"/>
+                    
+                    <!--заголовок блока-->
+                    <Border Style="{StaticResource gs_MainSection_AccentBlockHeaderBorder}">
+                        <StackPanel Style="{StaticResource gs_MainSection_AccentBlockHeaderPanel}">
+                            <!--иконка-->
+                            <Border Style="{StaticResource gs_MainSection_AccentBlockHeaderIconBorder}">
+                                <Icon:PackIconMaterial Kind="Run" Style="{StaticResource gs_MainSection_AccentBlockHeaderIcon}"/>
                             </Border>
-                            <TextBlock Text="GO!" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#ffffff"/>
+                            <!--заголовок блока-->
+                            <TextBlock Text="GO!" Style="{StaticResource gs_MainSection_AccentBlockHeaderText}"/>
                         </StackPanel>
                     </Border>
-                    <!--Chhart-->
 
-                    <!--Titles-->
-                    <StackPanel Grid.Row="1" Margin="30 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Foreground="#ffffff" Text="73huew87"/>
-                        <TextBlock Foreground="#ffffff" Text="73huew87"/>
-                        <TextBlock Foreground="#ffffff" Text="73huew87"/>
+                    <!--тело блока-->
+                    <StackPanel Grid.Row="1" Style="{StaticResource gs_MainSection_AccentBlockBodyPanel}">
+                        <TextBlock Style="{StaticResource gs_MainSection_AccentBlockBodyText}" Text="73huew87"/>
+                        <TextBlock Style="{StaticResource gs_MainSection_AccentBlockBodyText}" Text="73huew87"/>
+                        <TextBlock Style="{StaticResource gs_MainSection_AccentBlockBodyText}" Text="73huew87"/>
                     </StackPanel>
 
                 </Grid>
             </Border>
-
+            <!--#endregion-->
         </Grid>
 
-        <!--Bottom ifo cards-->
-        <Grid x:Name="grid" Margin="8 0" Grid.Row="2" Grid.Column="0">
-            <!--Header section-->
-            <Border CornerRadius="20" Background="#7163ba" Width="60" Height="68" VerticalAlignment="Top" Margin="0 -30 0 0" Panel.ZIndex="1">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#7163ba"/>
-                </Border.Effect>
-                <Icon:PackIconMaterial Kind="Baby" Width="30" Height="30" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Border>
-            <!-- Purple border-->
-            <Border BorderThickness="1" BorderBrush="#7163ba" CornerRadius="20" Margin="-5">
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Visibility" Value="Collapsed" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=grid.Path-IsMouseOver}" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
 
-
-                    </Style>
-                </Border.Style>
+        <!--#region малый блок-->
+        <Grid  Margin="8 0" Grid.Row="2" Grid.Column="0">
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Baby" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
             </Border>
-            <!---Main section-->
-            <Border Background="#ffffff" CornerRadius="20" Padding="10">
-                <StackPanel>
-                    <!--DOTS BUTTON-->
-                    <Button Style="{StaticResource dotsButton}">
-                        <Icon:PackIconMaterial Kind="DancePole"/>
-                    </Button>
+
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
                     <Button  Style="{StaticResource button}" x:Name="AddProtagonistHealth10" Content="Подлечиться +10" Command="{Binding AddProtagonistHealth10Command}" CommandParameter="{Binding Protagonist}" Margin="0 10 0 0"/>
-
-                    <!--Titlews-->
                     <Button Style="{StaticResource button}" x:Name="AddProtagonistHealth20" Content="Подлечиться +20" Command="{Binding AddProtagonistHealth20Command}" CommandParameter="{Binding Protagonist}" Margin="0 20 0 0"/>
                 </StackPanel>
             </Border>
-
         </Grid>
+        <!--#endregion-->
 
+        <!--#region малый блок-->
         <Grid  Margin="8 0" Grid.Row="2" Grid.Column="1">
-            <!--Header section-->
-            <Border CornerRadius="20" Background="#7163ba" Width="60" Height="68" VerticalAlignment="Top" Margin="0 -30 0 0" Panel.ZIndex="1">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#7163ba"/>
-                </Border.Effect>
-                <Icon:PackIconMaterial Kind="PaperRoll" Width="30" Height="30" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="PaperRoll" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
             </Border>
-            <!-- Purple border-->
-            <Border BorderThickness="1" BorderBrush="#7163ba" CornerRadius="20" Margin="-5">
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Visibility" Value="Collapsed" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=grid.Path-IsMouseOver}" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
 
-
-                    </Style>
-                </Border.Style>
-            </Border>
-            <!---Main section-->
-            <Border Background="#ffffff" CornerRadius="20" Padding="10">
-                <StackPanel>
-                    <!--DOTS BUTTON-->
-                    <Button Style="{StaticResource dotsButton}">
-                        <Icon:PackIconMaterial Kind="DancePole"/>
-                    </Button>
-
-                    <!--Titlews-->
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
                     <Button Style="{StaticResource button}" Name="RobCaravan"  Command="{Binding RobCaravanCommand}" CommandParameter="{Binding Protagonist}" Height="100" Width="100">
                         <TextBlock TextWrapping="Wrap" FontSize="10" TextAlignment="Center"> Большая красивая фиолетовая кнопка позволяющая огроблять корованы</TextBlock>
                     </Button>
-
                 </StackPanel>
             </Border>
-
         </Grid>
+        <!--#endregion-->
 
+        <!--#region малый блок-->
         <Grid  Margin="8 0" Grid.Row="2" Grid.Column="2">
-            <!--Header section-->
-            <Border CornerRadius="20" Background="#7163ba" Width="60" Height="68" VerticalAlignment="Top" Margin="0 -30 0 0" Panel.ZIndex="1">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#7163ba"/>
-                </Border.Effect>
-                <Icon:PackIconMaterial Kind="Toilet" Width="30" Height="30" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Toilet" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
             </Border>
-            <!-- Purple border-->
-            <Border BorderThickness="1" BorderBrush="#7163ba" CornerRadius="20" Margin="-5">
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Visibility" Value="Collapsed" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=grid.Path-IsMouseOver}" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-
-
-                    </Style>
-                </Border.Style>
-            </Border>
-            <!---Main section-->
-            <Border Background="#ffffff" CornerRadius="20" Padding="10">
-                <StackPanel>
-                    <!--DOTS BUTTON-->
-                    <Button Style="{StaticResource dotsButton}">
-                        <Icon:PackIconMaterial Kind="DancePole"/>
-                    </Button>
-
-                    <!--Titlews-->
-                    <TextBlock Text="SomeTExt"/>
-                    <Button Style="{StaticResource button}" Name="btnEnterName" Content="Всплывающее окно"  Command="{Binding OpenSampleDialogWindowCommand}" Margin="0,10,0,0" Cursor="Hand"/>
-                    <Button Style="{StaticResource button}" Name="Mood" Content="сделать гадость"  Command="{Binding ChangeMoodCommand}" CommandParameter="{Binding Protagonist}" Margin="0,10,0,0" Cursor="Hand"/>
+            
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
+                    <TextBlock Text="SomeText"/>
+                    <Button Style="{StaticResource button}" Content="Всплывающее окно"  Command="{Binding OpenSampleDialogWindowCommand}" Margin="0,10,0,0" />
+                    <Button Style="{StaticResource button}" Content="сделать гадость"  Command="{Binding ChangeMoodCommand}" CommandParameter="{Binding Protagonist}" Margin="0,10,0,0"/>
                 </StackPanel>
             </Border>
-
         </Grid>
+        <!--#endregion-->
 
     </Grid>
 
