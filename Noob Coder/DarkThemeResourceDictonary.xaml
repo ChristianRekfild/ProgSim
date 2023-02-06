@@ -7,17 +7,17 @@
 
     <!--внешняя рамка -->
     <Style x:Key="window_ExternalFrame" TargetType="Border">
-        <Setter Property="Background"  Value="#cfd5e5"/>
+        <Setter Property="Background"  Value="#404258"/>
         <Setter Property="CornerRadius" Value="40" />
         <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="BorderBrush" Value="#cbedf3" />
+        <Setter Property="BorderBrush" Value="#474E68" />
         <Setter Property="Padding" Value="20"/>
     </Style>
 
     <!--внешний border -->
     <LinearGradientBrush x:Key="window_ExternalBorderBackground" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Offset="0" Color="#fefefe"/>
-        <GradientStop Offset="1" Color="#bdbfc1"/>
+        <GradientStop Offset="0" Color="#6B728E"/>
+        <GradientStop Offset="1" Color="#50577A"/>
     </LinearGradientBrush>
     <Style x:Key="window_ExternalBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="40"/>
@@ -29,19 +29,19 @@
     <!--#region общие элементы приложения-->
     <!--кнопка (элемент button)-->
     <Style x:Key="button" TargetType="Button">
-        <Setter Property="Background" Value="#7163ba"/>
+        <Setter Property="Background" Value="#735F32"/>
         <Setter Property="Margin" Value="0.5"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="1" BorderBrush="#aea6d8">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="1" BorderBrush="#50577A">
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#7163ba"/>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#735F32"/>
                         </Border.Effect>
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
@@ -50,13 +50,20 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#5a5080"/>
+                <Setter Property="Background" Value="#856e3a"/>
             </Trigger>
         </Style.Triggers>
     </Style>
     <!--#endregion-->
 
     <!--#region  Страница главного меню-->
+    <!--Заглавная картинка-->
+    <Style x:Key="mainMenuImage" TargetType="Image">
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="OpacityMask" Value="#a49e97"/>
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="400"/>
+    </Style>
     <!--кнопки-->
     <Style x:Key="mainMenuButton"  TargetType="Button" BasedOn="{StaticResource button}">
         <Setter Property="Height" Value="40"/>
@@ -70,7 +77,7 @@
     <!--внешняя рамка секции-->
     <Style x:Key="gs_LeftSection_MainBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Background" Value="#7163ba"/>
+        <Setter Property="Background" Value="#735F32"/>
     </Style>
 
     <!--кнопки-->
@@ -92,7 +99,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#5a5080"/>
+                <Setter Property="Background" Value="#856e3a"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -103,7 +110,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderThickness="1" BorderBrush="#8a7fc7">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderThickness="1" BorderBrush="#50577A">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
@@ -113,14 +120,14 @@
 
     <!--иконки на кпонках-->
     <Style x:Key="gs_LeftSection_ButtonIcon" TargetType="Icon:PackIconMaterial">
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
         <Setter Property="Width" Value="25"/>
         <Setter Property="Height" Value="25"/>
     </Style>
 
     <!--сепаратор между кнопками-->
     <Style x:Key="gs_LeftSection_Separator" TargetType="Separator">
-        <Setter Property="Background" Value="#877cc5"/>
+        <Setter Property="Background" Value="#50577A"/>
         <Setter Property="Height" Value="0.8"/>
     </Style>
     <!--#endregion-->
@@ -129,13 +136,13 @@
     <!--#region блок титульного текста-->
     <!--маленький текстовый блок-->
     <Style x:Key="gs_MainSection_SmallTitleText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#797295"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
         <Setter Property="FontSize" Value="13"/>
     </Style>
 
     <!--крупный текстовый блок-->
     <Style x:Key="gs_MainSection_BigTitleText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#000000"/>
+        <Setter Property="Foreground" Value="#d4d1ce"/>
     </Style>
     <!--#endregion-->
 
@@ -151,6 +158,7 @@
     <Style x:Key="gs_MainSection_CashIcon" TargetType="Icon:PackIconFontAwesome">
         <Setter Property="Width" Value="20"/>
         <Setter Property="Height" Value="40"/>
+        <Setter Property="Foreground" Value="#a49e97"/>
     </Style>
 
     <!--текст со значением наличных-->
@@ -158,6 +166,7 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#a49e97"/>
     </Style>
 
     <!--круг для аватарки-->
@@ -166,14 +175,16 @@
         <Setter Property="Height" Value="45"/>
         <Setter Property="Margin" Value="15, 0, 7, 0"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="OpacityMask" Value="#a49e97"/>
     </Style>
     <!--#endregion-->
 
     <!--#region большой блок-->
     <!--внешняя рамка блока-->
     <LinearGradientBrush x:Key="gs_MainSection_BigBlockBorderBackground" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#645dac" Offset="0"/>
-        <GradientStop Color="#54479c" Offset="1.2"/>
+        <GradientStop Color="#735F32" Offset="0"/>
+        <GradientStop Color="#856e3a" Offset="1.2"/>
     </LinearGradientBrush>
     <Style x:Key="gs_MainSection_BigBlockBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="30"/>
@@ -183,9 +194,9 @@
     <!--верхняя часть блока-->
     <!--рамка верхней части блока-->
     <Style x:Key="gs_MainSection_BigBlockTopBorder" TargetType="Border">
-        <Setter Property="Background" Value="#6e60b5"/>
+        <Setter Property="Background" Value="#735F32"/>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="BorderBrush" Value="#8276c8"/>
+        <Setter Property="BorderBrush" Value="#50577A"/>
         <Setter Property="CornerRadius" Value="30"/>
         <Setter Property="Margin" Value="0, 0, 0, -10"/>
     </Style>
@@ -200,15 +211,15 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#6e60b5"/>
-                <Setter Property="BorderBrush" Value="#8276c8" />
+                <Setter Property="Background" Value="#735F32"/>
+                <Setter Property="BorderBrush" Value="#50577A" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!--текст в блоке-->
     <Style x:Key="gs_MainSection_BigBlockTextBig" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
@@ -218,7 +229,7 @@
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
     <Style x:Key="gs_MainSection_BigBlockTextSmall" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#b1abd1"/>
+        <Setter Property="Foreground" Value="#c5ae79"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
     <!--#endregion-->
@@ -227,15 +238,15 @@
     <!--рамка блока-->
     <Style x:Key="gs_MainSection_AccentBlockBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Background" Value="#e95e89"/>
+        <Setter Property="Background" Value="#325673"/>
     </Style>
     <!--заголовок блока-->
     <Style x:Key="gs_MainSection_AccentBlockHeaderBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Background" Value="#fd91b3"/>
+        <Setter Property="Background" Value="#2a4961"/>
         <Setter Property="VerticalAlignment" Value="top"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#fc9cba" />
+        <Setter Property="BorderBrush" Value="#2a4061" />
     </Style>
     <Style x:Key="gs_MainSection_AccentBlockHeaderPanel" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
@@ -243,20 +254,20 @@
 
     <!--иконка в заголовке-->
     <Style x:Key="gs_MainSection_AccentBlockHeaderIconBorder" TargetType="Border">
-        <Setter Property="Background" Value="#feaec7"/>
+        <Setter Property="Background" Value="#325673"/>
         <Setter Property="CornerRadius" Value="25"/>
         <Setter Property="Width" Value="70"/>
         <Setter Property="Height" Value="70"/>
         <Setter Property="Margin" Value="20"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#fec5d6"/>
+        <Setter Property="BorderBrush" Value="#2a4061"/>
     </Style>
     <Style x:Key="gs_MainSection_AccentBlockHeaderIcon" TargetType="Icon:PackIconMaterial">
         <Setter Property="Width" Value="35"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
     </Style>
 
     <!--Текст заголовка-->
@@ -264,7 +275,7 @@
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
     </Style>
 
     <!--Тело блока-->
@@ -273,7 +284,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style x:Key="gs_MainSection_AccentBlockBodyText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
 
     </Style>
 
@@ -283,33 +294,33 @@
     <!--рамка блока-->
     <Style x:Key="gs_MainSection_MiddleBlockBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="30"/>
-        <Setter Property="Background" Value="#7163ba"/>
+        <Setter Property="Background" Value="#735F32"/>
     </Style>
     <Style x:Key="gs_MainSection_MiddleBlockPanel" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
     </Style>
     <!--иконка блока-->
     <Style x:Key="gs_MainSection_MiddleBlockIconBorder" TargetType="Border">
-        <Setter Property="Background" Value="#8d82c8"/>
+        <Setter Property="Background" Value="#856e3a"/>
         <Setter Property="CornerRadius" Value="22"/>
         <Setter Property="Width" Value="70"/>
         <Setter Property="Height" Value="70"/>
         <Setter Property="Margin" Value="17"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#aea6d8"/>
+        <Setter Property="BorderBrush" Value="#50577A"/>
     </Style>
     <Style x:Key="gs_MainSection_MiddleBlockIcon" TargetType="Icon:PackIconMaterial">
         <Setter Property="Width" Value="35"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
     </Style>
     <!--текст блока-->
     <Style x:Key="gs_MainSection_MiddleBlockText" TargetType="TextBlock">
         <Setter Property="FontSize" Value="28"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
@@ -319,7 +330,7 @@
     <!--заголовок блока-->
     <Style x:Key="gs_MainSection_SmallBlockHeader" TargetType="Border">
         <Setter Property="CornerRadius" Value="20"/>
-        <Setter Property="Background" Value="#7163ba"/>
+        <Setter Property="Background" Value="#735F32"/>
         <Setter Property="Width" Value="60"/>
         <Setter Property="Height" Value="68" />
         <Setter Property="VerticalAlignment" Value="top"/>
@@ -327,7 +338,7 @@
         <Setter Property="Panel.ZIndex" Value="1"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#7163ba"/>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#735F32"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -336,7 +347,7 @@
     <Style x:Key="gs_MainSection_SmallBlockHeaderIcon" TargetType="Icon:PackIconMaterial">
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#a49e97"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
@@ -344,7 +355,7 @@
     <!--тело блока-->
     <!--панель тела блока-->
     <Style x:Key="gs_MainSection_SmallBlockBodyPanel" TargetType="Border">
-        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Background" Value="#a49e97"/>
         <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="Padding" Value="10"/>
     </Style>
@@ -355,7 +366,7 @@
     <!--#region правая секция с индикаторами-->
     <!--внешняя рамка секции-->
     <Style x:Key="gs_RightSection_Border" TargetType="Border">
-        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Background" Value="#6B728E"/>
         <Setter Property="CornerRadius" Value="0 40 40 0" />
     </Style>
 
@@ -394,19 +405,18 @@
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Height" Value="21"/>
+        <Setter Property="Foreground" Value="#a49e97"/>
     </Style>
 
     <!--сепаратор-->
     <Style x:Key="gs_RightSection_Separator" TargetType="Separator">
-        <Setter Property="Background" Value="#cfd5e5"/>
+        <Setter Property="Background" Value="#404258"/>
         <Setter Property="Height" Value="0.8"/>
     </Style>
 
     <!--круговой индикатор здоровья-->
     <LinearGradientBrush x:Key="gs_RightSection_ProtagonistHealthGaugeBackground">
-        <GradientStop Color="#877eb9" Offset="0.0" />
-        <GradientStop Color="#8d82c8" Offset="0.5" />
-        <GradientStop Color="#54479c" Offset="1.0" />
+        <GradientStop Color="#735F32" Offset="1.0" />
     </LinearGradientBrush>
 
     <Style x:Key="gs_RightSection_ProtagonistHealthGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
@@ -425,9 +435,7 @@
 
     <!--круговой индикатор усатости-->
     <LinearGradientBrush x:Key="gs_RightSection_ProtagonistMustacheGaugeBackground">
-        <GradientStop Color="#8bef9e" Offset="0.0" />
-        <GradientStop Color="#74ec8c" Offset="0.5" />
-        <GradientStop Color="#48e666" Offset="1.0" />
+        <GradientStop Color="#32734f" Offset="1.0" />
     </LinearGradientBrush>
 
     <Style x:Key="gs_RightSection_ProtagonistMustacheGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
@@ -446,9 +454,7 @@
 
     <!--круговой индикатор полосатости-->
     <LinearGradientBrush x:Key="gs_RightSection_ProtagonistBandingGaugeBackground">
-        <GradientStop Color="#ef8baa" Offset="0.0" />
-        <GradientStop Color="#ec7499" Offset="0.5" />
-        <GradientStop Color="#e95e89" Offset="1.0" />
+        <GradientStop Color="#733256" Offset="1.0" />
     </LinearGradientBrush>
 
     <Style x:Key="gs_RightSection_ProtagonistBandingGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
@@ -467,9 +473,7 @@
 
     <!--круговой индикатор настроения-->
     <LinearGradientBrush x:Key="gs_RightSection_ProtagonistMoodGaugeBackground">
-        <GradientStop Color="#ecc874" Offset="0.0" />
-        <GradientStop Color="#e9bf5e" Offset="0.5" />
-        <GradientStop Color="#e6b648" Offset="1.0" />
+        <GradientStop Color="#325673" Offset="1.0" />
     </LinearGradientBrush>
 
     <Style x:Key="gs_RightSection_ProtagonistMoodGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
@@ -487,7 +491,7 @@
     </Style>
 
     <!--панель с текущей игровой датой-->
-    <Style x:Key="gs_RightSection_Panel" TargetType="StackPanel">
+    <Style x:Key="gs_RightSection_ClockPanel" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -501,13 +505,14 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Height" Value="40" />
         <Setter Property="Width" Value="30" />
-        <Setter Property="Foreground" Value="#478f9c" />
+        <Setter Property="Foreground" Value="#567332" />
     </Style>
 
     <!--текст текущей игровой даты-->
     <Style x:Key="gs_RightSection_Date" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="#a49e97"/>
     </Style>
     <!--#endregion-->
 
@@ -515,7 +520,7 @@
     <!--#region заглавная иконка-->
     <Style x:Key="gs_DialogWindow_TopIconBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="20"/>
-        <Setter Property="Background" Value="#7163ba"/>
+        <Setter Property="Background" Value="#735F32"/>
         <Setter Property="Width" Value="60"/>
         <Setter Property="Height" Value="68"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -523,7 +528,7 @@
         <Setter Property="Panel.ZIndex" Value="1"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Direction="270" Color="#7163ba"/>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Direction="270" Color="#735F32"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -531,7 +536,7 @@
     <Style x:Key="gs_DialogWindow_TopIcon" TargetType="Icon:PackIconMaterial">
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#c8c4c0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
@@ -541,14 +546,14 @@
     <!--рамка окна-->
     <Style x:Key="gs_DialogWindow_BodyBorder" TargetType="Border">
         <Setter Property="Margin" Value="5, -35, 5, 5"/>
-        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Background" Value="#c8c4c0"/>
         <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#7163ba"/>
+        <Setter Property="BorderBrush" Value="#735F32"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Direction="270" Color="#7163ba"/>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Direction="270" Color="#735F32"/>
             </Setter.Value>
         </Setter>
 

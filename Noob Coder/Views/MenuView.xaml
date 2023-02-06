@@ -13,7 +13,7 @@
             <RowDefinition />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <Image x:Name="Logo" Grid.Column="1" Height="400" Width="400" Source="{Binding LogoImagePath}"/>
+        <Image x:Name="Logo" Grid.Column="1" Style="{StaticResource mainMenuImage}" Source="{Binding LogoImagePath}"/>
         
         <!--кнопка продолжения игры-->
         <Button x:Name="ResumeGameMenuButton"

@@ -57,6 +57,11 @@
     <!--#endregion-->
 
     <!--#region  Страница главного меню-->
+    <!--Заглавная картинка-->
+    <Style x:Key="mainMenuImage" TargetType="Image">
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="400"/>
+    </Style>
     <!--кнопки-->
     <Style x:Key="mainMenuButton"  TargetType="Button" BasedOn="{StaticResource button}">
         <Setter Property="Height" Value="40"/>
@@ -487,7 +492,7 @@
     </Style>
 
     <!--панель с текущей игровой датой-->
-    <Style x:Key="gs_RightSection_Panel" TargetType="StackPanel">
+    <Style x:Key="gs_RightSection_ClockPanel" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center" />

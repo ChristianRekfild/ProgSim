@@ -41,16 +41,16 @@
             <TextBlock Text="Настроение" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
             <!--#endregion-->
            
-            <Separator Background="#cfd5e5" Margin="10 0 10 10" Height="0.8"/>
+            <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
 
            <!--#region текущая игровая дата-->
-            <StackPanel Style="{StaticResource gs_RightSection_Panel}" />
-            <Icon:PackIconMaterial Kind="ClockOutline" Style="{StaticResource gs_RightSection_ClockIcon}" />
-            <StackPanel Margin="10 0 0 0">
-                <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:M}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}"  />
-                <TextBlock  TextWrapping="Wrap" Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
+            <StackPanel Style="{StaticResource gs_RightSection_ClockPanel}"  >
+                <Icon:PackIconMaterial Kind="ClockOutline" Style="{StaticResource gs_RightSection_ClockIcon}"/>
+                <StackPanel Margin="10 0 0 0">
+                    <TextBlock  Text="{Binding GameDate, StringFormat={}{0:M}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
+                    <TextBlock  Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
+                </StackPanel>
             </StackPanel>
-
             <!--#endregion-->
         </StackPanel>
     </Border>
