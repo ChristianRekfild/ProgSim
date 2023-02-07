@@ -49,7 +49,7 @@
         <!--#endregion-->
 
         <!--#region малый блок-->
-        <Grid  Margin="8 0 0 50" Grid.Row="1" Grid.Column="1">
+        <Grid  Margin="8 30 0 50" Grid.Row="1" Grid.Column="1">
             <!--заголовок блока-->
             <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
                 <Icon:PackIconMaterial Kind="Billiards" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
@@ -64,7 +64,7 @@
         <!--#endregion-->
 
         <!--#region малый блок-->
-        <Grid  Margin="8 0 0 50" Grid.Row="1" Grid.Column="2">
+        <Grid  Margin="8 30 0 50" Grid.Row="1" Grid.Column="2">
             <!--заголовок блока-->
             <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
                 <Icon:PackIconMaterial Kind="Curtains" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />

@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             xmlns:uc="clr-namespace:Noob_Coder.Views.GameSceneElements"         
+             xmlns:uc="clr-namespace:Noob_Coder.Views.GameSceneElements"      
+   
 >
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,6 +16,20 @@
 
         <!--#region левая секция с кнопками-->
         <Grid x:Name="leftSection" Grid.Column="0">
+            <!--#region анимация появления-->
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.Target="{x:Reference leftSection}" Storyboard.TargetProperty="Margin">
+                                <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0, 0, 140, 0"/>
+                                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="0, 0, 0, 0" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+            <!--#endregion-->
             <Border Style="{StaticResource gs_LeftSection_MainBorder}" Margin="20">
                 <Grid>
                     <StackPanel>
@@ -27,6 +42,14 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.Target="{x:Reference SectionMain}" Storyboard.TargetProperty="Visibility">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
                                             </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames  Storyboard.Target="{x:Reference SectionMain}" Storyboard.TargetProperty="Margin">
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0, 720, 0, 0"/>
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0, 0, 0, 0" />
+                                            </ThicknessAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
                                     <BeginStoryboard>
@@ -78,6 +101,14 @@
                                     </BeginStoryboard>
                                     <BeginStoryboard>
                                         <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames  Storyboard.Target="{x:Reference SectionProperty}" Storyboard.TargetProperty="Margin">
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0, 720, 0, 0"/>
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0, 0, 0, 0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    <BeginStoryboard>
+                                        <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.Target="{x:Reference SectionEducation}" Storyboard.TargetProperty="Visibility">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}"/>
                                             </ObjectAnimationUsingKeyFrames>
@@ -119,6 +150,14 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.Target="{x:Reference SectionEducation}" Storyboard.TargetProperty="Visibility">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
                                             </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames  Storyboard.Target="{x:Reference SectionEducation}" Storyboard.TargetProperty="Margin">
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0, 720, 0, 0"/>
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0, 0, 0, 0" />
+                                            </ThicknessAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
                                     <BeginStoryboard>
@@ -166,6 +205,14 @@
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames  Storyboard.Target="{x:Reference SectionFinance}" Storyboard.TargetProperty="Margin">
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0, 720, 0, 0"/>
+                                                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0, 0, 0, 0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
                             <!--#endregion-->
@@ -181,7 +228,7 @@
                         <Button x:Name="gs_LeftSection_LoadButton" Style="{StaticResource gs_LeftSection_Button}">
                             <Icon:PackIconMaterial Kind="UploadOutline" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
-                        
+
                         <Separator Style="{StaticResource gs_LeftSection_Separator}" Margin="20 0 20 10"/>
 
                         <Button x:Name="gs_LeftSection_ExitButton" Style="{StaticResource gs_LeftSection_Button}" Command="{Binding NavigateMenuCommand}">
@@ -193,18 +240,57 @@
             </Border>
         </Grid>
         <!--#endregion-->
-        
+
         <!--#region основная секция-->
-        <Grid x:Name="SectionMain" Grid.Column="1" Visibility="Visible"><uc:SectionMain Margin="0,0,0,20" /></Grid>
-        <Grid x:Name="SectionProperty" Grid.Column="1" Visibility="Hidden"><uc:SectionProperty Margin="0,0,0,20" /></Grid>
-        <Grid x:Name="SectionEducation" Grid.Column="1" Visibility="Hidden"><uc:SectionEducation Margin="0,0,0,20" /></Grid>
-        <Grid x:Name="SectionFinance" Grid.Column="1" Visibility="Hidden"><uc:SectionFinance Margin="0,0,0,20" /></Grid>
+        <Grid x:Name="SectionMain" Grid.Column="1" Visibility="Visible">
+            <uc:SectionMain Margin="0,0,0,20" />
+        </Grid>
+        <Grid x:Name="SectionProperty" Grid.Column="1" Visibility="Hidden">
+            <uc:SectionProperty Margin="0,0,0,20" />
+        </Grid>
+        <Grid x:Name="SectionEducation" Grid.Column="1" Visibility="Hidden">
+            <uc:SectionEducation Margin="0,0,0,20" />
+        </Grid>
+        <Grid x:Name="SectionFinance" Grid.Column="1" Visibility="Hidden">
+            <uc:SectionFinance Margin="0,0,0,20" />
+        </Grid>
         <!--#endregion-->
-        
+
         <!--#region правая секция с индикаторами-->
-        <Grid x:Name="RightSecrion" Grid.Column="2"><uc:RightSection Margin="20,0,0,0"/></Grid>
+        <Grid x:Name="RightSecrion" Grid.Column="2" Visibility="Hidden">
+            <Grid.Resources>
+                <PathGeometry x:Key="RightSecrionAnimationPath" Figures="M 0,0 L 350,0 Z" />
+            </Grid.Resources>
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="RightSecrionAnimatedTranslateTransform" X="0" />
+            </Grid.RenderTransform>
+            <!--#region анимация появления-->
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.Target="{x:Reference RightSecrion}" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingPath
+                                Storyboard.TargetName="RightSecrionAnimatedTranslateTransform"
+                                Storyboard.TargetProperty="X"
+                                PathGeometry="{StaticResource RightSecrionAnimationPath}"
+                                Source="X" 
+                                Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+            <!--#endregion-->
+            <uc:RightSection Margin="20,0,0,0"/>
+        </Grid>
         <!--#endregion-->
-        
+
     </Grid>
 
 </UserControl>

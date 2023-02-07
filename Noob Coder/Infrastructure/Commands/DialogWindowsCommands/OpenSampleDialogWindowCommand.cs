@@ -32,6 +32,6 @@ namespace Noob_Coder.Infrastructure.Commands
             SampleDialog.DataContext = _navigationStore.CurrentViewModel;
             SampleDialog.ShowDialog();
             mainWindow.Effect = null;
-        При}
+        }
     }
 }

@@ -35,9 +35,9 @@
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
 
             <!--#region  индикатор настроения-->
-            <lvc:Gauge x:Name="ProtagonistHappyGauge" Style="{StaticResource gs_RightSection_ProtagonistMoodGauge}" Value="{Binding Protagonist.Mood}" />
+            <lvc:Gauge x:Name="ProtagonistMoodGauge" Style="{StaticResource gs_RightSection_ProtagonistMoodGauge}" Value="{Binding Protagonist.Mood}" />
             <Icon:PackIconMaterial Kind="RobotHappy" Style="{StaticResource gs_RightSection_ProtagonistMoodIcon}" />
-            <TextBlock Text="{Binding ElementName=ProtagonistHappyGauge, Path=Value, StringFormat={}{0:0}}" Style ="{StaticResource gs_RightSection_ProtagonistMoodGaugeValue}"/>
+            <TextBlock Text="{Binding ElementName=ProtagonistMoodGauge, Path=Value, StringFormat={}{0:0}}" Style ="{StaticResource gs_RightSection_ProtagonistMoodGaugeValue}"/>
             <TextBlock Text="Настроение" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
             <!--#endregion-->
            
