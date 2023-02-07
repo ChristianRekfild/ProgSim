@@ -41,7 +41,40 @@
                             <StackPanel Margin="0 40 0 0">
                                 <!--#region индикатор здоровья-->
                                 <lvc:Gauge Uses360Mode="True" Height="200" Width="200" x:Name="ProtagonistHealthGauge" Style="{StaticResource gs_RightSection_ProtagonistHealthGauge}" Value="{Binding Protagonist.Health}" />
-                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource gs_RightSection_ProtagonistHealthIcon}" Margin="0 -130 0 0"/>
+                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource gs_RightSection_ProtagonistHealthIcon}" Margin="0 -130 0 0" RenderTransformOrigin="0.5,0.5">
+                                    <Icon:PackIconMaterial.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform x:Name="IconAnimatedScaleTransform"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform />
+                                        </TransformGroup>
+                                    </Icon:PackIconMaterial.RenderTransform>
+                                    <Icon:PackIconMaterial.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                                <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames
+                                                        Storyboard.TargetName="IconAnimatedScaleTransform"
+                                                        Storyboard.TargetProperty="ScaleX"
+                                                        RepeatBehavior="Forever">
+                                                        <EasingDoubleKeyFrame Value="1.5" KeyTime="0:0:1"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames
+                                                        Storyboard.TargetName="IconAnimatedScaleTransform"
+                                                        Storyboard.TargetProperty="ScaleY"
+                                                        RepeatBehavior="Forever">
+                                                        <EasingDoubleKeyFrame Value="1.5" KeyTime="0:0:1"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Icon:PackIconMaterial.Triggers>
+                                </Icon:PackIconMaterial>
                                 <TextBlock Text="{Binding Value, ElementName=ProtagonistHealthGauge, StringFormat=\{0:0\}}" Style="{StaticResource gs_RightSection_ProtagonistHealthGaugeValue}" Margin="0 -100 0 0" />
                                 <Button Style="{StaticResource button}"  Content="Подлечиться +20" Command="{Binding AddProtagonistHealth20Command}" CommandParameter="{Binding Protagonist}" Margin="0 20 0 0"/>
                                 <!--#endregion-->
