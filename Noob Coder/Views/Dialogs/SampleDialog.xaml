@@ -9,7 +9,6 @@
         xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         Title ="{Binding Title}">
-    
     <Grid MouseDown="SampleDialogWindow_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -31,24 +30,31 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                
+
                 <Grid Grid.Row="0">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="top" Height="150">
-                        <TextBlock TextWrapping="Wrap" Text="Заголовок окна" FontSize="36"  />
-                    </Grid>                
+                        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="top" >
+                            <StackPanel Margin="0 40 0 0">
+                                <!--#region индикатор здоровья-->
+                                <lvc:Gauge Uses360Mode="True" Height="200" Width="200" x:Name="ProtagonistHealthGauge" Style="{StaticResource gs_RightSection_ProtagonistHealthGauge}" Value="{Binding Protagonist.Health}" />
+                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource gs_RightSection_ProtagonistHealthIcon}" Margin="0 -130 0 0"/>
+                                <TextBlock Text="{Binding Value, ElementName=ProtagonistHealthGauge, StringFormat=\{0:0\}}" Style="{StaticResource gs_RightSection_ProtagonistHealthGaugeValue}" Margin="0 -100 0 0" />
+                                <Button Style="{StaticResource button}"  Content="Подлечиться +20" Command="{Binding AddProtagonistHealth20Command}" CommandParameter="{Binding Protagonist}" Margin="0 20 0 0"/>
+                                <!--#endregion-->
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <!--#region кнопки управления-->
-            <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0">
-                <Button Style="{StaticResource button}" IsDefault="True" Width="110" Margin="0,0,10,0">Применить</Button>
-                <Button Style="{StaticResource button}" IsCancel="True" Width="110">Закрыть</Button>
-            </WrapPanel>
-        <!--#endregion-->
+                <!--#region кнопки управления-->
+                <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0">
+                    <Button Style="{StaticResource button}" IsDefault="True" Width="110" Margin="0,0,10,0">Применить</Button>
+                    <Button Style="{StaticResource button}" IsCancel="True" Width="110">Закрыть</Button>
+                </WrapPanel>
+                <!--#endregion-->
             </Grid>
         </Border>
         <!--#endregion-->

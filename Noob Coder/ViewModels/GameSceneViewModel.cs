@@ -95,7 +95,7 @@ namespace Noob_Coder.ViewModels
             /// Создание навигационных команд.
             /// </summary>
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
-            OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand();
+            OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand(navigationStore);
 
   
             /// <summary>
