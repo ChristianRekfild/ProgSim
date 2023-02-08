@@ -17,19 +17,19 @@
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
 
             <!--#region индикатор усатости-->
-            <lvc:Gauge x:Name="ProtagonistMustacheGauge" Style="{StaticResource gs_RightSection_ProtagonistMustacheGauge}" Value="{Binding Protagonist.Mustache}" />
-            <Icon:PackIconMaterial Kind="Mustache" Style="{StaticResource gs_RightSection_ProtagonistMustacheIcon}" />
-            <TextBlock Text="{Binding ElementName=ProtagonistMustacheGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistMustacheGaugeValue}" />
-            <TextBlock Text="{Binding UserSettings.UserInterface.Mustache}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
+            <lvc:Gauge x:Name="ProtagonistStaminaGauge" Style="{StaticResource gs_RightSection_ProtagonistStaminaGauge}" Value="{Binding Protagonist.Stamina}" />
+            <Icon:PackIconMaterial Kind="Flash" Style="{StaticResource gs_RightSection_ProtagonistStaminaIcon}" />
+            <TextBlock Text="{Binding ElementName=ProtagonistStaminaGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistStaminaGaugeValue}" />
+            <TextBlock Text="{Binding UserSettings.UserInterface.Stamina}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
             <!--#endregion-->
            
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10" />
 
            <!--#region индикатор полосатости-->
-            <lvc:Gauge x:Name="ProtagonistBandingGauge" Style="{StaticResource gs_RightSection_ProtagonistBandingGauge}" Value="79" />
-            <Icon:PackIconMaterial Kind="Cat" Style="{StaticResource gs_RightSection_ProtagonistBandingIcon}" />
-            <TextBlock Text="{Binding ElementName=ProtagonistBandingGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistBandingGaugeValue}" />
-            <TextBlock Text="Полосатость" Style="{StaticResource gs_RightSection_GaugeTitle}" />
+            <lvc:Gauge x:Name="ProtagonistAppearanceGauge" Style="{StaticResource gs_RightSection_ProtagonistAppearanceGauge}" Value="{Binding Protagonist.Appearance}" />
+            <Icon:PackIconMaterial Kind="Shower" Style="{StaticResource gs_RightSection_ProtagonistAppearanceIcon}" />
+            <TextBlock Text="{Binding ElementName=ProtagonistAppearanceGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistAppearanceGaugeValue}" />
+            <TextBlock Text="{Binding UserSettings.UserInterface.Appearance}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
             <!--#endregion-->
                       
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
@@ -38,9 +38,9 @@
             <lvc:Gauge x:Name="ProtagonistMoodGauge" Style="{StaticResource gs_RightSection_ProtagonistMoodGauge}" Value="{Binding Protagonist.Mood}" />
             <Icon:PackIconMaterial Kind="RobotHappy" Style="{StaticResource gs_RightSection_ProtagonistMoodIcon}" />
             <TextBlock Text="{Binding ElementName=ProtagonistMoodGauge, Path=Value, StringFormat={}{0:0}}" Style ="{StaticResource gs_RightSection_ProtagonistMoodGaugeValue}"/>
-            <TextBlock Text="Настроение" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
+            <TextBlock Text="{Binding UserSettings.UserInterface.Mood}" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
             <!--#endregion-->
-           
+
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
 
            <!--#region текущая игровая дата-->
@@ -51,6 +51,9 @@
                     <TextBlock  Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
                 </StackPanel>
             </StackPanel>
+            <!--#region пустой индикатор, необходим для корректного отображения, лютейший костыть TODO Срочно переделать-->
+            <lvc:Gauge  Value="0" Visibility="Hidden" Height="0" Width="0" />
+            <!--#endregion-->
             <!--#endregion-->
         </StackPanel>
     </Border>

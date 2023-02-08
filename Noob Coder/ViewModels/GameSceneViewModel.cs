@@ -130,7 +130,7 @@ namespace Noob_Coder.ViewModels
             {
                // Task.Yield();
                 await Task.Delay(1000);
-                Protagonist.AnowerFuckingDay(); //проживаем один день
+                Protagonist.AnotherFuckingDay(); //проживаем один день
                 if (!Protagonist.IsNotDie()) System.Windows.Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
 
                 GameDate = _gameDate.AddDays(1);

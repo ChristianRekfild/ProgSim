@@ -28,14 +28,17 @@ namespace Noob_Coder.Models
             ExitButtonName = "Выход";
             #endregion
 
-            #region
+            
             GSTabItemMain = "Главная";
             GSTabItemProperty = "Имущество";
             GSTabItemEducation = "Образование";
             GSTabItemFinance = "Финансы";
-
+           
+            #region индикаторы
             Health = "Здоровье";
-            Mustache = "Усатость";
+            Stamina = "Усталость";
+            Appearance = "Опрятность";
+            Mood = "Настроение";
             #endregion
 
             #region SettingMenu

@@ -113,10 +113,10 @@
                 <StackPanel  Style="{StaticResource gs_MainSection_MiddleBlockPanel}">
                     <!--иконка блока-->
                     <Border Style="{StaticResource gs_MainSection_MiddleBlockIconBorder}">
-                        <Icon:PackIconMaterial Kind="Duck" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
+                        <Icon:PackIconMaterial Kind="HammerScrewdriver" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
                     </Border>
                     <!--текст блока-->
-                    <TextBlock Text="Duck?" Style="{StaticResource gs_MainSection_MiddleBlockText}"/>
+                    <TextBlock Text="Work" Style="{StaticResource gs_MainSection_MiddleBlockText}"/>
                 </StackPanel>
             </Border>
             <!--#endregion-->

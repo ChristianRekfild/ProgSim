@@ -429,45 +429,45 @@
     </Style>
 
     <!--круговой индикатор усатости-->
-    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistMustacheGaugeBackground">
+    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistStaminaGaugeBackground">
         <GradientStop Color="#8bef9e" Offset="0.0" />
         <GradientStop Color="#74ec8c" Offset="0.5" />
         <GradientStop Color="#48e666" Offset="1.0" />
     </LinearGradientBrush>
 
-    <Style x:Key="gs_RightSection_ProtagonistMustacheGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
-        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistMustacheGaugeBackground}"/>
+    <Style x:Key="gs_RightSection_ProtagonistStaminaGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
+        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistStaminaGaugeBackground}"/>
     </Style>
 
     <!--икнока индикатора усатости-->
-    <Style x:Key="gs_RightSection_ProtagonistMustacheIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
-        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistMustacheGaugeBackground}"/>
+    <Style x:Key="gs_RightSection_ProtagonistStaminaIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistStaminaGaugeBackground}"/>
     </Style>
 
     <!--значение индикатора усатости-->
-    <Style x:Key="gs_RightSection_ProtagonistMustacheGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
-        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistMustacheGaugeBackground}" />
+    <Style x:Key="gs_RightSection_ProtagonistStaminaGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistStaminaGaugeBackground}" />
     </Style>
 
     <!--круговой индикатор полосатости-->
-    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistBandingGaugeBackground">
+    <LinearGradientBrush x:Key="gs_RightSection_ProtagonistAppearanceGaugeBackground">
         <GradientStop Color="#ef8baa" Offset="0.0" />
         <GradientStop Color="#ec7499" Offset="0.5" />
         <GradientStop Color="#e95e89" Offset="1.0" />
     </LinearGradientBrush>
 
-    <Style x:Key="gs_RightSection_ProtagonistBandingGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
-        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistBandingGaugeBackground}"/>
+    <Style x:Key="gs_RightSection_ProtagonistAppearanceGauge" TargetType="lvc:Gauge" BasedOn="{StaticResource gs_RightSection_Gauge}">
+        <Setter Property="GaugeActiveFill" Value="{StaticResource gs_RightSection_ProtagonistAppearanceGaugeBackground}"/>
     </Style>
 
     <!--икнока индикатора полосатости-->
-    <Style x:Key="gs_RightSection_ProtagonistBandingIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
-        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistBandingGaugeBackground}"/>
+    <Style x:Key="gs_RightSection_ProtagonistAppearanceIcon" TargetType="Icon:PackIconMaterial" BasedOn="{StaticResource gs_RightSection_Icon}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistAppearanceGaugeBackground}"/>
     </Style>
 
     <!--значение индикатора полосатости-->
-    <Style x:Key="gs_RightSection_ProtagonistBandingGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
-        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistBandingGaugeBackground}" />
+    <Style x:Key="gs_RightSection_ProtagonistAppearanceGaugeValue" TargetType="TextBlock" BasedOn="{StaticResource gs_RightSection_GaugeValue}">
+        <Setter Property="Foreground" Value="{StaticResource gs_RightSection_ProtagonistAppearanceGaugeBackground}" />
     </Style>
 
     <!--круговой индикатор настроения-->
