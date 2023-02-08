@@ -16,11 +16,11 @@ namespace Noob_Coder.Models
     {
         #region Свойства
 
-        private WorkNames _name;
+        private string _name;
         /// <summary>
         /// Название работы
         /// </summary>
-        public WorkNames Name
+        public string Name
         {
             get => _name;
             set => SetField(ref _name, value);
@@ -35,7 +35,6 @@ namespace Noob_Coder.Models
         {
             get => _companyName;
             set => SetField(ref _companyName, value);
-
         }
 
         private bool _isSpecialized;
@@ -74,28 +73,48 @@ namespace Noob_Coder.Models
 
         #endregion
 
-        public Work()
+        public Work(Job job, Company company)
         {
-           
+          //this.Name = job.Name;
+          //this.Company = company.Name;
+          this.SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);
+         // this.PayDay = company.PayDay;
         }
 
+        private int SalaryCalculator (int minSalary, int maxSalary, double coefficient)
+        {
+            double result = new double();
+            Random rnd = new Random();
+            result = rnd.Next(minSalary, maxSalary);
+            result = result * coefficient;
+            return Convert.ToInt32(result);
+        }
 
     }
 
-    enum WorkNames
+    enum Jobs
     {
         loader,
         seller,
         worker,
         courier,
         animator,
+        cleaner,
         intern,
         junior,
         middle,
         senior,
-        lead
+        lead,
     }
     
-    
+    enum Companies
+    {
+        minimarket,
+        supermarket,
+        zoo,
+        smallITcompany,
+        mediumITcompany,
+        bigItCompany
+    }
 
 }
