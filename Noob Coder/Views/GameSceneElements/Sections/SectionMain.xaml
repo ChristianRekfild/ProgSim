@@ -46,7 +46,7 @@
             </Ellipse>
         </Grid>
         <!--#endregion-->
-        
+
         <!--#region большой блок-->
         <Border Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource gs_MainSection_BigBlockBorder}" Margin="0 0 20 50">
             <Grid>
@@ -100,7 +100,7 @@
             </Grid>
         </Border>
         <!--#endregion-->
-        
+
 
         <Grid Grid.Column="2" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -108,27 +108,40 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-        <!--region средний блок-->
+            <!--region средний блок-->
             <Border Style="{StaticResource gs_MainSection_MiddleBlockBorder}">
+                
                 <StackPanel  Style="{StaticResource gs_MainSection_MiddleBlockPanel}">
                     <!--иконка блока-->
-                    <Border Style="{StaticResource gs_MainSection_MiddleBlockIconBorder}">
+
+
+                    <Button x:Name="gs_LeftSection_PropertySectionButton" Style="{StaticResource gs_MainSection_MiddleBlockIconButton}"
+                            Command="{Binding OpenSearchWorkDialogWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
                         <Icon:PackIconMaterial Kind="HammerScrewdriver" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
-                    </Border>
+                    </Button>
+
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="текущая работа"  FontSize="14" Foreground="#FFC8C4C0"/>
+                        <StackPanel Orientation="Horizontal" MaxWidth="160" ClipToBounds="True">
+                            <TextBlock TextWrapping="WrapWithOverflow" MaxWidth="150" Text="безработный"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                        </StackPanel>
+                        <Separator Style="{StaticResource gs_LeftSection_Separator}"/> 
+                        <TextBlock Text="подработка"  FontSize="14" Foreground="#FFC8C4C0"/>
+                        <TextBlock TextWrapping="WrapWithOverflow" Text="отсутсвутет"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                    </StackPanel>
                     <!--текст блока-->
-                    <TextBlock Text="Work" Style="{StaticResource gs_MainSection_MiddleBlockText}"/>
                 </StackPanel>
             </Border>
             <!--#endregion-->
 
-        <!--region акцентный блок-->
+            <!--region акцентный блок-->
             <Border Style="{StaticResource gs_MainSection_AccentBlockBorder}" Grid.Row="1" Margin="0 20 0 50">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <!--заголовок блока-->
                     <Border Style="{StaticResource gs_MainSection_AccentBlockHeaderBorder}">
                         <StackPanel Style="{StaticResource gs_MainSection_AccentBlockHeaderPanel}">
@@ -195,7 +208,7 @@
             <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
                 <Icon:PackIconMaterial Kind="Toilet" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
             </Border>
-            
+
             <!---тело блока-->
             <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
                 <StackPanel Margin="0 35 0 0">

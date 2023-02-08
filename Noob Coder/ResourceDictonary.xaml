@@ -303,6 +303,27 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="#aea6d8"/>
     </Style>
+    <Style x:Key="gs_MainSection_MiddleBlockIconButton" TargetType="Button">
+        <Setter Property="Background" Value="#8d82c8"/>
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="Margin" Value="17"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="22" BorderBrush="#aea6d8" BorderThickness="1">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#5a5080"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <Style x:Key="gs_MainSection_MiddleBlockIcon" TargetType="Icon:PackIconMaterial">
         <Setter Property="Width" Value="35"/>
         <Setter Property="Height" Value="35"/>

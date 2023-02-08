@@ -1,0 +1,57 @@
+﻿<Window x:Class="Noob_Coder.Views.SearchWorkDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodels="clr-namespace:Noob_Coder.ViewModels"
+        xmlns:views="clr-namespace:Noob_Coder.Views"
+        Background="Transparent" ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight" ShowInTaskbar="False"
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Title ="{Binding Title}">
+    <Grid MouseDown="SearchWorkDialog_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--region заглавная иконка-->
+        <Border Style="{StaticResource gs_DialogWindow_TopIconBorder}">
+            <Icon:PackIconMaterial Kind="HammerScrewdriver" Style="{StaticResource gs_DialogWindow_TopIcon}"/>
+        </Border>
+        <!--endregion-->
+        <!--#region тело окна-->
+        <Border Style="{StaticResource gs_DialogWindow_BodyBorder}" Grid.Row="1">
+            <Grid Margin="0 10 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="top" >
+                            <StackPanel Margin="0 40 0 0">
+                                <TextBlock Text="Окно поиска работы"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <!--#region кнопки управления-->
+                <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,10,0">
+                    <Button Style="{StaticResource button}" IsDefault="True" Width="110" Margin="0,0,10,0">Применить</Button>
+                    <Button Style="{StaticResource button}" IsCancel="True" Width="110">Закрыть</Button>
+                </WrapPanel>
+                <!--#endregion-->
+            </Grid>
+        </Border>
+        <!--#endregion-->
+    </Grid>
+</Window>

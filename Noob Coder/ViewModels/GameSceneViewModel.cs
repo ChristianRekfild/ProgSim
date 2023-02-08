@@ -74,6 +74,8 @@ namespace Noob_Coder.ViewModels
         public ICommand OpenSampleDialogWindowCommand { get; }
 
 
+        public ICommand OpenSearchWorkDialogWindowCommand { get;}
+
         /// <summary>
         /// Команда добавления здоровья главному герою.
         /// </summary>
@@ -96,8 +98,8 @@ namespace Noob_Coder.ViewModels
             /// </summary>
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
             OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand(navigationStore);
+            OpenSearchWorkDialogWindowCommand = new OpenSearchWorkDialogWindowCommand(navigationStore);
 
-  
             /// <summary>
             /// Создание нового главного героя игры.
             /// </summary>

@@ -62,6 +62,16 @@ namespace Noob_Coder.Models
 
         #endregion
 
+        private Work _currentWork;
+        /// <summary>
+        /// Текущая работа.
+        /// </summary>
+        private Work CurrentWork 
+        {
+            get => _currentWork;
+            set => SetField(ref _currentWork, value);
+        }
+
         private int _money;
         /// <summary>
         /// Наличные деньги.
