@@ -54,6 +54,24 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!--всплывающая подсказка (элемент tooltip)-->
+    <Style TargetType="ToolTip">
+        <Setter Property="Background" Value="#7163ba"/>
+        <Setter Property="Foreground" Value="#aea6d8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="1" BorderBrush="#aea6d8">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.3" Direction="270" Color="#7163ba"/>
+                        </Border.Effect>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
     <!--#endregion-->
 
     <!--#region  Страница главного меню-->

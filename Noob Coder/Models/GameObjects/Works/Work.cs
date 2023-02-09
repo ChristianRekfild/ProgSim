@@ -16,25 +16,25 @@ namespace Noob_Coder.Models
     {
         #region Свойства
 
-        private string _name;
+        private string _titleName;
         /// <summary>
         /// Название работы
         /// </summary>
-        public string Name
+        public string TitleName
         {
-            get => _name;
-            set => SetField(ref _name, value);
+            get => _titleName;
+            set => SetField(ref _titleName, value);
 
         }
 
-        private string _companyName;
+        private string _companyTitleName;
         /// <summary>
         /// Название компании
         /// </summary>
-        public string CompanyName
+        public string CompanyTitleName
         {
-            get => _companyName;
-            set => SetField(ref _companyName, value);
+            get => _companyTitleName;
+            set => SetField(ref _companyTitleName, value);
         }
 
         private bool _isSpecialized;
@@ -59,11 +59,11 @@ namespace Noob_Coder.Models
 
         }
 
-        private int _payDay;
+        private List<int> _payDay;
         /// <summary>
         /// День зарплаты.
         /// </summary>
-        public int PayDay
+        public List<int> PayDay
         {
             get => _payDay;
             set => SetField(ref _payDay, value);
@@ -75,10 +75,10 @@ namespace Noob_Coder.Models
 
         public Work(Job job, Company company)
         {
-          //this.Name = job.Name;
-          //this.Company = company.Name;
-          this.SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);
-         // this.PayDay = company.PayDay;
+            this.TitleName = job.Title;
+            this.CompanyTitleName = company.Title;
+            this.SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);
+            this.PayDay = company.PayDay;
         }
 
         private int SalaryCalculator (int minSalary, int maxSalary, double coefficient)

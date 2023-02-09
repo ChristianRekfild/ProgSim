@@ -7,7 +7,8 @@ using Noob_Coder.Models;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
-
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Noob_Coder.ViewModels
 {
@@ -48,7 +49,6 @@ namespace Noob_Coder.ViewModels
             get => _protagonist;
             set => SetField(ref _protagonist, value);
         }
-
 
         private int _addedHealthValue;
         /// <summary>
