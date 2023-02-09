@@ -50,7 +50,7 @@ namespace Noob_Coder.ViewModels
             set => SetField(ref _protagonist, value);
         }
 
-        public ObservableCollection<Work> Works { get; }
+        public ObservableCollection<Work> Works { get; set; }
 
 
         private int _addedHealthValue;
@@ -115,14 +115,7 @@ namespace Noob_Coder.ViewModels
             AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
 
-            object obj = Type.GetType("Noob_Coder.Models.Loader").GetConstructor(new Type[0]).Invoke(null);
-            if (obj is Job job) 
-            { 
-            Company company = new MacroHard();
-            Work work = new Work(job, company);
-            Works = new ObservableCollection<Work>();
-            Works.Add(work);
-            };
+            
             ChangeMoodCommand = new ChangeMoodCommand(-10); //испортитьт настроение
 
             RunTimer().WaitAsync(_cts.Token);
@@ -143,6 +136,18 @@ namespace Noob_Coder.ViewModels
                // Task.Yield();
                 await Task.Delay(1000);
                 //Protagonist.AnotherFuckingDay(); //проживаем один день
+
+
+                object obj = Type.GetType("Noob_Coder.Models.Loader").GetConstructor(new Type[0]).Invoke(null);
+                if (obj is Job job)
+                {
+                    job.Title = UserSettings.UserInterface.Health;
+                    Company company = new MacroHard();
+                    Work work = new Work(job, company);
+                    Works = new ObservableCollection<Work>();
+                    Works.Add(work);
+                };
+
                 if (!Protagonist.IsNotDie()) System.Windows.Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
 
                 GameDate = _gameDate.AddDays(1);
