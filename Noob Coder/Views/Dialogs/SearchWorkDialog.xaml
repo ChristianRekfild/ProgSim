@@ -34,16 +34,7 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel MaxWidth="900" Grid.Column="0">
                                 <TextBlock Text="Основная занятость" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" />
-                                <ItemsControl ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0">
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
-                                    <ListItem/>
+                                <ItemsControl ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" ItemsSource="{Binding Works}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel />

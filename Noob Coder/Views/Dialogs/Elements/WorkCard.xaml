@@ -12,15 +12,15 @@
                 <Ellipse Height="85"  Stroke="Black"  Width="85"/>
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="180">
                     <TextBlock Text="вакансия"  FontSize="14" Foreground="#484848"/>
-                    <TextBlock TextWrapping="WrapWithOverflow" Text="Старший грузчик"  FontSize="16" Foreground="#000000" FontWeight="SemiBold"/>
+                    <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding TitleName}"  FontSize="16" Foreground="#000000" FontWeight="SemiBold"/>
                     <Separator Height="0.8"/>
                     <TextBlock Text="в компании"  FontSize="14" Foreground="#484848"/>
-                    <TextBlock TextWrapping="WrapWithOverflow" Text="ООО &quot;Рога и копыта&quot;"  FontSize="16" Foreground="#000000" FontWeight="SemiBold"/>
+                    <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding CompanyTitleName}"  FontSize="16" Foreground="#000000" FontWeight="SemiBold"/>
                 </StackPanel>
             </StackPanel>
             <Separator DockPanel.Dock="Top" Height="0.8" Margin="10 0 15 0"/>
             <StackPanel DockPanel.Dock="Top" Margin="10 0 0 0 ">
-                <TextBlock FontSize="16" Foreground="#000000" FontWeight="DemiBold" >Оплата р 200 в день</TextBlock>
+                <TextBlock FontSize="16" Foreground="#000000" FontWeight="DemiBold" >Оплата р <Run Text="{Binding SalaryPerDay}" /> в день</TextBlock>
             </StackPanel>
             <Separator DockPanel.Dock="Top" Height="0.8" Margin="10 0 15 0"/>
             <StackPanel DockPanel.Dock="Top" Margin="5 5 0 0" Orientation="Horizontal">
