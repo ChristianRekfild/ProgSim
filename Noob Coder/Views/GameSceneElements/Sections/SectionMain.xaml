@@ -125,11 +125,13 @@
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
                         <TextBlock Text="текущая работа"  FontSize="14" Foreground="#FFC8C4C0"/>
                         <StackPanel Orientation="Horizontal" MaxWidth="160" ClipToBounds="True">
-                            <TextBlock TextWrapping="WrapWithOverflow" MaxWidth="150" Text="безработный"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                        <TextBlock TextWrapping="WrapWithOverflow" MaxWidth="150" Text="безработный"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
                         </StackPanel>
+                        <TextBlock Text="p 0 в сутки" FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
                         <Separator Style="{StaticResource gs_LeftSection_Separator}"/> 
                         <TextBlock Text="подработка"  FontSize="14" Foreground="#FFC8C4C0"/>
                         <TextBlock TextWrapping="WrapWithOverflow" Text="отсутсвутет"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                        <TextBlock Text="p 0 в сутки" FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
                     </StackPanel>
                     <!--текст блока-->
                 </StackPanel>
