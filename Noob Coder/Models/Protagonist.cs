@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Noob_Coder.Models.Base;
 
-namespace Noob_Coder.Models 
+namespace Noob_Coder.Models
 {
     /// <summary>
     /// Класс модели главного героя игры.
@@ -113,28 +113,5 @@ namespace Noob_Coder.Models
         #endregion
 
 
-    }
-
-    internal class Bank
-    {
-        private int _balance;
-        private int _maximumCredit;
-
-        public int GetDebt(int debt)
-        {
-            if (_balance - debt < _maximumCredit)
-            {
-                _balance -= debt;
-            }
-            else
-            {
-                _balance = _maximumCredit;
-            }
-        }
-
-        public int PayOffTheDebt(int payment)
-        {
-            _balance += payment;
-        }
     }
 }
