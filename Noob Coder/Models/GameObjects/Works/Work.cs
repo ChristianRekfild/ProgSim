@@ -95,26 +95,26 @@ namespace Noob_Coder.Models
     enum Jobs
     {
         loader,
-        seller,
-        worker,
-        courier,
-        animator,
-        cleaner,
-        intern,
-        junior,
-        middle,
-        senior,
-        lead,
+        Seller,
+        Worker,
+        Courier,
+        Animator,
+        Cleaner,
+        Intern,
+        Junior,
+        Middle,
+        Senior,
+        Lead,
     }
     
     enum Companies
     {
-        minimarket,
-        supermarket,
-        zoo,
-        smallITcompany,
-        mediumITcompany,
-        bigItCompany
+        Minimarket,
+        Supermarket,
+        Zoo,
+        SmallITcompany,
+        MediumITcompany,
+        BigItCompany
     }
 
 }

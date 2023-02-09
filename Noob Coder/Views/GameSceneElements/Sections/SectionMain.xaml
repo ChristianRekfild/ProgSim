@@ -122,16 +122,14 @@
                         <Icon:PackIconMaterial Kind="HammerScrewdriver" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
                     </Button>
 
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 5" Width="160">
                         <TextBlock Text="текущая работа"  FontSize="14" Foreground="#FFC8C4C0"/>
-                        <StackPanel Orientation="Horizontal" MaxWidth="160" ClipToBounds="True">
-                        <TextBlock TextWrapping="WrapWithOverflow" MaxWidth="150" Text="безработный"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
-                        </StackPanel>
-                        <TextBlock Text="p 0 в сутки" FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
-                        <Separator Style="{StaticResource gs_LeftSection_Separator}"/> 
+                        <TextBlock TextWrapping="WrapWithOverflow" Text="безработный"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                        <TextBlock Text="p 0 в сутки" FontSize="14" Foreground="#FFFFFF" FontWeight="Light"/>
+                        <Separator Height="2" Margin="0"/> 
                         <TextBlock Text="подработка"  FontSize="14" Foreground="#FFC8C4C0"/>
                         <TextBlock TextWrapping="WrapWithOverflow" Text="отсутсвутет"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
-                        <TextBlock Text="p 0 в сутки" FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                        <TextBlock Text="p 0 в сутки" FontSize="14" Foreground="#FFFFFF" FontWeight="Light"/>
                     </StackPanel>
                     <!--текст блока-->
                 </StackPanel>

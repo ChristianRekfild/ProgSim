@@ -115,12 +115,14 @@ namespace Noob_Coder.ViewModels
             AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
 
-            Job job = new Loader();
+            object obj = Type.GetType("Noob_Coder.Models.Loader").GetConstructor(new Type[0]).Invoke(null);
+            if (obj is Job job) 
+            { 
             Company company = new MacroHard();
             Work work = new Work(job, company);
             Works = new ObservableCollection<Work>();
             Works.Add(work);
-
+            };
             ChangeMoodCommand = new ChangeMoodCommand(-10); //испортитьт настроение
 
             RunTimer().WaitAsync(_cts.Token);
