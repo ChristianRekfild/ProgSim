@@ -8,33 +8,30 @@
         AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Icon="/Data/Resourses/Images/Icon.png"
         Title ="{Binding Title}">
-    <Border Background="#cfd5e5" CornerRadius="40" BorderThickness="2" BorderBrush="#cbedf3" Padding="20" MouseDown="Border_MouseDown">
-        <Border CornerRadius="40">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#fefefe" Offset="0" />
-                    <GradientStop Color="#BDBFC1" Offset="1" />
-                </LinearGradientBrush>
-            </Border.Background>
+    
+    
+    <Border Style="{StaticResource window_ExternalFrame}"  MouseDown="Border_MouseDown">
+        <Border Style="{StaticResource window_ExternalBorder}" CornerRadius="40">
             <Grid>
-        <ContentControl Content="{Binding CurrentViewModel}"/>
-        <Grid.Resources>
-            <DataTemplate DataType="{x:Type viewmodels:MenuViewModel}">
-                <views:MenuView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:GameSceneViewModel}">
-                <views:GameSceneView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:SettingMenuViewModel}">
-                <views:SettingMenuView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
-                <views:FeedBackFormView/>
-            </DataTemplate>
-        </Grid.Resources> 
-        
-    </Grid>
-
+                <ContentControl Content="{Binding CurrentViewModel}"/>
+                <Grid.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:MenuViewModel}">
+                        <views:MenuView/>
+                    </DataTemplate>
+            
+                    <DataTemplate DataType="{x:Type viewmodels:GameSceneViewModel}">
+                        <views:GameSceneView/>
+                    </DataTemplate>
+            
+                    <DataTemplate DataType="{x:Type viewmodels:SettingMenuViewModel}">
+                        <views:SettingMenuView/>
+                    </DataTemplate>
+            
+                     <DataTemplate DataType="{x:Type viewmodels:FeedBackFormViewModel}">
+                        <views:FeedBackFormView/>
+                     </DataTemplate>
+                </Grid.Resources> 
+            </Grid>
         </Border>
     </Border>
 </Window>

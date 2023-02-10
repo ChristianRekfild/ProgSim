@@ -34,20 +34,21 @@ namespace Noob_Coder.Models
             GSTabItemEducation = "Education";
             GSTabItemFinance = "Finance";
 
-            Health = "Zdorovie";
-            Mustache = "vah-vah";
+            #region индикаторы
+            Health = "Zdravie";
+            Stamina = "ILIKESLEEP";
+            Appearance = "Von'u4ka";
+            Mood = "Mood";
             #endregion
 
             #region SettingMenu
             SettingMenuLanguage = "Change :-P";
             SettingMenuBackButtonName = "Go Home";
             #endregion
+
+            #endregion
         }
 
-#endregion
-
-
-
-
+        #endregion
     }
 }

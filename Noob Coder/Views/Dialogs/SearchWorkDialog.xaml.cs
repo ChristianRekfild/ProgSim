@@ -5,13 +5,13 @@ using System.Windows.Input;
 
 namespace Noob_Coder.Views
 {
-	public partial class SampleDialog : Window
+	public partial class SearchWorkDialog : Window
 	{
-		public SampleDialog()
+		public SearchWorkDialog()
 		{
 			InitializeComponent();
 	    }
-		private void SampleDialogWindow_MouseDown(object sender, MouseButtonEventArgs e)
+		private void SearchWorkDialog_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			if (e.ChangedButton == MouseButton.Left)
 			{
