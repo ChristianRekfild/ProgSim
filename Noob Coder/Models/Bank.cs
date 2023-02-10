@@ -52,11 +52,12 @@
                 if (payment > -_balance)
                 {
                     _balance += payment;
+                    return payment;
                 }
                 else
                 {
                     int debt = -_balance;
-                    _balance -= 0;
+                    _balance = 0;
                     return debt;
                 }
             }
@@ -70,18 +71,28 @@
         /// <param name="takedMoney">Сколько денег хочет взять</param>
         public int CashOut(int takedMoney)
         {
-            if(takedMoney > _balance)
+            if (_balance > 0)
             {
-                _balance = 0; 
+                if (takedMoney > _balance)
+                {
+                    _balance += takedMoney;
+                    return takedMoney;
+                }
+                else
+                {
+                    int money = _balance;
+                    _balance = 0;
+                    return money;
+                }
             }
-            _balance += takedMoney;
-            return 0;
+            else return 0;
+
         }
 
         /// <summary>
         /// Положить деньги в банк под проценты
         /// </summary>
-        /// <param name="takedMoney">Сколько денег хочет взять</param>
+        /// <param name="payment">Сколько денег хочет взять</param>
         public int DepositMoney(int payment)
         {
             _balance += payment;
