@@ -44,22 +44,25 @@
         /// <summary>
         /// Погасить кредит на сумму.
         /// </summary>
-        /// <param name="takedMoney">Сколько денег хочет взять</param>
+        /// <param name="payment">Сколько денег хочет взять</param>
         public int PayOffTheDebt(int payment)
         {
-            if((payment > _balance)&&(_balance<=0))
+            if (_balance < 0)
             {
-                int debt = -_balance;
-                _balance = 0;
-                return debt;
+                if (payment > -_balance)
+                {
+                    _balance += payment;
+                }
+                else
+                {
+                    int debt = -_balance;
+                    _balance -= 0;
+                    return debt;
+                }
             }
-            else
-            {
-                return 0;
-            }
+            else return 0;
             
         }
-
 
         /// <summary>
         /// Обналичить депозит
@@ -79,13 +82,9 @@
         /// Положить деньги в банк под проценты
         /// </summary>
         /// <param name="takedMoney">Сколько денег хочет взять</param>
-        public int DepositMoney(int takedMoney)
+        public int DepositMoney(int payment)
         {
-            if (takedMoney > _balance)
-            {
-                _balance = 0;
-            }
-            _balance += takedMoney;
+            _balance += payment;
             return 0;
         }
 
@@ -93,14 +92,14 @@
         /// Пересчитать проценты ежедневные.
         /// </summary>
         /// <param name="takedMoney">Сколько денег хочет взять</param>
-        public int RecalculateBankInterest(int takedMoney)
+        public void RecalculateBankInterest(int takedMoney)
         {
             if (takedMoney > _balance)
             {
                 _balance = 0;
             }
             _balance += takedMoney;
-            return 0;
+            return;
         }
     }
 }
