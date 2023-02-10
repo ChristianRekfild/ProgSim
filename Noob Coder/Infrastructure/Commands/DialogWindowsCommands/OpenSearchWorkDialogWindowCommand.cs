@@ -26,12 +26,12 @@ namespace Noob_Coder.Infrastructure.Commands
         /// <param name="parameter"></param>
         public override void Execute(object? parameter)
         {
-            var mainWindow = (Window)parameter;
-            mainWindow.Effect = new System.Windows.Media.Effects.BlurEffect();
-            SearchWorkDialog SearchWorkDialog = new SearchWorkDialog();
-            SearchWorkDialog.DataContext = _navigationStore.CurrentViewModel;
-            SearchWorkDialog.ShowDialog();
-            mainWindow.Effect = null;
+            var mainWindow = (Window)parameter; //берем предыдущее окно, переданное в качестве CommandParametr
+            mainWindow.Effect = new System.Windows.Media.Effects.BlurEffect();//размываем предыдущее окно
+            SearchWorkDialog SearchWorkDialog = new SearchWorkDialog(); //создаем объект нового диатогового окно нужного класса
+            SearchWorkDialog.DataContext = _navigationStore.CurrentViewModel; //присваеваем текущую VM новому диалоговому окну
+            SearchWorkDialog.ShowDialog(); //окрываем новое диатоговое окно 
+            mainWindow.Effect = null; //при закрытии диалогового окна отменяем размытие предыдущего окна
         }
     }
 }

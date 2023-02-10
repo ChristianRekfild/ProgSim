@@ -16,36 +16,25 @@ namespace Noob_Coder.Models
     {
         #region Свойства
 
-        private string _titleName;
+        private string _jobName;
         /// <summary>
-        /// Название работы
+        /// Название должности
         /// </summary>
-        public string TitleName
+        public string JobName
         {
-            get => _titleName;
-            set => SetField(ref _titleName, value);
+            get => _jobName;
+            set => SetField(ref _jobName, value);
 
         }
 
-        private string _companyTitleName;
+        private string _companyName;
         /// <summary>
         /// Название компании
         /// </summary>
-        public string CompanyTitleName
+        public string CompanyName
         {
-            get => _companyTitleName;
-            set => SetField(ref _companyTitleName, value);
-        }
-
-        private bool _isSpecialized;
-        /// <summary>
-        /// Требует ли работа особой специализации.
-        /// </summary>
-        public bool IsSpecialized
-        {
-            get => _isSpecialized;
-            set => SetField(ref _isSpecialized, value);
-
+            get => _companyName;
+            set => SetField(ref _companyName, value);
         }
 
         private int _salaryPerDay;
@@ -61,7 +50,7 @@ namespace Noob_Coder.Models
 
         private List<int> _payDay;
         /// <summary>
-        /// День зарплаты.
+        /// Дени зарплаты.
         /// </summary>
         public List<int> PayDay
         {
@@ -73,48 +62,31 @@ namespace Noob_Coder.Models
 
         #endregion
 
+        //конструктор работы
         public Work(Job job, Company company)
         {
-            this.TitleName = job.Title;
-            this.CompanyTitleName = company.Title;
-            this.SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);
-            this.PayDay = company.PayDay;
+            JobName = job.Title; //название должности
+            CompanyName = company.Title; //название компании
+            SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);//зарплата
+            PayDay = company.PayDay;//дни зарплаты
         }
 
+        /// <summary>
+        /// Расчет зарплаты для конкретной работы
+        /// </summary>
         private int SalaryCalculator (int minSalary, int maxSalary, double coefficient)
         {
+            //выбор случейного числа между минимальной и максимальной зарплатой на данной должности
             double result = new double();
             Random rnd = new Random();
             result = rnd.Next(minSalary, maxSalary);
+            //умножение на зарплатный коэффициент данной компании
             result = result * coefficient;
+            //результат в целом числе
             return Convert.ToInt32(result);
         }
 
     }
 
-    enum Jobs
-    {
-        loader,
-        Seller,
-        Worker,
-        Courier,
-        Animator,
-        Cleaner,
-        Intern,
-        Junior,
-        Middle,
-        Senior,
-        Lead,
-    }
-    
-    enum Companies
-    {
-        Minimarket,
-        Supermarket,
-        Zoo,
-        SmallITcompany,
-        MediumITcompany,
-        BigItCompany
-    }
-
+   
 }

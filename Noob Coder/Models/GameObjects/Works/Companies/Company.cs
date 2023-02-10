@@ -9,11 +9,16 @@ using System.Xml.Linq;
 
 namespace Noob_Coder.Models
 {
+    /// <summary>
+    /// Базовая модель компании
+    /// </summary>
     internal class Company : ModelBase
     {
         private Companies _name;
         /// <summary>
         /// Название компании
+        /// берется из enum Companies
+        /// должно совпадать с именем класса
         /// </summary>
         public Companies Name
         {
@@ -24,7 +29,8 @@ namespace Noob_Coder.Models
 
         private string _title;
         /// <summary>
-        /// Выводимое название компании
+        /// Отображаемое название компании
+        /// берется из словаря, зависит от языка
         /// </summary>
         public string Title
         {
@@ -35,40 +41,59 @@ namespace Noob_Coder.Models
 
         private  List<int> _payDay;
         /// <summary>
-        /// день зарплаты.
+        /// Список со днями зарплаты
         /// </summary>
         public List<int> PayDay
         {
             get => _payDay;
-            set => SetField(ref _payDay, value);
+            set => _payDay = value;
 
         }
 
-        private List<Job> _possibleJobs;
+        private List<Jobs> _possibleJobs;
         /// <summary>
-        /// день зарплаты.
+        /// Список возможных должностей
+        /// берется из enum Jibs
         /// </summary>
-        public List<Job> PossibleJobs
+        public List<Jobs> PossibleJobs
         {
             get => _possibleJobs;
-            set => SetField(ref _possibleJobs, value);
+            set => _possibleJobs = value;
 
         }
 
         private double _payСoefficient;
         /// <summary>
-        /// день зарплаты.
+        /// Зарплатный коэффициент данной компании
+        /// зависит от "крутости" компании
+        /// при генерации вакансии умножается на ставку заработной платы конкретной должности
         /// </summary>
         public double PayСoefficient
         {
             get => _payСoefficient;
-            set => SetField(ref _payСoefficient, value);
+            set => _payСoefficient = value;
 
         }
-
+        
+        
         public Company()
         {
-
+            Title = "безработный"; //отображаемое название из словаря
+            PayDay = new List<int> { 0 }; //список дней зарплаты
+            PossibleJobs = new List<Jobs>(); //список возможных должностей из enum Jobs
+            PayСoefficient = 0; //зарплатный коэффициент
         }
+    }
+
+    enum Companies
+    {
+        Minimarket,
+        Supermarket,
+        Gipermarket,
+        Zoo,
+        SmallITcompany,
+        MediumITcompany,
+        BigItCompany,
+        MacroHard,
     }
 }

@@ -10,14 +10,14 @@ using System.Xml.Linq;
 namespace Noob_Coder.Models
 {
     /// <summary>
-    /// Модель должности грузчика
+    /// Модель должности уборщика
     /// </summary>
-    internal class Loader : Job
+    internal class Cleaner : Job
     {
-         public Loader()
+         public Cleaner()
         {
-            Name = Jobs.Loader; //название из enum, должно совпадать с именем класса
-            Title = "Гручик"; //отображаемое название из словаря
+            Name = Jobs.Cleaner; //название из enum, должно совпадать с именем класса
+            Title = "Уборщик"; //отображаемое название из словаря
             MinSalaryPerDay = 80; //минимальная зарплата
             MaxSalaryPerDay = 120;//максимальная зарплата
 

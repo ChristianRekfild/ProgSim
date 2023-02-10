@@ -32,12 +32,11 @@ namespace Noob_Coder.Infrastructure.Commands
                 /// Установка параметров главного героя при запуске новой игры.
                 /// </summary>
                 gameScene.Protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
+                gameScene.Protagonist.Stamina = 100; //значение усталости главного героя игры по умолчанию
+                gameScene.Protagonist.Appearance = 50; //значение опрятности главного героя игры по умолчанию
+                gameScene.Protagonist.Mood = 50;  // значение настроения главного героя игры по умолчанию
+                gameScene.Protagonist.CurrentWork = new Work(new Job(), new Company());//безработный по умолчанию
                 gameScene.Protagonist.Money = 15842; // значение наличных денег по умолчанию
-                gameScene.Protagonist.Mood = 99;  // значение настроения
-                gameScene.Protagonist.Appearance = 50;
-                gameScene.Protagonist.Stamina = 88;
-
-
 
         }
     }

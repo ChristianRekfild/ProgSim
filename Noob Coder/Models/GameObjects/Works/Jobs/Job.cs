@@ -9,27 +9,33 @@ using System.Xml.Linq;
 
 namespace Noob_Coder.Models
 {
+    /// <summary>
+    /// Базовая модель должности
+    /// </summary>
     internal class Job : ModelBase
     {
         private Jobs _name;
         /// <summary>
-        /// Название работы
+        /// Название должности
+        /// берется из enum Jobs
+        /// должно совпадать с именем класса
         /// </summary>
         public Jobs Name
         {
             get => _name;
-            set => SetField(ref _name, value);
+            set => _name = value;
 
         }
 
         private string _title;
         /// <summary>
-        /// Выводимое название работы
+        /// Отображаемое название должности
+        /// берется из словаря, зависит от языка
         /// </summary>
         public string Title
         {
             get => _title;
-            set => SetField(ref _title, value);
+            set => _title = value;
 
         }
 
@@ -40,7 +46,7 @@ namespace Noob_Coder.Models
         public int MinSalaryPerDay
         {
             get => _minSalaryPerDay;
-            set => SetField(ref _minSalaryPerDay, value);
+            set => _minSalaryPerDay = value;
 
         }
 
@@ -51,14 +57,31 @@ namespace Noob_Coder.Models
         public int MaxSalaryPerDay
         {
             get => _maxSalaryPerDay;
-            set => SetField(ref _maxSalaryPerDay, value);
+            set => _maxSalaryPerDay = value;
 
         }
 
         public Job()
         {
-
+            Title = "Безработный"; //отображаемое название из словаря
+            MinSalaryPerDay = 0; //минимальная зарплата
+            MaxSalaryPerDay = 0;//максимальная зарплата
         }
 
+    }
+
+    enum Jobs
+    {
+        Loader,
+        Seller,
+        Worker,
+        Courier,
+        Animator,
+        Cleaner,
+        Intern,
+        Junior,
+        Middle,
+        Senior,
+        Lead,
     }
 }

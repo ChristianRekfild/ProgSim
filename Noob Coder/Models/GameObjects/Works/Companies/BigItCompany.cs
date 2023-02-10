@@ -12,18 +12,18 @@ using System.Windows;
 
 namespace Noob_Coder.Models
 {
-    internal class MacroHard : Company
+    internal class BigItCompany : Company
     {
         /// <summary>
-        /// Модель компании MacroHard
+        /// Модель компании BigItCompany
         /// </summary>
-        public MacroHard()
+        public BigItCompany()
         {
-            Name = Companies.MacroHard; //название из enum, должно совпадать с именем класса
+            Name = Companies.BigItCompany; //название из enum, должно совпадать с именем класса
             Title = "Сложые решения"; //отображаемое название из словаря
             PayDay = new List<int> { 1, 15 }; //список дней зарплаты
-            PossibleJobs = new List<Jobs> { Jobs.Middle, Jobs.Senior, Jobs.Lead}; //список возможных должностей из enum Jobs
-            PayСoefficient = 4.9; //зарплатный коэффициент
+            PossibleJobs = new List<Jobs> { Jobs.Junior, Jobs.Middle, Jobs.Senior, Jobs.Lead}; //список возможных должностей из enum Jobs
+            PayСoefficient = 0.9; //зарплатный коэффициент
         }
     }
 }

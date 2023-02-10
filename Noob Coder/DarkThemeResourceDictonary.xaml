@@ -1,4 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<!--
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    в данный момент не работает
+    необходимо актуализировать поля
+-->
+    <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             
                     xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
@@ -570,4 +575,4 @@
 
 
 
-</ResourceDictionary>
+</ResourceDictionary> 

@@ -27,6 +27,26 @@ namespace Noob_Coder.Models
 
         }
 
+        private double _stamina;
+        /// <summary>
+        /// Усталость главного героя игры.
+        /// </summary>
+        public double Stamina
+        {
+            get => _stamina;
+            set => SetField(ref _stamina, value);
+        }
+
+
+        private double _appearance;
+        /// <summary>
+        /// Внешний вид (опрятность) главного героя игры.
+        /// </summary>
+        public double Appearance
+        {
+            get => _appearance;
+            set => SetField(ref _appearance, value);
+        }
 
         private double _mood;
         /// <summary>
@@ -39,34 +59,13 @@ namespace Noob_Coder.Models
 
         }
 
-
-        private double _stamina;
-        /// <summary>
-        /// Усталость главного героя игры.
-        /// </summary>
-        public double Stamina
-        {
-            get => _stamina;
-            set => SetField(ref _stamina, value);
-        }
-
-        private double _appearance;
-        /// <summary>
-        /// Внешний вид (опрятность) главного героя игры.
-        /// </summary>
-        public double Appearance
-        {
-            get => _appearance;
-            set => SetField(ref _appearance, value);
-        }
-
         #endregion
 
         private Work _currentWork;
         /// <summary>
         /// Текущая работа.
         /// </summary>
-        private Work CurrentWork 
+        public Work CurrentWork
         {
             get => _currentWork;
             set => SetField(ref _currentWork, value);
@@ -137,6 +136,11 @@ namespace Noob_Coder.Models
         }
         #endregion
 
+        //конструктор начального персонажа
+        public Protagonist()
+        {
+        
+        }
 
     }
 }
