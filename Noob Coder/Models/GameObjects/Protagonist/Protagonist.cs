@@ -91,7 +91,7 @@ namespace Noob_Coder.Models
         /// </summary>
         public void AnotherFuckingDay()
         {
-            Health = _health - (110-Mood)/10; //ежедневное уменьшение здоровья в зависимости от настроения
+           // Health = _health - (110-Mood)/10; //ежедневное уменьшение здоровья в зависимости от настроения
             
         }
 

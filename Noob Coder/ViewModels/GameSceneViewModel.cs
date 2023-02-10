@@ -60,6 +60,7 @@ namespace Noob_Coder.ViewModels
         /// коллекция доступных вакансий
         /// </summary>
         public ObservableCollection<Work> VacanciesWorks { get; set; }
+
         #endregion
         #endregion
         #endregion
@@ -94,6 +95,11 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand ChangeMoodCommand { get; }
         
+        ///<summary>
+        ///Команда устройства на работу
+        /// </summary>
+        public ICommand TakeWorkCommand { get; }
+
         /// <summary>
         /// Команда позволяющая грабить корованы.
         /// </summary>
@@ -119,8 +125,9 @@ namespace Noob_Coder.ViewModels
             #region Создание комманд взаимодействия с главным героем.
             AddProtagonistHealth10Command = new AddProtagonistHealthCommand(10);//добавить 20 единиц здоровья
             AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
+            TakeWorkCommand = new TakeWorkCommand(Protagonist); //принять работу
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
-            ChangeMoodCommand = new ChangeMoodCommand(-10); //испортитьт настроение
+            ChangeMoodCommand = new ChangeMoodCommand(-10); //испортить настроение
             #endregion
             #endregion
 

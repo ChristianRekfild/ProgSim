@@ -62,6 +62,11 @@ namespace Noob_Coder.Models
 
         #endregion
 
+        public Work()
+        {
+
+        }
+
         //конструктор работы
         public Work(Job job, Company company)
         {

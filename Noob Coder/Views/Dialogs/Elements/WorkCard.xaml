@@ -36,7 +36,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Style="{StaticResource button}" Background="#e95e89" HorizontalAlignment="Left" Width="110" Height="28" Grid.Column="0">Подробнее</Button>
-                <Button Style="{StaticResource button}" HorizontalAlignment="Right" Width="110" Content="Откликнуться" Height="28" Grid.Column="1"/>
+                <Button Style="{StaticResource button}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}, Path=DataContext.TakeWorkCommand}" 
+                        CommandParameter="{Binding}" 
+                        HorizontalAlignment="Right" Width="110" Content="Откликнуться" Height="28" Grid.Column="1" Cursor="Hand"/>
             </Grid>
         </DockPanel>
     </Border>
