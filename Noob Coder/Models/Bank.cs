@@ -105,12 +105,8 @@
         /// <param name="takedMoney">Сколько денег хочет взять</param>
         public void RecalculateBankInterest(int takedMoney)
         {
-            if (takedMoney > _balance)
-            {
-                _balance = 0;
-            }
-            _balance += takedMoney;
-            return;
+            _balance *= 1.01;
+            //TODO
         }
     }
 }
