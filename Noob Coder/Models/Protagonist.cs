@@ -115,11 +115,31 @@ namespace Noob_Coder.Models
         /// Баланс в банке
         /// </summary>
         /// <returns>Баланс в банке</returns>
-        public int GetBankBalance()
-        {
-            return Bank.Balance;
-        }
-
+        public int GetBankBalance() => Bank.Balance;
+        /// <summary>
+        /// Взять в кредит (колво-денег).
+        /// </summary>
+        /// <param name="takedMoney">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
+        public int GetDebt(int takedMoney) => Bank.GetDebt(takedMoney);
+        /// <summary>
+        /// Погасить кредит на сумму.
+        /// </summary>
+        /// <param name="payment">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
+        public int PayOffTheDebt(int payment) => Bank.PayOffTheDebt(payment);
+        /// <summary>
+        /// Обналичить депозит
+        /// </summary>
+        /// <param name="takedMoney">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
+        public int CashOut(int takedMoney) => Bank.CashOut(takedMoney);
+        /// <summary>
+        /// Положить деньги в банк под проценты
+        /// </summary>
+        /// <param name="payment">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
+        public int DepositMoney(int payment) => Bank.DepositMoney(payment);
 
         #endregion
 
