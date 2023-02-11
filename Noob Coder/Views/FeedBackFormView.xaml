@@ -41,8 +41,8 @@
 
             </Grid>
  
-        <Button Style="{StaticResource ButtonStyle}" Height="40" Content="Вернуться" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
-        <Button Style="{StaticResource ButtonStyle}" Height="40" Content="Отправить отзыв" HorizontalAlignment="Left" Margin="1091,535,0,0" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource button}" Height="40" Content="Вернуться" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>
+        <Button Style="{StaticResource  button}" Height="40" Content="Отправить отзыв" HorizontalAlignment="Left" Margin="1091,535,0,0" VerticalAlignment="Top" Cursor="Hand"/>
 
 
 

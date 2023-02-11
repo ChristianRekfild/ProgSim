@@ -5,10 +5,179 @@
              xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 >
-    
+
 
     <Grid>
-        <Image x:Name="Logo" Grid.Column="1" Height="400" Width="400" Source="/Data/Resourses/Images/Education.jpg"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--#region блок титульного текста-->
+        <StackPanel Margin="7 10 8 25" Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="Primary" Style="{StaticResource gs_MainSection_SmallTitleText}"/>
+            <TextBlock Text="Dashboard" Style="{StaticResource gs_MainSection_BigTitleText}"/>
+        </StackPanel>
+        <!--#endregion-->
+
+        <!--#region блок с наличными-->
+        <Grid Grid.Column="2" Grid.Row="0" Margin="0 10 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <!--наличные-->
+            <Grid>
+                <StackPanel  Grid.Row="0" Style="{StaticResource gs_MainSection_CashPanel}">
+                    <Icon:PackIconFontAwesome Kind="RubleSignSolid" Style="{StaticResource gs_MainSection_CashIcon}" />
+                    <TextBlock Text="{Binding Protagonist.Money, StringFormat={}{0:0 000}}" Style="{StaticResource gs_MainSection_CahsText}" />
+                </StackPanel>
+            </Grid>
+            <!--аватарка-->
+            <Ellipse Style="{StaticResource gs_MainSection_DuckAvatar}" Grid.Column="1">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Data/Resourses/Images/Icon.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region малый блок-->
+        <Grid  Margin="8 30 0 50" Grid.Row="1" Grid.Column="1">
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Billiards" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
+            </Border>
+
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region малый блок-->
+        <Grid  Margin="8 30 0 50" Grid.Row="1" Grid.Column="2">
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Curtains" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
+            </Border>
+
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--region средний блок-->
+            <Border Style="{StaticResource gs_MainSection_MiddleBlockBorder}">
+                <StackPanel  Style="{StaticResource gs_MainSection_MiddleBlockPanel}">
+                    <!--иконка блока-->
+                    <Border Style="{StaticResource gs_MainSection_MiddleBlockIconBorder}">
+                        <Icon:PackIconMaterial Kind="Kitesurfing" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
+                    </Border>
+                    <!--текст блока-->
+                    <TextBlock Text="HI!" Style="{StaticResource gs_MainSection_MiddleBlockText}"/>
+                </StackPanel>
+            </Border>
+            <!--#endregion-->
+
+            <!--region акцентный блок-->
+            <Border Style="{StaticResource gs_MainSection_AccentBlockBorder}" Grid.Row="1" Margin="0 20 0 50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--заголовок блока-->
+                    <Border Style="{StaticResource gs_MainSection_AccentBlockHeaderBorder}">
+                        <StackPanel Style="{StaticResource gs_MainSection_AccentBlockHeaderPanel}">
+                            <!--иконка-->
+                            <Border Style="{StaticResource gs_MainSection_AccentBlockHeaderIconBorder}">
+                                <Icon:PackIconMaterial Kind="OneUp" Style="{StaticResource gs_MainSection_AccentBlockHeaderIcon}"/>
+                            </Border>
+                            <!--заголовок блока-->
+                            <TextBlock Text="GO!" Style="{StaticResource gs_MainSection_AccentBlockHeaderText}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!--тело блока-->
+                    <StackPanel Grid.Row="1" Style="{StaticResource gs_MainSection_AccentBlockBodyPanel}">
+                        <TextBlock Style="{StaticResource gs_MainSection_AccentBlockBodyText}" Text="73huew87"/>
+                        <TextBlock Style="{StaticResource gs_MainSection_AccentBlockBodyText}" Text="73huew87"/>
+                        <TextBlock Style="{StaticResource gs_MainSection_AccentBlockBodyText}" Text="73huew87"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+            <!--#endregion-->
+        </Grid>
+
+        <!--#region малый блок-->
+        <Grid  Margin="8 0" Grid.Row="2" Grid.Column="0">
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Nas" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
+            </Border>
+
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region малый блок-->
+        <Grid  Margin="8 0" Grid.Row="2" Grid.Column="1">
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Caravan" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
+            </Border>
+
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
+                    <Button Style="{StaticResource button}" Name="RobCaravan"  Command="{Binding RobCaravanCommand}" CommandParameter="{Binding Protagonist}" Height="100" Width="100">
+                        <TextBlock TextWrapping="Wrap" FontSize="10" TextAlignment="Center"> Большая красивая фиолетовая кнопка позволяющая огроблять корованы</TextBlock>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region малый блок-->
+        <Grid  Margin="8 0" Grid.Row="2" Grid.Column="2">
+            <!--заголовок блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockHeader}">
+                <Icon:PackIconMaterial Kind="Hail" Style="{StaticResource gs_MainSection_SmallBlockHeaderIcon}" />
+            </Border>
+
+            <!---тело блока-->
+            <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
+                <StackPanel Margin="0 35 0 0">
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+
     </Grid>
 
 </UserControl>

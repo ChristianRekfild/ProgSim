@@ -14,15 +14,61 @@ namespace Noob_Coder.Models
     internal class Protagonist : ModelBase
     {
         #region Свойства
-        private int _health;
+
+        #region свойства на индикаторах
+        private double _health;
         /// <summary>
         /// Здоровье главного героя игры.
         /// </summary>
-        public int Health
+        public double Health
         {
             get => _health;
             set => SetField(ref _health, value);
 
+        }
+
+        private double _stamina;
+        /// <summary>
+        /// Усталость главного героя игры.
+        /// </summary>
+        public double Stamina
+        {
+            get => _stamina;
+            set => SetField(ref _stamina, value);
+        }
+
+
+        private double _appearance;
+        /// <summary>
+        /// Внешний вид (опрятность) главного героя игры.
+        /// </summary>
+        public double Appearance
+        {
+            get => _appearance;
+            set => SetField(ref _appearance, value);
+        }
+
+        private double _mood;
+        /// <summary>
+        /// Настроение главного героя.
+        /// </summary>
+        public double Mood
+        {
+            get => _mood;
+            set => SetField(ref _mood, value);
+
+        }
+
+        #endregion
+
+        private Work _currentWork;
+        /// <summary>
+        /// Текущая работа.
+        /// </summary>
+        public Work CurrentWork
+        {
+            get => _currentWork;
+            set => SetField(ref _currentWork, value);
         }
 
         private int _money;
@@ -36,27 +82,6 @@ namespace Noob_Coder.Models
 
         }
 
-        private int _mood;
-        /// <summary>
-        /// Настроение.
-        /// </summary>
-        public int Mood
-        {
-            get => _mood;
-            set => SetField(ref _mood, value);
-
-        }
-
-
-        private double _mustache;
-        /// <summary>
-        /// Усатость главного героя игры.
-        /// </summary>
-        public double Mustache
-        {
-            get => _mustache;
-            set => SetField(ref _mustache, value);
-        }
 
         #endregion
 
@@ -64,10 +89,10 @@ namespace Noob_Coder.Models
         /// <summary>
         /// Метод, вычисляющий, что случилось с главным героем игры за заданный промежуток времени.
         /// </summary>
-        public void AnowerFuckingDay()
+        public void AnotherFuckingDay()
         {
-            Health = _health - 1; 
-            Mustache = _mustache + 0.5f;
+           // Health = _health - (110-Mood)/10; //ежедневное уменьшение здоровья в зависимости от настроения
+            
         }
 
         /// <summary>
@@ -76,17 +101,16 @@ namespace Noob_Coder.Models
         public bool IsNotDie()
         {
             bool result = true;
-            if (Health < 0) result = false;
-            if (Mustache > 100) result = false;
+            if (Health <= 0) result = false;
             return result;
         }
 
         /// <summary>
-        /// Метод добавляющий здоровья главному герою
+        /// Метод изменяющий здоровье главного героя на передаваемую величину
         /// </summary>
         public void AddHealth(int value)
         {
-            int result = Health + value;
+            double result = Health + value;
             if (result > 100) Health = 100;
             else Health = result;
         }
@@ -104,7 +128,7 @@ namespace Noob_Coder.Models
         }
 
         /// <summary>
-        /// Метод, позволяющий грабить корованы
+        /// Метод изменяющий настроение на передаваемую величину
         /// </summary>
         public void MoodChange(int value)
         {
@@ -143,6 +167,11 @@ namespace Noob_Coder.Models
 
         #endregion
 
+        //конструктор начального персонажа
+        public Protagonist()
+        {
+        
+        }
 
     }
 }

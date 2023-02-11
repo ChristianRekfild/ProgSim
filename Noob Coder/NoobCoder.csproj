@@ -44,6 +44,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Dialogs\Elements\SubWorkCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\GameSceneElements\Sections\SectionFinance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

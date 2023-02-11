@@ -145,6 +145,7 @@ namespace Noob_Coder.Models
             set => SetField(ref _GSTabItemFinance, value);
         }
 
+        #region подписи индикаторов
         private string _health;
         /// <summary>
         /// Здоровье главного героя.
@@ -155,15 +156,37 @@ namespace Noob_Coder.Models
             set => SetField(ref _health, value);
         }
 
-        private string _mustache;
+        private string _stamina;
         /// <summary>
-        /// Усатость.
+        /// Усталость главного героя.
         /// </summary>
-        public string Mustache
+        public string Stamina
         {
-            get => _mustache;
-            set => SetField(ref _mustache, value);
+            get => _stamina;
+            set => SetField(ref _stamina, value);
         }
+
+
+        private string _appearance;
+        /// <summary>
+        /// Опрятность главного героя.
+        /// </summary>
+        public string Appearance
+        {
+            get => _appearance;
+            set => SetField(ref _appearance, value);
+        }
+
+        private string _mood;
+        /// <summary>
+        /// Настроение главного героя.
+        /// </summary>
+        public string Mood
+        {
+            get => _mood;
+            set => SetField(ref _mood, value);
+        }
+        #endregion
         #endregion
 
 
