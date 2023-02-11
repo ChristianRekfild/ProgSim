@@ -110,6 +110,17 @@ namespace Noob_Coder.Models
         {
             Mood = Mood + value;
         }
+
+        /// <summary>
+        /// Баланс в банке
+        /// </summary>
+        /// <returns>Баланс в банке</returns>
+        public int GetBankBalance()
+        {
+            return Bank.Balance;
+        }
+
+
         #endregion
 
 

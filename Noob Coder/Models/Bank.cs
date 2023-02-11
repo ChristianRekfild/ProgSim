@@ -9,20 +9,22 @@
     /// </summary>
     internal class Bank
     {
-        private int _balance;
+        private static int _balance;
         /// <param>
         /// Баланс на банковском счету
         /// Отрицательный - кредит
         /// Положительный - депозит
         /// </param>
-        public int Balance { get { return _balance; } }
+        public static int Balance { get { return _balance; } }
 
         private int _maximumCredit;
+
 
         /// <summary>
         /// Взять в кредит (колво-денег).
         /// </summary>
         /// <param name="takedMoney">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
         public int GetDebt(int takedMoney) 
         {
             if (_balance - takedMoney < _maximumCredit)
@@ -45,6 +47,7 @@
         /// Погасить кредит на сумму.
         /// </summary>
         /// <param name="payment">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
         public int PayOffTheDebt(int payment)
         {
             if (_balance < 0)
@@ -69,6 +72,7 @@
         /// Обналичить депозит
         /// </summary>
         /// <param name="takedMoney">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
         public int CashOut(int takedMoney)
         {
             if (_balance > 0)
@@ -93,6 +97,7 @@
         /// Положить деньги в банк под проценты
         /// </summary>
         /// <param name="payment">Сколько денег хочет взять</param>
+        /// <returns>Изменение баланса</returns>
         public int DepositMoney(int payment)
         {
             _balance += payment;
@@ -102,11 +107,9 @@
         /// <summary>
         /// Пересчитать проценты ежедневные.
         /// </summary>
-        /// <param name="takedMoney">Сколько денег хочет взять</param>
-        public void RecalculateBankInterest(int takedMoney)
+        public void RecalculateBankInterest()
         {
-            _balance *= 1.01;
-            //TODO
+            _balance =  _balance * 1001/1000;
         }
     }
 }
