@@ -29,9 +29,7 @@ namespace Noob_Coder.Infrastructure.Commands
 
                 UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
 
-                _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
-
-                var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
+               
                 // Установка параметров главного героя при запуске новой игры.
                 // Чтение из файла LastAutoSave.noob
                 string jsonSaveString;
@@ -39,8 +37,11 @@ namespace Noob_Coder.Infrastructure.Commands
                 {
                     jsonSaveString = sr.ReadLine();
                 }
+                Protagonist protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
+
+                _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, protagonist);
+                var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
                 gameScene.UserSettings = UserSettings;
-                gameScene.Protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
                 
                 
             
