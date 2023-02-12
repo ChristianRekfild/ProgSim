@@ -24,7 +24,7 @@ namespace Noob_Coder.Infrastructure.Commands
         {
 
             UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
-            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, new Protagonist());
             var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
             gameScene.UserSettings = UserSettings;
          

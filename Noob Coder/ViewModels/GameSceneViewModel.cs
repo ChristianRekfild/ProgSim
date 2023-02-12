@@ -108,10 +108,10 @@ namespace Noob_Coder.ViewModels
         #endregion
 
         //Конструктор GameSceneViewModel
-        public GameSceneViewModel(NavigationStore navigationStore)
+        public GameSceneViewModel(NavigationStore navigationStore, Protagonist protagonist)
         {
             #region Создание базовых игровых объектов
-            Protagonist = new Protagonist(); // Создание нового главного героя игры.
+            Protagonist = protagonist; // Создание нового главного героя игры.
             VacanciesWorks = VacanciesWorksGenerator(); //Генерация доступных вакансий
             #endregion
 
