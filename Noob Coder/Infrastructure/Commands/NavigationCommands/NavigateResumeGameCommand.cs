@@ -3,6 +3,8 @@ using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.Models;
 using Noob_Coder.ViewModels;
 using System.IO;
+using System;
+using System.Text;
 using System.Text.Json;
 using System.Windows.Controls;
 
@@ -37,6 +39,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 {
                     jsonSaveString = sr.ReadLine();
                 }
+                jsonSaveString = Encoding.UTF8.GetString(Convert.FromBase64String(jsonSaveString));//декодирование сейв файла
                 Protagonist protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
 
                 _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, protagonist);
