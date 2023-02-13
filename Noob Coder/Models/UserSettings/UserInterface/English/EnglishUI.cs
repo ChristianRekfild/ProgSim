@@ -47,6 +47,16 @@ namespace Noob_Coder.Models
             #endregion
 
             #endregion
+
+            Minimarket = "minimarket";
+            Supermarket = "supermarket";
+            Gipermarket = "gipermarket";
+            Zoo = "ZOO";
+            SmallITcompany = "small";
+            MediumITcompany = "medium";
+            BigItCompany = "BIGIT";
+            MacroHard = "Maicrosdh";
+
         }
 
         #endregion

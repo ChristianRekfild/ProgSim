@@ -46,6 +46,16 @@ namespace Noob_Coder.Models
             SettingMenuBackButtonName = "Вернуться";
             #endregion
 
+            Minimarket = "минимаркет";
+            Supermarket = "супермаркеи";
+            Gipermarket = "гипермаркеи";
+            Zoo = "зоопарт";
+            SmallITcompany = "смоллИТ";
+            MediumITcompany = "медуимиТ";
+            BigItCompany = "Ьигми";
+            MacroHard = "сикросовт";
+
+
         }
 
 

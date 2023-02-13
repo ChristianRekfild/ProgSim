@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Noob_Coder.Models.Base;
+using System.Data;
 
 namespace Noob_Coder.Models 
 {
@@ -210,9 +211,27 @@ namespace Noob_Coder.Models
             get => _settingMenuBackButtonName;
             set => SetField(ref _settingMenuBackButtonName, value);
         }
+
         #endregion
 
         #endregion
+
+
+        public string Minimarket { get; set; }
+        public string Supermarket { get; set; }
+        public string Gipermarket { get; set; }
+        public string Zoo { get; set; }
+        public string SmallITcompany { get; set; }
+        public string MediumITcompany { get; set; }
+        public string BigItCompany { get; set; }
+        public string MacroHard { get; set; }
+
+
+        public string GetFromDictonary(string value)
+        {
+            UserInterface UI = this;
+            return UI.GetType().GetProperty(value).GetValue(UI, null).ToString();
+        }
 
     }
 }
