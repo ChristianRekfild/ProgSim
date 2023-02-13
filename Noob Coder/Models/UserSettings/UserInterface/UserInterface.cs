@@ -226,12 +226,5 @@ namespace Noob_Coder.Models
         public string BigItCompany { get; set; }
         public string MacroHard { get; set; }
 
-
-        public string GetFromDictonary(string value)
-        {
-            UserInterface UI = this;
-            return UI.GetType().GetProperty(value).GetValue(UI, null).ToString();
-        }
-
     }
 }
