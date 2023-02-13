@@ -116,8 +116,7 @@
 
 
                     <Button x:Name="gs_LeftSection_PropertySectionButton" Style="{StaticResource gs_MainSection_MiddleBlockIconButton}"
-                            Command="{Binding OpenSearchWorkDialogWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                            ToolTip="Биржа труда"
+                            ToolTip="Биржа труда" Click="gs_LeftSection_PropertySectionButton_Click" Cursor="Hand" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                             >
                         <Icon:PackIconMaterial Kind="HammerScrewdriver" Style="{StaticResource gs_MainSection_MiddleBlockIcon}"/>
                     </Button>
@@ -214,8 +213,9 @@
             <!---тело блока-->
             <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
                 <StackPanel Margin="0 35 0 0">
-                    <TextBlock Text="SomeText"/>
-                    <Button Style="{StaticResource button}" Content="Всплывающее окно"  Command="{Binding OpenSampleDialogWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="0,10,0,0" />
+                    <TextBlock Text="SomeText" />
+
+                    <Button Style="{StaticResource button}" Content="Всплывающее окно"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"  Margin="0,10,0,0" Cursor="Hand" Click="Button_Click" />
                     <Button Style="{StaticResource button}" Content="сделать гадость"  Command="{Binding ChangeMoodCommand}" CommandParameter="{Binding Protagonist}" Margin="0,10,0,0" Cursor="Hand"/>
                 </StackPanel>
             </Border>

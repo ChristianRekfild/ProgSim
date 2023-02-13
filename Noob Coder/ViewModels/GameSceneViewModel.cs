@@ -72,18 +72,6 @@ namespace Noob_Coder.ViewModels
         public ICommand NavigateMenuCommand { get; }
 
         /// <summary>
-        /// Команда открытия всплывающего окна.
-        /// </summary>
-        public ICommand OpenSampleDialogWindowCommand { get; }
-
-        //TODO может быть объединить команды открытия окно в одну?
-
-        /// <summary>
-        /// Команда открытия окна доступных вакансий.
-        /// </summary>
-        public ICommand OpenSearchWorkDialogWindowCommand { get;}
-
-        /// <summary>
         /// Команда управления здоровьем главного герою.
         /// </summary>
         public ICommand AddProtagonistHealthCommand { get; }//Базоая команда
@@ -118,8 +106,6 @@ namespace Noob_Coder.ViewModels
             #region Создвник команд
             #region Создание навигационных команд.
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore); //возврат в главное меню
-            OpenSampleDialogWindowCommand = new OpenSampleDialogWindowCommand(navigationStore); //открытие диалогового окна
-            OpenSearchWorkDialogWindowCommand = new OpenSearchWorkDialogWindowCommand(navigationStore); //открытие окна вакансий
             #endregion
 
             #region Создание комманд взаимодействия с главным героем.
