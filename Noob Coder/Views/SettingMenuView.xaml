@@ -22,7 +22,7 @@
                 </StackPanel>
             </Grid>
  
-        <Button Style="{StaticResource button}" Height="40" Content="{Binding UserSettings.UserInterface.SettingMenuBackButtonName}" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>               
+        <Button Style="{StaticResource button}" Height="40" Content="ПРИМЕНИТЬ" HorizontalAlignment="Left" Margin="44,535,0,0" VerticalAlignment="Top" Command="{Binding NavigateMenuCommand}" Cursor="Hand"/>               
 
 
 

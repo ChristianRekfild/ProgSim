@@ -49,7 +49,7 @@ namespace Noob_Coder.Models
         public void Save()
         {
             string jsonSaveString = JsonSerializer.Serialize(this);
-            using (StreamWriter sw = new StreamWriter("settings.noob2"))
+            using (StreamWriter sw = new StreamWriter("settings.noob"))
             {
                 sw.WriteLine(jsonSaveString);
             }
