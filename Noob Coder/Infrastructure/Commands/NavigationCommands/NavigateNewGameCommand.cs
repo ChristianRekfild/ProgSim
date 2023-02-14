@@ -36,6 +36,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 gameScene.Protagonist.Appearance = 50; //значение опрятности главного героя игры по умолчанию
                 gameScene.Protagonist.Mood = 50;  // значение настроения главного героя игры по умолчанию
                 gameScene.Protagonist.Money = 15842; // значение наличных денег по умолчанию
+                gameScene.Protagonist.CurrentWork = new Work(new EmptyJob(), new EmptyCompany());
 
         }
     }

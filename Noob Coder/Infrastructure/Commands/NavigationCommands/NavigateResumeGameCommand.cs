@@ -39,7 +39,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 {
                     jsonSaveString = sr.ReadLine();
                 }
-                jsonSaveString = Encoding.UTF8.GetString(Convert.FromBase64String(jsonSaveString));//декодирование сейв файла
+               // jsonSaveString = Encoding.UTF8.GetString(Convert.FromBase64String(jsonSaveString));//декодирование сейв файла
                 Protagonist protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
 
                 _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, protagonist);

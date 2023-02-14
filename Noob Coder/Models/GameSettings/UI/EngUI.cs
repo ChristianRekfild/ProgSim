@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Noob_Coder.Models;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ namespace Noob_Coder.UserInterface
         public static void ChangeUI() 
         {
             UI.Language = "English";
+            UI.ConverterCulture = new CultureInfo("en-US", false);
 
             #region Главное меню
             UI.MenuViewTitle = "Noob_Coder.MainMenu";
@@ -45,6 +48,7 @@ namespace Noob_Coder.UserInterface
             #endregion
 
             #region Компании
+            UI.EmptyCompany = "";
             UI.Minimarket = "Minimarket";
             UI.Supermarket = "Supermarket";
             UI.Gipermarket = "Gipermarket";

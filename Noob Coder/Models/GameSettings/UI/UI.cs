@@ -18,6 +18,8 @@ namespace Noob_Coder.UserInterface
         /// </summary>
         public static string Language {get; set;}
 
+        public static System.Globalization.CultureInfo ConverterCulture { get; set; }
+
         #region Главное меню
         public static string MenuViewTitle {get; set;}
         public static string ResumeGameButtonName {get; set;}
@@ -51,6 +53,7 @@ namespace Noob_Coder.UserInterface
         #endregion
 
         #region Компании
+        public static string EmptyCompany { get; set; }
         public static string Minimarket { get; set; }
         public static string Supermarket { get; set; }
         public static string Gipermarket { get; set; }

@@ -49,7 +49,7 @@ namespace Noob_Coder.Models
         /// <summary>
         /// Отображаемое название компании берется из словаря UI
         /// </summary>
-        public string Company
+        public string Company 
         {
             get => UI.GetPropValue(CompanyName);
         }
