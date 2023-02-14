@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Noob_Coder.ViewModels;
 
+
 namespace Noob_Coder.Infrastructure.HostBuilderExtensions
 {
     /// <summary>

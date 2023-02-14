@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Noob_Coder.Models.Base;
 using System.Xml.Linq;
+using Noob_Coder.UserInterface;
+using System.Runtime;
+using System.Reflection;
 
 namespace Noob_Coder.Models 
 {
@@ -24,7 +27,13 @@ namespace Noob_Coder.Models
         {
             get => _jobName;
             set => SetField(ref _jobName, value);
-
+        }
+        /// <summary>
+        /// Отображаемое название должности берется из словаря UI
+        /// </summary>
+        public string Job
+        {
+            get => UI.GetPropValue(JobName);
         }
 
         private string _companyName;
@@ -35,6 +44,14 @@ namespace Noob_Coder.Models
         {
             get => _companyName;
             set => SetField(ref _companyName, value);
+        }
+
+        /// <summary>
+        /// Отображаемое название компании берется из словаря UI
+        /// </summary>
+        public string Company 
+        {
+            get => UI.GetPropValue(CompanyName);
         }
 
         private int _salaryPerDay;
@@ -70,8 +87,8 @@ namespace Noob_Coder.Models
         //конструктор работы
         public Work(Job job, Company company)
         {
-            JobName = job.Title; //название должности
-            CompanyName = company.Title; //название компании
+            JobName = job.Name; //название должности
+            CompanyName = company.Name; //название компании
             SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);//зарплата
             PayDay = company.PayDay;//дни зарплаты
         }
@@ -90,6 +107,10 @@ namespace Noob_Coder.Models
             //результат в целом числе
             return Convert.ToInt32(result);
         }
+
+   
+
+
 
     }
 

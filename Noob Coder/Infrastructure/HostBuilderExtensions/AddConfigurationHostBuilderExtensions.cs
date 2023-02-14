@@ -20,12 +20,13 @@ namespace Noob_Coder.Infrastructure.HostBuilderExtensions
         /// <returns>IHostBuilder</returns>
         public static IHostBuilder AddConfiguration(this IHostBuilder builder)
         {
-            var appsettingsPath = Path.Combine(App.CurrentAppRunningDirectory(), "appsettings.json");
+           // var appsettingsPath = Path.Combine(App.CurrentAppRunningDirectory(), "appsettings.json"); //строка создает файл json при запуске приложения. в настоящее время не используется
             
             builder.UseContentRoot(App.CurrentAppRunningDirectory())
                    .ConfigureAppConfiguration((host, config) =>
                         config.SetBasePath(App.CurrentAppRunningDirectory())
-                              .AddJsonFile(appsettingsPath, optional: false, reloadOnChange: true));
+             //                 .AddJsonFile(appsettingsPath, optional: false, reloadOnChange: true)
+                        );
 
             return builder;
         }

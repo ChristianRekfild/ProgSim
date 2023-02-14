@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="Noob_Coder.Views.MenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="clr-namespace:Noob_Coder.UserInterface">
     
     <Grid x:Name="MainMenu">
 
@@ -20,7 +21,7 @@
                 Grid.Row="1" Grid.Column="1" 
                 Style="{StaticResource mainMenuButton}"
                 Margin="0,20,0,0" 
-                Content="{Binding UserSettings.UserInterface.ResumeGameButtonName}"
+                Content="{x:Static ui:UI.ResumeGameButtonName}"
                 Command="{Binding NavigateResumeGameCommand}"
                 Visibility="{Binding ResumeGameButtonVisibilityStatus}"/>
 
@@ -29,7 +30,7 @@
                 Grid.Column="1" Grid.Row="1"  
                 Style="{StaticResource mainMenuButton}"
                 Margin="0,85,0,0" 
-                Content="{Binding UserSettings.UserInterface.NewGameButtonName}"
+                Content="{x:Static ui:UI.NewGameButtonName}"
                 Command="{Binding NavigateNewGameCommand}"/>
 
         <!--кнопка загрузки игры-->
@@ -37,7 +38,7 @@
                 Grid.Column="1" Grid.Row="1"
                 Style="{StaticResource mainMenuButton}"
                 Margin="0,150,0,0" 
-                Content="{Binding UserSettings.UserInterface.LoadGameButtonName}" />
+                Content="{x:Static ui:UI.LoadGameButtonName}" />
 
         <!--кнопка настроек-->
         <Button x:Name="NavigateSettingMenuButton" 
@@ -45,14 +46,14 @@
                 Style="{StaticResource mainMenuButton}"
                 Margin="0,215,0,0" 
                 Command="{Binding NavigateSettingMenuCommand}"
-                Content="{Binding UserSettings.UserInterface.SettingsButtonName}" />
+                Content="{x:Static ui:UI.SettingsButtonName}" />
         
         <!--кнопка обратной связи игры-->
         <Button x:Name="NavigateFeedBackFormMenuButton"
                 Grid.Column="1" Grid.Row="1"
                 Style="{StaticResource mainMenuButton}"
                 Margin="0,280,0,0" 
-                Content="{Binding UserSettings.UserInterface.FeedbackButtonName}" 
+                Content="{x:Static ui:UI.FeedbackButtonName}" 
                 Command="{Binding NavigateFeedBackFormCommand}" />
 
         <!--кнопка выходя-->
@@ -60,7 +61,7 @@
                 Grid.Column="1" Grid.Row="1"
                 Style="{StaticResource mainMenuButton}"
                 Margin="0,345,0,0"   
-                Content="{Binding UserSettings.UserInterface.ExitButtonName}" 
+                Content="{x:Static ui:UI.ExitButtonName}" 
                 Command="{Binding CloseApplicationCommand}" Cursor="Hand" />
     
     </Grid>

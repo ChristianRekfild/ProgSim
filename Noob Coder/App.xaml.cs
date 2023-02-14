@@ -3,6 +3,8 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Noob_Coder.Infrastructure.Stores;
+using Noob_Coder.Models;
+using Noob_Coder.UserInterface;
 using Noob_Coder.ViewModels;
 
 namespace Noob_Coder
@@ -27,6 +29,8 @@ namespace Noob_Coder
       {
           var host = Host;
 
+          SettingsSaveModel settingsSaveModel = new SettingsSaveModel();
+          settingsSaveModel.Load();
           var navigationStore = host.Services.GetService<NavigationStore>();
           navigationStore.CurrentViewModel = new MenuViewModel(navigationStore);
           MainWindow = _host.Services.GetService<MainWindow>();

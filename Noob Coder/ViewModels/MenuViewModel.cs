@@ -1,14 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System;
-using System.IO;
+﻿using System.IO;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 using System.Windows.Input;
-using System.Windows;
-using Noob_Coder.Models;
-using System.Text.Json;
-using System.Xml.Linq;
+using Noob_Coder.UserInterface;
+
 
 namespace Noob_Coder.ViewModels
 {
@@ -41,16 +37,6 @@ namespace Noob_Coder.ViewModels
             set => SetField(ref _resumeGameButtonVisibilityStatus, value);
         }
         
-        
-        private string _backgroundImagePath = "/Data/Resourses/Images/background.jpg";
-        /// <summary>
-        /// Путь к фоновому изображению.
-        /// </summary>
-        public string BackgroundImagePath
-        {
-            get => _backgroundImagePath;
-            set => SetField(ref _backgroundImagePath, value);
-        }
         private string _logoImagePath = "/Data/Resourses/Images/Logos.png";
         /// <summary>
         /// Путь к изображению логотипа.
@@ -93,56 +79,13 @@ namespace Noob_Coder.ViewModels
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
             NavigateSettingMenuCommand = new NavigateSettingMenuCommand(navigationStore);
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);
+            
+            Title = UI.MenuViewTitle;
 
-            /// <summary>
-            /// Если существует файл LastAutoSave.noob показывать кнопу "Продолжить игру"
-            /// </summary>
+            // Если существует файл LastAutoSave.noob показывать кнопу "Продолжить игру"
             if (File.Exists("LastAutoSave.noob")) ResumeGameButtonVisibilityStatus = "visable";
 
-            /// <summary>
-            /// Задание базовых настоек интерфейса
-
-            /// </summary>
-            
-            //TODO !!! НЕОБХОДИМО ПЕРЕНЕСТИ В MAINWINDOW!!!
-            
-            /// <summary>
-            /// Если существует файл settings.noob взять пользовательские настройки из него
-            /// Иначе создат по умолчанию
-            /// </summary>
-
-            if (File.Exists("settings.noob"))
-            {
-                string jsonSaveString;
-                using (StreamReader sr = new StreamReader("settings.noob"))
-                {
-                    jsonSaveString = sr.ReadLine();
-                }
-                string language = JsonSerializer.Deserialize<String?>(jsonSaveString);
-                UserSettings = new Models.UserSettings();
-                switch (language)
-                {
-                    case "Русский":
-                        UserSettings.UserInterface = new RussianUI();
-                        break;
-                    case "English":
-                        UserSettings.UserInterface = new EnglishUI();
-                        break;
                     
-                }
-  
-                    
-            }
-            else
-            {
-                UserSettings = new Models.UserSettings();
-            }
-            
-
-            ///<summary>
-            ///Получение заголовка из файла пользовательских настроек
-            /// </summary>
-            Title = UserSettings.UserInterface.Title;
         }
     }
 }

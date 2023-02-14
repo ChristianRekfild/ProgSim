@@ -1,4 +1,6 @@
 ﻿using System.Threading;
+using System;
+using System.Text;
 using System.Text.Json;
 using Noob_Coder.Models;
 using Noob_Coder.Infrastructure.Commands.Base;
@@ -36,6 +38,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 /// Автосохранение параметров главного героя в файл LastAutoSave.noob в формате JSON.
                 /// </summary>
                 string jsonSaveString = JsonSerializer.Serialize(ClosingGameScene.Protagonist);
+               // jsonSaveString = Convert.ToBase64String(Encoding.UTF8.GetBytes(jsonSaveString)); //кодирование сейв файла
                 using (StreamWriter sw = new StreamWriter("LastAutoSave.noob"))
                 {
                     sw.WriteLine(jsonSaveString);
@@ -44,22 +47,14 @@ namespace Noob_Coder.Infrastructure.Commands
             }
             if (_navigationStore.CurrentViewModel is SettingMenuViewModel ClosingSettingMenu)
             {
-                /// <summary>
-                /// Автосохранение параметров пользовательских настроек в файл settings.noob в формате JSON.
-                /// </summary>
-                string jsonSaveString = JsonSerializer.Serialize(ClosingSettingMenu.UserSettings.UserInterface.LanguageName);
-                using (StreamWriter sw = new StreamWriter("settings.noob"))
-                {
-                    sw.WriteLine(jsonSaveString);
-                }
+                SettingsSaveModel settingsSaveModel = new SettingsSaveModel();
+                settingsSaveModel.Save(); // Автосохранение параметров пользовательских настроек в файл settings.noob в формате JSON.
 
+                
             }    
-
-                UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
-
+   
             _navigationStore.CurrentViewModel = new MenuViewModel(_navigationStore);
-            var gameScene = (MenuViewModel)_navigationStore.CurrentViewModel;
-            gameScene.UserSettings = UserSettings;
+
         }
     }
 }

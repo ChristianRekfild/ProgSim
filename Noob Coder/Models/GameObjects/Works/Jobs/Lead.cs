@@ -16,8 +16,7 @@ namespace Noob_Coder.Models
     {
          public Lead()
         {
-            Name = Jobs.Senior; //название из enum, должно совпадать с именем класса
-            Title = "TeamLead"; //отображаемое название из словаря
+            Name = Jobs.Senior.ToString(); //название из enum, должно совпадать с именем класса
             MinSalaryPerDay = 1000; //минимальная зарплата
             MaxSalaryPerDay = 5000;//максимальная зарплата
 

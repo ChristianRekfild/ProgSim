@@ -16,10 +16,6 @@ namespace Noob_Coder.ViewModels.Base
         /// </summary>
         public virtual string Title { get; set; }
 
-        /// <summary>
-        /// Свойсто, хранящее пользовательские настойки интерфейса
-        /// </summary>
-        public virtual UserSettings UserSettings { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         /// <summary>

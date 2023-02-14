@@ -14,28 +14,16 @@ namespace Noob_Coder.Models
     /// </summary>
     internal class Job : ModelBase
     {
-        private Jobs _name;
+        private string _name;
         /// <summary>
         /// Название должности
         /// берется из enum Jobs
         /// должно совпадать с именем класса
         /// </summary>
-        public Jobs Name
+        public string Name
         {
             get => _name;
             set => _name = value;
-
-        }
-
-        private string _title;
-        /// <summary>
-        /// Отображаемое название должности
-        /// берется из словаря, зависит от языка
-        /// </summary>
-        public string Title
-        {
-            get => _title;
-            set => _title = value;
 
         }
 
@@ -63,9 +51,6 @@ namespace Noob_Coder.Models
 
         public Job()
         {
-            Title = "Безработный"; //отображаемое название из словаря
-            MinSalaryPerDay = 0; //минимальная зарплата
-            MaxSalaryPerDay = 0;//максимальная зарплата
         }
 
     }

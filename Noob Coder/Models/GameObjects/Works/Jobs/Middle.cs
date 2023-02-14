@@ -16,8 +16,7 @@ namespace Noob_Coder.Models
     {
          public Middle()
         {
-            Name = Jobs.Middle; //название из enum, должно совпадать с именем класса
-            Title = "Middle разработчик"; //отображаемое название из словаря
+            Name = Jobs.Middle.ToString(); //название из enum, должно совпадать с именем класса
             MinSalaryPerDay = 200; //минимальная зарплата
             MaxSalaryPerDay = 300;//максимальная зарплата
 

@@ -16,8 +16,7 @@ namespace Noob_Coder.Models
     {
          public Courier()
         {
-            Name = Jobs.Courier; //название из enum, должно совпадать с именем класса
-            Title = "Курьер"; //отображаемое название из словаря
+            Name = Jobs.Courier.ToString(); //название из enum, должно совпадать с именем класса
             MinSalaryPerDay = 80; //минимальная зарплата
             MaxSalaryPerDay = 120;//максимальная зарплата
 

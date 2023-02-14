@@ -23,10 +23,10 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
 
-            UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
-            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore);
+           
+            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, new Protagonist());
             var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
-            gameScene.UserSettings = UserSettings;
+      
          
                 /// <summary>
                 /// Установка параметров главного героя при запуске новой игры.
@@ -35,8 +35,8 @@ namespace Noob_Coder.Infrastructure.Commands
                 gameScene.Protagonist.Stamina = 100; //значение усталости главного героя игры по умолчанию
                 gameScene.Protagonist.Appearance = 50; //значение опрятности главного героя игры по умолчанию
                 gameScene.Protagonist.Mood = 50;  // значение настроения главного героя игры по умолчанию
-                gameScene.Protagonist.CurrentWork = new Work(new Job(), new Company());//безработный по умолчанию
                 gameScene.Protagonist.Money = 15842; // значение наличных денег по умолчанию
+                gameScene.Protagonist.CurrentWork = new Work(new EmptyJob(), new EmptyCompany());
 
         }
     }
