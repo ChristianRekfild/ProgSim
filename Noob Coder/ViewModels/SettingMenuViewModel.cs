@@ -46,11 +46,11 @@ namespace Noob_Coder.ViewModels
                 {
                     case "Русский":
                         UserSettings.UserInterface = new RussianUI();
-                        RUI.ChangeUI();
+                        RusUI.ChangeUI();
                         break;
                     case "English":
                         UserSettings.UserInterface = new EnglishUI();
-                        EUI.ChangeUI();
+                        EngUI.ChangeUI();
                         break;
                 }
             }

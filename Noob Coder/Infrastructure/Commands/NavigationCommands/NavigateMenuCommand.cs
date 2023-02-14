@@ -47,6 +47,8 @@ namespace Noob_Coder.Infrastructure.Commands
             }
             if (_navigationStore.CurrentViewModel is SettingMenuViewModel ClosingSettingMenu)
             {
+                SettingsSaveModel settingsSaveModel = new SettingsSaveModel();
+                settingsSaveModel.Save();
                 /// <summary>
                 /// Автосохранение параметров пользовательских настроек в файл settings.noob в формате JSON.
                 /// </summary>
