@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Noob_Coder.Models;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using Noob_Coder.Services;
 
 namespace Noob_Coder.ViewModels
 {
@@ -41,7 +39,7 @@ namespace Noob_Coder.ViewModels
         }
 
         #region игровые объекты
-        
+
         private Protagonist _protagonist;
         /// <summary>
         /// Переменная главного героя игры.
@@ -79,7 +77,7 @@ namespace Noob_Coder.ViewModels
         /// Команда управления настроением главного дероя.
         /// </summary>
         public ICommand ChangeMoodCommand { get; }
-        
+
         ///<summary>
         ///Команда устройства на работу
         /// </summary>
@@ -115,31 +113,16 @@ namespace Noob_Coder.ViewModels
             #endregion
 
 
+            var service = App.Host.Services.GetRequiredService<GameBackgroundService>();
+            service.RunTimer(_cts.Token).WaitAsync(CancellationToken.None);
+        }
 
-            //TODO убрать таймер в отдельный класс
-            RunTimer().WaitAsync(_cts.Token);
-
-         }
-
-        private CancellationTokenSource _cts = new CancellationTokenSource();
+        private readonly CancellationTokenSource _cts = new();
 
         public void CancelTimer()
         {
             _cts.Cancel();
         }
-
-        private async Task RunTimer()
-        {
-            while (!_cts.IsCancellationRequested)
-            {
-               await Task.Delay(1000);
-               Protagonist.AnotherFuckingDay(); //проживаем один день
-               if (!Protagonist.IsNotDie()) System.Windows.Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
-               GameDate = _gameDate.AddDays(1);
-
-            }
-        }
-
 
         /// <summary>
         /// Генератор вакансий
@@ -155,9 +138,9 @@ namespace Noob_Coder.ViewModels
             int rndJobIndex = new int();
 
             for (int i = 0; i<10; i++) //цмкл для создания 10 вакансий
-            { 
+            {
             //получаем название компании случайным образом из enum Companies
-            
+
             rndCompanyIndex = rnd.Next(0, Enum.GetNames(typeof(Companies)).Length); //случайное число от 0 до максимального элемента в enum Companies
             Companies rndCompany = (Companies)rndCompanyIndex; //получение значения из enum по индкусу
             string companyName = rndCompany.ToString(); //перевод в строку
@@ -168,7 +151,7 @@ namespace Noob_Coder.ViewModels
             if (objCompany is Company company) //если получилость создать компанию
             {
                 //получаем название должности случайным образом из доступных должностей созданной компании
-             
+
                 rndJobIndex = rnd.Next(0, company.PossibleJobs.Count); //случайное число от 0 до максимального элемента в List доступных вакансий
                 Jobs rndJob = company.PossibleJobs.ElementAt(rndJobIndex);//получение зачения enum по индексу из списка доступных должностей
                 string jobName = rndJob.ToString(); //перевод в строку
