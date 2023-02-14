@@ -19,22 +19,21 @@ namespace Noob_Coder.Models
     {
         #region Свойства
 
-        private string _jobName = "Loader";
+        private string _jobName;
         /// <summary>
         /// Название должности
         /// </summary>
-        /// 
         public string JobName
         {
             get => _jobName;
             set => SetField(ref _jobName, value);
         }
+        /// <summary>
+        /// Отображаемое название должности берется из словаря UI
+        /// </summary>
         public string JobTitle
         {
-            get => UI.GetPropValue(_jobName);
-               
-           // set => SetField(ref _jobName, value);
-
+            get => UI.GetPropValue(JobName);
         }
 
         private string _companyName;
@@ -80,9 +79,8 @@ namespace Noob_Coder.Models
         //конструктор работы
         public Work(Job job, Company company)
         {
-            JobName = job.Name.ToString(); //название должности
-           
-            CompanyName = company.Title; //название компании
+            JobName = job.Name; //название должности
+            CompanyName = company.Name; //название компании
             SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);//зарплата
             PayDay = company.PayDay;//дни зарплаты
         }

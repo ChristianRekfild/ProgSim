@@ -36,6 +36,7 @@ namespace Noob_Coder.UserInterface
         #endregion
 
         #region Должности
+        public static string EmptyJob { get; set;}
         public static string Loader {get; set;}
         public static string Seller {get; set;}
         public static string Worker {get; set;}
@@ -58,8 +59,12 @@ namespace Noob_Coder.UserInterface
         /// <returns>значение свойсва UI</returns>
         public static string GetPropValue(string name)
         {
-            var result = Type.GetType("Noob_Coder.UserInterface.UI").GetProperty(name).GetValue(null);
-            return result.ToString();
+            if (name != null)
+            {
+                var result = Type.GetType("Noob_Coder.UserInterface.UI").GetProperty(name).GetValue(null);
+                return result.ToString();
+            }
+            else return "";
         }
 
         /// <summary>

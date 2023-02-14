@@ -30,6 +30,7 @@ namespace Noob_Coder.UserInterface
             #endregion
 
             #region Должности
+            UI.EmptyJob = "Jobless";
             UI.Loader = "Loader";
             UI.Seller = "Seller";
             UI.Worker = "Worker";

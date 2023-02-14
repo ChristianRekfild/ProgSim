@@ -170,7 +170,7 @@ namespace Noob_Coder.Models
         //конструктор начального персонажа
         public Protagonist()
         {
-        
+           CurrentWork = new Work(new EmptyJob(), new EmptyCompany());
         }
 
     }

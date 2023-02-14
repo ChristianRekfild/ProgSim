@@ -22,10 +22,7 @@ namespace Noob_Coder.ViewModels
 
         #region Свойства
 
-
-
-
-        private string _title = "Симулятор программиста.";
+        private string _title;
         /// <summary>
         /// Заголовок окна.
         /// </summary>
@@ -103,7 +100,7 @@ namespace Noob_Coder.ViewModels
             VacanciesWorks = VacanciesWorksGenerator(); //Генерация доступных вакансий
             #endregion
 
-            #region Создвник команд
+            #region Создвние команд
             #region Создание навигационных команд.
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore); //возврат в главное меню
             #endregion
@@ -164,22 +161,20 @@ namespace Noob_Coder.ViewModels
             rndCompanyIndex = rnd.Next(0, Enum.GetNames(typeof(Companies)).Length); //случайное число от 0 до максимального элемента в enum Companies
             Companies rndCompany = (Companies)rndCompanyIndex; //получение значения из enum по индкусу
             string companyName = rndCompany.ToString(); //перевод в строку
-            companyName = "Noob_Coder.Models." + companyName; //добавление пространства имен
 
             //создаем объект objCompany по ранее сгенерированному имени companyName
-            object objCompany = Type.GetType(companyName).GetConstructor(new Type[0]).Invoke(null);
+            object objCompany = Type.GetType("Noob_Coder.Models." + companyName).GetConstructor(new Type[0]).Invoke(null);
 
             if (objCompany is Company company) //если получилость создать компанию
             {
                 //получаем название должности случайным образом из доступных должностей созданной компании
-                
+             
                 rndJobIndex = rnd.Next(0, company.PossibleJobs.Count); //случайное число от 0 до максимального элемента в List доступных вакансий
                 Jobs rndJob = company.PossibleJobs.ElementAt(rndJobIndex);//получение зачения enum по индексу из списка доступных должностей
                 string jobName = rndJob.ToString(); //перевод в строку
-                jobName = "Noob_Coder.Models." + jobName; //добавление пространства имен
 
                 //создаем объект objJob по ранее сгенерированному имени jobName
-                object objJob = Type.GetType(jobName).GetConstructor(new Type[0]).Invoke(null);
+                object objJob = Type.GetType("Noob_Coder.Models." + jobName).GetConstructor(new Type[0]).Invoke(null);
 
                 if (objJob is Job job) //если получилость создать еще и должность
                 {

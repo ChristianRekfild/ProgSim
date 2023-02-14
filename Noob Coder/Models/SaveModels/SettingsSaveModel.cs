@@ -29,10 +29,10 @@ namespace Noob_Coder.Models
 
         public void Load()
         {
-            if (File.Exists(Path.Combine(App.CurrentAppRunningDirectory(), "settings.noob2")))
+            if (File.Exists(Path.Combine(App.CurrentAppRunningDirectory(), "settings.noob")))
             {
                 string jsonSaveString;
-                using (StreamReader sr = new StreamReader("settings.noob2"))
+                using (StreamReader sr = new StreamReader("settings.noob"))
                 {
                     jsonSaveString = sr.ReadLine();
                 }

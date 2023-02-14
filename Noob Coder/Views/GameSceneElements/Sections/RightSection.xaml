@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:ui="clr-namespace:Noob_Coder.UserInterface"
              x:Class="Noob_Coder.Views.GameSceneElements.RightSection"
 >
     <Border Grid.Column="2" Style="{StaticResource gs_RightSection_Border}">
@@ -11,7 +12,7 @@
             <lvc:Gauge x:Name="ProtagonistHealthGauge" Style="{StaticResource gs_RightSection_ProtagonistHealthGauge}" Value="{Binding Protagonist.Health}" Margin="0 70 0 0" />
             <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource gs_RightSection_ProtagonistHealthIcon}" />
             <TextBlock Text="{Binding ElementName=ProtagonistHealthGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistHealthGaugeValue}" />
-            <TextBlock Text="{Binding UserSettings.UserInterface.Health}" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
+            <TextBlock Text="{x:Static ui:UI.Health}" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
             <!--#endregion-->
            
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
@@ -20,7 +21,7 @@
             <lvc:Gauge x:Name="ProtagonistStaminaGauge" Style="{StaticResource gs_RightSection_ProtagonistStaminaGauge}" Value="{Binding Protagonist.Stamina}" />
             <Icon:PackIconMaterial Kind="Flash" Style="{StaticResource gs_RightSection_ProtagonistStaminaIcon}" />
             <TextBlock Text="{Binding ElementName=ProtagonistStaminaGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistStaminaGaugeValue}" />
-            <TextBlock Text="{Binding UserSettings.UserInterface.Stamina}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
+            <TextBlock Text="{x:Static ui:UI.Stamina}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
             <!--#endregion-->
            
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10" />
@@ -29,7 +30,7 @@
             <lvc:Gauge x:Name="ProtagonistAppearanceGauge" Style="{StaticResource gs_RightSection_ProtagonistAppearanceGauge}" Value="{Binding Protagonist.Appearance}" />
             <Icon:PackIconMaterial Kind="Shower" Style="{StaticResource gs_RightSection_ProtagonistAppearanceIcon}" />
             <TextBlock Text="{Binding ElementName=ProtagonistAppearanceGauge, Path=Value, StringFormat={}{0:0}}" Style="{StaticResource gs_RightSection_ProtagonistAppearanceGaugeValue}" />
-            <TextBlock Text="{Binding UserSettings.UserInterface.Appearance}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
+            <TextBlock Text="{x:Static ui:UI.Appearance}" Style="{StaticResource gs_RightSection_GaugeTitle}" />
             <!--#endregion-->
                       
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>
@@ -38,7 +39,7 @@
             <lvc:Gauge x:Name="ProtagonistMoodGauge" Style="{StaticResource gs_RightSection_ProtagonistMoodGauge}" Value="{Binding Protagonist.Mood}" />
             <Icon:PackIconMaterial Kind="RobotHappy" Style="{StaticResource gs_RightSection_ProtagonistMoodIcon}" />
             <TextBlock Text="{Binding ElementName=ProtagonistMoodGauge, Path=Value, StringFormat={}{0:0}}" Style ="{StaticResource gs_RightSection_ProtagonistMoodGaugeValue}"/>
-            <TextBlock Text="{Binding UserSettings.UserInterface.Mood}" Style="{StaticResource gs_RightSection_GaugeTitle}"/>
+            <TextBlock Text="{x:Static ui:UI.Mood}" Style="{StaticResource gs_RightSection_GaugeTitle}" Cursor=""/>
             <!--#endregion-->
 
             <Separator Style="{StaticResource gs_RightSection_Separator}" Margin="10 0 10 10"/>

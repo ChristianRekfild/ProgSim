@@ -14,7 +14,7 @@ namespace Noob_Coder.UserInterface
             UI.Language = "Русский";
 
             #region Главное меню
-            UI.MenuViewTitle = "Noob_Coder.Главное меню";
+            UI.MenuViewTitle = "Noob_Coder. Главное меню";
             UI.ResumeGameButtonName = "Продолжить";
             UI.NewGameButtonName = "Новая Игра";
             UI.LoadGameButtonName = "Загрузить Игру";
@@ -31,6 +31,7 @@ namespace Noob_Coder.UserInterface
             #endregion
 
             #region Должности
+            UI.EmptyJob = "Безработный";
             UI.Loader = "Грузчик";
             UI.Seller = "Продавец-кассир";
             UI.Worker = "Разнорабочий";

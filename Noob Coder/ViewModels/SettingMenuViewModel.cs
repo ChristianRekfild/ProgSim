@@ -45,11 +45,9 @@ namespace Noob_Coder.ViewModels
                 switch (_selectedLanguage)
                 {
                     case "Русский":
-                        UserSettings.UserInterface = new RussianUI();
                         RusUI.ChangeUI();
                         break;
                     case "English":
-                        UserSettings.UserInterface = new EnglishUI();
                         EngUI.ChangeUI();
                         break;
                 }

@@ -22,10 +22,7 @@ namespace Noob_Coder.Infrastructure.Commands
 
         public override void Execute(object? parameter)
         {
-            UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
-            _navigationStore.CurrentViewModel = new FeedBackFormViewModel(_navigationStore);
-            var gameScene = (FeedBackFormViewModel)_navigationStore.CurrentViewModel;
-            gameScene.UserSettings = UserSettings;
+          _navigationStore.CurrentViewModel = new FeedBackFormViewModel(_navigationStore);
         }
     }
 }

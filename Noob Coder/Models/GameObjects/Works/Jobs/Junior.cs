@@ -16,8 +16,7 @@ namespace Noob_Coder.Models
     {
          public Junior()
         {
-            Name = Jobs.Junior; //название из enum, должно совпадать с именем класса
-            Title = "Junior разработчик"; //отображаемое название из словаря
+            Name = Jobs.Junior.ToString(); //название из enum, должно совпадать с именем класса
             MinSalaryPerDay = 80; //минимальная зарплата
             MaxSalaryPerDay = 120;//максимальная зарплата
 

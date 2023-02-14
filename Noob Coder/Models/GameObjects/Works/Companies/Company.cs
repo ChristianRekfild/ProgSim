@@ -14,28 +14,16 @@ namespace Noob_Coder.Models
     /// </summary>
     internal class Company : ModelBase
     {
-        private Companies _name;
+        private string _name;
         /// <summary>
         /// Название компании
         /// берется из enum Companies
         /// должно совпадать с именем класса
         /// </summary>
-        public Companies Name
+        public string Name
         {
             get => _name;
             set => SetField(ref _name, value);
-
-        }
-
-        private string _title;
-        /// <summary>
-        /// Отображаемое название компании
-        /// берется из словаря, зависит от языка
-        /// </summary>
-        public string Title
-        {
-            get => _title;
-            set => SetField(ref _title, value);
 
         }
 
@@ -78,10 +66,7 @@ namespace Noob_Coder.Models
         
         public Company()
         {
-            Title = "безработный"; //отображаемое название из словаря
-            PayDay = new List<int> { 0 }; //список дней зарплаты
-            PossibleJobs = new List<Jobs>(); //список возможных должностей из enum Jobs
-            PayСoefficient = 0; //зарплатный коэффициент
+        
         }
     }
 

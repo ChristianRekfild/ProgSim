@@ -11,16 +11,16 @@ using System.Windows.Controls;
 using System.Windows;
 
 namespace Noob_Coder.Models
-{
+{   
+    /// <summary>
+    /// Модель компании Zoo
+    /// </summary>
     internal class Zoo : Company
     {
-        /// <summary>
-        /// Модель компании Zoo
-        /// </summary>
+
         public Zoo()
         {
-            Name = Companies.Zoo; //название из enum, должно совпадать с именем класса
-            Title = "Зоопарк Косичка"; //отображаемое название из словаря
+            Name = Companies.Zoo.ToString(); //название из enum, должно совпадать с именем класса
             PayDay = new List<int> { 1 }; //список дней зарплаты
             PossibleJobs = new List<Jobs> { Jobs.Animator, Jobs.Cleaner, Jobs.Worker}; //список возможных должностей из enum Jobs
             PayСoefficient = 0.9; //зарплатный коэффициент

@@ -29,7 +29,7 @@ namespace Noob_Coder.Infrastructure.Commands
         {
 
 
-                UserSettings UserSettings = _navigationStore.CurrentViewModel.UserSettings;
+             
 
                
                 // Установка параметров главного героя при запуске новой игры.
@@ -44,7 +44,7 @@ namespace Noob_Coder.Infrastructure.Commands
 
                 _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, protagonist);
                 var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
-                gameScene.UserSettings = UserSettings;
+               ;
                 
                 
             
