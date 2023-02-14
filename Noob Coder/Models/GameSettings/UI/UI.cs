@@ -50,6 +50,16 @@ namespace Noob_Coder.UserInterface
         public static string Lead {get; set;}
         #endregion
 
+        #region Компании
+        public static string Minimarket { get; set; }
+        public static string Supermarket { get; set; }
+        public static string Gipermarket { get; set; }
+        public static string Zoo { get; set; }
+        public static string SmallITcompany { get; set; }
+        public static string MediumITcompany { get; set; }
+        public static string BigItCompany { get; set; }
+        public static string MacroHard { get; set; }
+        #endregion
 
         /// <summary>
         /// получение значения свойства UI

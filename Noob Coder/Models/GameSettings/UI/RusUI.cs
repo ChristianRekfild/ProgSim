@@ -40,9 +40,20 @@ namespace Noob_Coder.UserInterface
             UI.Cleaner = "Уборщик";
             UI.Intern = "Стажер";
             UI.Junior = "Junior";
-            UI.Middle = "Moddle";
+            UI.Middle = "Middle";
             UI.Senior = "Senior";
             UI.Lead = "TeamLead";
+            #endregion
+
+            #region Компании
+            UI.Minimarket = "Магазин Апельсин";
+            UI.Supermarket = "Шестерочка";
+            UI.Gipermarket = "ГиперПолоска";
+            UI.Zoo = "Зоопарк Змеюка";
+            UI.SmallITcompany = "ИП Горбунков С.С.";
+            UI.MediumITcompany = "Большие решения";
+            UI.BigItCompany = "Ключевая ставка";
+            UI.MacroHard = "МакроХард";
             #endregion
         }
     }

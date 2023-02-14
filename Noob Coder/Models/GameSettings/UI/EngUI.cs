@@ -43,6 +43,17 @@ namespace Noob_Coder.UserInterface
             UI.Senior = "Senior";
             UI.Lead = "Lead";
             #endregion
+
+            #region Компании
+            UI.Minimarket = "Minimarket";
+            UI.Supermarket = "Supermarket";
+            UI.Gipermarket = "Gipermarket";
+            UI.Zoo = "Zoo";
+            UI.SmallITcompany = "SmallITcompany";
+            UI.MediumITcompany = "MediumITcompany";
+            UI.BigItCompany = "BigItCompany";
+            UI.MacroHard = "MacroHard";
+            #endregion
         }
     }
 }

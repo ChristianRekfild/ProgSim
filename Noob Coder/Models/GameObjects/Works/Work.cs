@@ -31,7 +31,7 @@ namespace Noob_Coder.Models
         /// <summary>
         /// Отображаемое название должности берется из словаря UI
         /// </summary>
-        public string JobTitle
+        public string Job
         {
             get => UI.GetPropValue(JobName);
         }
@@ -44,6 +44,14 @@ namespace Noob_Coder.Models
         {
             get => _companyName;
             set => SetField(ref _companyName, value);
+        }
+
+        /// <summary>
+        /// Отображаемое название компании берется из словаря UI
+        /// </summary>
+        public string Company
+        {
+            get => UI.GetPropValue(CompanyName);
         }
 
         private int _salaryPerDay;
