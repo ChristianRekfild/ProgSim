@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Noob_Coder.Models.Base;
 using System.Xml.Linq;
+using Noob_Coder.UserInterface;
 
 namespace Noob_Coder.Models 
 {
@@ -22,8 +23,8 @@ namespace Noob_Coder.Models
         /// </summary>
         public string JobName
         {
-            get => _jobName;
-            set => SetField(ref _jobName, value);
+            get => UI.Loader;
+           // set => SetField(ref _jobName, value);
 
         }
 
@@ -70,7 +71,7 @@ namespace Noob_Coder.Models
         //конструктор работы
         public Work(Job job, Company company)
         {
-            JobName = job.Title; //название должности
+           // JobName = job.Title; //название должности
             CompanyName = company.Title; //название компании
             SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);//зарплата
             PayDay = company.PayDay;//дни зарплаты

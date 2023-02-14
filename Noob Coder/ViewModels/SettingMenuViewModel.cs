@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.Models;
+using Noob_Coder.UserInterface;
 using Noob_Coder.ViewModels.Base;
 
 namespace Noob_Coder.ViewModels
@@ -45,9 +46,11 @@ namespace Noob_Coder.ViewModels
                 {
                     case "Русский":
                         UserSettings.UserInterface = new RussianUI();
+                        RUI.ChangeUI();
                         break;
                     case "English":
                         UserSettings.UserInterface = new EnglishUI();
+                        EUI.ChangeUI();
                         break;
                 }
             }
@@ -63,8 +66,10 @@ namespace Noob_Coder.ViewModels
         #endregion
         public SettingMenuViewModel(NavigationStore navigationStore)
         {
+           // RUI.ChangeUI();
             NavigateMenuCommand = new NavigateMenuCommand(navigationStore);
             Languages = new ObservableCollection<string> { "Русский", "English"};
+            
         }
     }
 }

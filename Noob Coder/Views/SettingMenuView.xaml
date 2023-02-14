@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="clr-namespace:Noob_Coder.UserInterface"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Noob_Coder.Views.SettingMenuView"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280"
@@ -14,7 +15,7 @@
 
         
             <Grid>
-                <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Страница настроек" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="{x:Static ui:UI.Loader}" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="{Binding UserSettings.UserInterface.SettingMenuLanguage}" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                 <StackPanel Margin="190,70,861,420">
                     <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
