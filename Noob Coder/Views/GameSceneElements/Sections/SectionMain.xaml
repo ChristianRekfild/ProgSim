@@ -123,7 +123,7 @@
 
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 5" Width="160">
                         <TextBlock Text="текущая работа"  FontSize="14" Foreground="#FFC8C4C0"/>
-                        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Protagonist.CurrentWork.JobName}"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
+                        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Protagonist.CurrentWork.JobTitle}"  FontSize="16" Foreground="#FFFFFF" FontWeight="SemiBold"/>
                         <TextBlock Text="{Binding Protagonist.CurrentWork.SalaryPerDay}" FontSize="14" Foreground="#FFFFFF" FontWeight="Light"/>
                         <Separator Height="2" Margin="0"/> 
                         <TextBlock Text="подработка"  FontSize="14" Foreground="#FFC8C4C0"/>

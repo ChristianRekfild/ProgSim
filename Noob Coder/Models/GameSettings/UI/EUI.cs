@@ -11,7 +11,16 @@ namespace Noob_Coder.UserInterface
         public static void ChangeUI() 
         {
             UI.Loader = "Loader";
-            UI.Junior = "Juniur";
+            UI.Seller = "Seller";
+            UI.Worker = "Worker";
+            UI.Courier = "Courier";
+            UI.Animator = "Animator";
+            UI.Cleaner = "Cleaner";
+            UI.Intern = "Intern";
+            UI.Junior = "Junior";
+            UI.Middle = "Middle";
+            UI.Senior = "Senior";
+            UI.Lead = "Lead";
         }
     }
 }

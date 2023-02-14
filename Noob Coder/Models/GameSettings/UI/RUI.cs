@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Noob_Coder.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,16 @@ namespace Noob_Coder.UserInterface
         public static void ChangeUI() 
         {
             UI.Loader = "Грузчик";
-            UI.Junior = "Юниор";
+            UI.Seller = "Продавец-кассир";
+            UI.Worker = "Разнорабочий";
+            UI.Courier = "Курьер";
+            UI.Animator = "Аниматор в костюме Енота";
+            UI.Cleaner = "Уборщик";
+            UI.Intern = "Стажер";
+            UI.Junior = "Junior";
+            UI.Middle = "Moddle";
+            UI.Senior = "Senior";
+            UI.Lead = "TeamLead";
         }
     }
 }

@@ -18,7 +18,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="{x:Static ui:UI.Loader}" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="{Binding UserSettings.UserInterface.SettingMenuLanguage}" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                 <StackPanel Margin="190,70,861,420">
-                    <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
+                <ComboBox Name="SelectLanguage" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
                 </StackPanel>
             </Grid>
  

@@ -7,6 +7,8 @@ using System.ComponentModel;
 using Noob_Coder.Models.Base;
 using System.Xml.Linq;
 using Noob_Coder.UserInterface;
+using System.Runtime;
+using System.Reflection;
 
 namespace Noob_Coder.Models 
 {
@@ -17,13 +19,20 @@ namespace Noob_Coder.Models
     {
         #region Свойства
 
-        private string _jobName;
+        private string _jobName = "Loader";
         /// <summary>
         /// Название должности
         /// </summary>
+        /// 
         public string JobName
         {
-            get => UI.Loader;
+            get => _jobName;
+            set => SetField(ref _jobName, value);
+        }
+        public string JobTitle
+        {
+            get => UI.GetPropValue(_jobName);
+               
            // set => SetField(ref _jobName, value);
 
         }
@@ -71,7 +80,8 @@ namespace Noob_Coder.Models
         //конструктор работы
         public Work(Job job, Company company)
         {
-           // JobName = job.Title; //название должности
+            JobName = job.Name.ToString(); //название должности
+           
             CompanyName = company.Title; //название компании
             SalaryPerDay = SalaryCalculator(job.MinSalaryPerDay, job.MaxSalaryPerDay, company.PayСoefficient);//зарплата
             PayDay = company.PayDay;//дни зарплаты
@@ -91,6 +101,10 @@ namespace Noob_Coder.Models
             //результат в целом числе
             return Convert.ToInt32(result);
         }
+
+   
+
+
 
     }
 
