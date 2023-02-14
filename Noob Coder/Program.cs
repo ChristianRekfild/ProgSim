@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Noob_Coder.Infrastructure.HostBuilderExtensions;
+using Noob_Coder.Services;
 
 namespace Noob_Coder
 {
@@ -26,6 +28,8 @@ namespace Noob_Coder
                               .AddStores()
                               .AddViewModels()
                               .AddViews();
+
+            builder.ConfigureServices(collection => collection.AddSingleton<GameBackgroundService>());
 
             return builder;
         }

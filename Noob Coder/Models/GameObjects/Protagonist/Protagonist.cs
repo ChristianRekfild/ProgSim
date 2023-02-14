@@ -92,18 +92,12 @@ namespace Noob_Coder.Models
         public void AnotherFuckingDay()
         {
            Health = _health - (110-Mood)/10; //ежедневное уменьшение здоровья в зависимости от настроения
-            
         }
 
         /// <summary>
-        /// Метод, проверяющий жив ли главный герой.
+        /// Мертв ли главный герой.
         /// </summary>
-        public bool IsNotDie()
-        {
-            bool result = true;
-            if (Health <= 0) result = false;
-            return result;
-        }
+        public bool IsDead() => Health <= 0;
 
         /// <summary>
         /// Метод изменяющий здоровье главного героя на передаваемую величину
@@ -170,7 +164,7 @@ namespace Noob_Coder.Models
         //конструктор начального персонажа
         public Protagonist()
         {
-           
+
         }
 
     }
