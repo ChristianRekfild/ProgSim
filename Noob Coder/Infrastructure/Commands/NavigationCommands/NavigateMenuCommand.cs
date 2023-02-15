@@ -4,6 +4,7 @@ using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels;
 using System.IO;
+using Microsoft.Extensions.DependencyInjection;
 
 
 namespace Noob_Coder.Infrastructure.Commands
@@ -29,8 +30,8 @@ namespace Noob_Coder.Infrastructure.Commands
                 /// <summary>
                 /// Заверение работы таймера.
                 /// </summary>
-                ClosingGameScene.CancelTimer();
-                
+                ClosingGameScene.CancelGameTimer();
+
                 /// <summary>
                 /// Автосохранение параметров главного героя в файл LastAutoSave.noob в формате JSON.
                 /// </summary>
@@ -40,17 +41,17 @@ namespace Noob_Coder.Infrastructure.Commands
                 {
                     sw.WriteLine(jsonSaveString);
                 }
-              
+
             }
             if (_navigationStore.CurrentViewModel is SettingMenuViewModel ClosingSettingMenu)
             {
                 SettingsSaveModel settingsSaveModel = new SettingsSaveModel();
                 settingsSaveModel.Save(); // Автосохранение параметров пользовательских настроек в файл settings.noob в формате JSON.
 
-                
-            }    
-   
-            _navigationStore.CurrentViewModel = new MenuViewModel(_navigationStore);
+
+            }
+
+            _navigationStore.CurrentViewModel = App.Host.Services.GetRequiredService<MenuViewModel>();
 
         }
     }

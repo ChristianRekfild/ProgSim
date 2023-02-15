@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Noob_Coder.Infrastructure.Stores;
@@ -20,8 +19,8 @@ internal class GameBackgroundService
     }
 
     public delegate void EventContainer();
-    public event EventContainer Updated = delegate { };
 
+    public event EventContainer? DayChanged;
 
     public async Task RunTimer(CancellationToken token)
     {
@@ -30,12 +29,7 @@ internal class GameBackgroundService
             await Task.Delay(2000);
             if (_navigationStore.CurrentViewModel is not GameSceneViewModel game) continue;
 
-            Updated();
-
-            if (game.Protagonist.IsDead())
-                Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
-
-            game.GameDate = game.GameDate.AddDays(1);
+            DayChanged?.Invoke();
         }
     }
 }

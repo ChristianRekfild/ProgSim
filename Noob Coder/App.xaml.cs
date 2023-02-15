@@ -2,8 +2,10 @@
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Noob_Coder.Handlers;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.Models;
+using Noob_Coder.Services;
 using Noob_Coder.UserInterface;
 using Noob_Coder.ViewModels;
 
@@ -32,12 +34,25 @@ namespace Noob_Coder
           SettingsSaveModel settingsSaveModel = new SettingsSaveModel();
           settingsSaveModel.Load();
           var navigationStore = host.Services.GetService<NavigationStore>();
-          navigationStore.CurrentViewModel = new MenuViewModel(navigationStore);
+          navigationStore.CurrentViewModel = host.Services.GetRequiredService<MenuViewModel>();
           MainWindow = _host.Services.GetService<MainWindow>();
           MainWindow.Show();
           base.OnStartup(e);
           await host.StartAsync().ConfigureAwait(false);
+
+          AddHandlers();
       }
+
+      private static void AddHandlers()
+      {
+          var backgroundService = Host.Services.GetRequiredService<GameBackgroundService>();
+
+          foreach (var handler in _host.Services.GetServices<IHandler>())
+          {
+              backgroundService.DayChanged += handler.HandleNewDayEvent;
+          }
+      }
+
       /// <summary>
       /// Действия, выполняемые при завершении работы приложения.
       /// </summary>

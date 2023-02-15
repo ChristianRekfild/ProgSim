@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Noob_Coder.Handlers;
 using Noob_Coder.Infrastructure.HostBuilderExtensions;
 using Noob_Coder.Services;
 
@@ -29,7 +30,11 @@ namespace Noob_Coder
                               .AddViewModels()
                               .AddViews();
 
-            builder.ConfigureServices(collection => collection.AddSingleton<GameBackgroundService>());
+            builder.ConfigureServices(collection =>
+                collection
+                    .AddSingleton<GameBackgroundService>()
+                    .AddSingleton<IHandler, ProtagonistStateHandler>()
+                    .AddSingleton<IHandler, GameDataHandler>());
 
             return builder;
         }
