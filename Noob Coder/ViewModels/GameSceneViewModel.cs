@@ -7,6 +7,7 @@ using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
 using Noob_Coder.Services;
 
 namespace Noob_Coder.ViewModels
@@ -38,13 +39,15 @@ namespace Noob_Coder.ViewModels
         }
 
         #region игровые объекты
+
+        private Protagonist _protagonist;
         /// <summary>
         /// Переменная главного героя игры.
         /// </summary>
         public Protagonist Protagonist
         {
-            get => GameStore.Protagonist;
-            set => SetField(ref GameStore.Protagonist, value);
+            get => _protagonist;
+            set => SetField(ref _protagonist, value);
         }
 
         #region работа все что с ней связано
@@ -90,9 +93,10 @@ namespace Noob_Coder.ViewModels
         #endregion
 
         //Конструктор GameSceneViewModel
-        public GameSceneViewModel(NavigationStore navigationStore, GameBackgroundService backgroundService)
+        public GameSceneViewModel(NavigationStore navigationStore, Protagonist protagonist)
         {
             #region Создание базовых игровых объектов
+            Protagonist = protagonist; // Создание нового главного героя игры.
             VacanciesWorks = VacanciesWorksGenerator(); //Генерация доступных вакансий
             #endregion
 
@@ -112,7 +116,9 @@ namespace Noob_Coder.ViewModels
             SpeedUpCommand = new SpeedUpCommand();//ускориться
             #endregion
 
-            backgroundService.RunTimer(_cts.Token).WaitAsync(CancellationToken.None);
+
+            var service = App.Host.Services.GetRequiredService<GameBackgroundService>();
+            service.RunTimer(_cts.Token).WaitAsync(CancellationToken.None);
         }
 
         private readonly CancellationTokenSource _cts = new();
