@@ -1,7 +1,4 @@
-﻿using System.Windows.Input;
-using Noob_Coder.Infrastructure.Commands;
-using Noob_Coder.Infrastructure.Stores;
-using Noob_Coder.UserInterface;
+﻿using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels.Base;
 
 namespace Noob_Coder.ViewModels

@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using Noob_Coder.Models.Base;
-using System.Xml.Linq;
-using System.Reflection;
-using System.Windows.Controls;
-using System.Windows;
+﻿using System.Collections.Generic;
+
 
 namespace Noob_Coder.Models
 {        

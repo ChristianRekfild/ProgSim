@@ -115,6 +115,7 @@ namespace Noob_Coder.ViewModels
 
             var service = App.Host.Services.GetRequiredService<GameBackgroundService>();
             service.RunTimer(_cts.Token).WaitAsync(CancellationToken.None);
+            service.Updated += Protagonist.AnotherFuckingDay;
         }
 
         private readonly CancellationTokenSource _cts = new();

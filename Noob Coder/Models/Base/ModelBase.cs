@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Noob_Coder.Models.Base
+namespace Noob_Coder.Models
 {
     /// <summary>
     /// Базовый абстрактный класс для модели-представления.

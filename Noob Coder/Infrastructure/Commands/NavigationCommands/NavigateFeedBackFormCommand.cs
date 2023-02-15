@@ -1,6 +1,5 @@
 ﻿using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.Infrastructure.Stores;
-using Noob_Coder.Models;
 using Noob_Coder.ViewModels;
 
 namespace Noob_Coder.Infrastructure.Commands
