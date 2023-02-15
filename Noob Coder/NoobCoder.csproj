@@ -33,10 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Commands\UserSettingsCommands\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />

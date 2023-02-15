@@ -88,6 +88,8 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand RobCaravanCommand { get; }
 
+
+        public ICommand SpeedUpCommand { get; }
         #endregion
 
         //Конструктор GameSceneViewModel
@@ -110,6 +112,8 @@ namespace Noob_Coder.ViewModels
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
             ChangeMoodCommand = new ChangeMoodCommand(-10); //испортить настроение
             #endregion
+
+            SpeedUpCommand = new SpeedUpCommand();//ускориться
             #endregion
 
 
