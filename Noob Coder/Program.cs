@@ -27,14 +27,11 @@ namespace Noob_Coder
             var builder = Host.CreateDefaultBuilder(args)
                               .AddConfiguration()
                               .AddStores()
+                              .AddServises()
                               .AddViewModels()
                               .AddViews();
 
-            builder.ConfigureServices(collection =>
-                collection
-                    .AddSingleton<GameBackgroundService>()
-                    .AddSingleton<IHandler, ProtagonistStateHandler>()
-                    .AddSingleton<IHandler, GameDataHandler>());
+       
 
             return builder;
         }
