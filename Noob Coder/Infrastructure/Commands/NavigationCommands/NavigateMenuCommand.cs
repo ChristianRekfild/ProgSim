@@ -52,7 +52,6 @@ namespace Noob_Coder.Infrastructure.Commands
             }
 
             _navigationStore.CurrentViewModel = App.Host.Services.GetRequiredService<MenuViewModel>();
-
         }
     }
 }

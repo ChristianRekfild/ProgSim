@@ -1,4 +1,5 @@
-﻿using Noob_Coder.Infrastructure.Commands.Base;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.Models;
 using Noob_Coder.ViewModels;
@@ -18,16 +19,17 @@ namespace Noob_Coder.Infrastructure.Commands
         }
 
         public override bool CanExecute(object? parameter) => true;
-        
+
 
         public override void Execute(object? parameter)
         {
 
-           
-            _navigationStore.CurrentViewModel = new GameSceneViewModel(_navigationStore, new Protagonist());
+
+            _navigationStore.CurrentViewModel = App.Host.Services.GetRequiredService<GameSceneViewModel>();
+
             var gameScene = (GameSceneViewModel)_navigationStore.CurrentViewModel;
-      
-         
+
+
                 /// <summary>
                 /// Установка параметров главного героя при запуске новой игры.
                 /// </summary>
