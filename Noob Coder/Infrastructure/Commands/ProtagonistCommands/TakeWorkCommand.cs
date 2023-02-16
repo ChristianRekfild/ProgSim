@@ -38,9 +38,7 @@ namespace Noob_Coder.Infrastructure.Commands
         /// <param name="parameter"></param>
         public override void Execute(object? parameter)
         {
-            Work work = (Work)parameter;
-            Protagonist.CurrentWork = new Work();
-            Protagonist.CurrentWork = work;
+            Protagonist.CurrentWork = (Work)parameter;
         }
     }
 }

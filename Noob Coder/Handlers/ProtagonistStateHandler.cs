@@ -19,7 +19,10 @@ internal class ProtagonistStateHandler : IHandler
 
         game?.Protagonist.AnotherFuckingDay();
 
-        if (game != null && game.Protagonist.IsDead())
-            Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
+        if (game != null && game.Protagonist.IsDead()) 
+        { 
+            MessageBox.Show("Поздравляю, Вы успешно померли");
+            Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА более КРАСИВУЮ ПЛАШКУ)
+        }
     }
 }
