@@ -4,6 +4,8 @@ using Noob_Coder.Infrastructure.Commands.Base;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels;
 using System.IO;
+using System;
+using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -36,7 +38,7 @@ namespace Noob_Coder.Infrastructure.Commands
                 /// Автосохранение параметров главного героя в файл LastAutoSave.noob в формате JSON.
                 /// </summary>
                 string jsonSaveString = JsonSerializer.Serialize(ClosingGameScene.Protagonist);
-               // jsonSaveString = Convert.ToBase64String(Encoding.UTF8.GetBytes(jsonSaveString)); //кодирование сейв файла
+                jsonSaveString = Convert.ToBase64String(Encoding.UTF8.GetBytes(jsonSaveString)); //кодирование сейв файла
                 using (StreamWriter sw = new StreamWriter("LastAutoSave.noob"))
                 {
                     sw.WriteLine(jsonSaveString);

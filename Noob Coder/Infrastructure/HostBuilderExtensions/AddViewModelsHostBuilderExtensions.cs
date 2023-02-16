@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Noob_Coder.Infrastructure.Stores;
+using Noob_Coder.Models;
 using Noob_Coder.ViewModels;
 
 
