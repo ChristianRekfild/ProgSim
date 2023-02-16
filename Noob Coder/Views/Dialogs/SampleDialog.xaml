@@ -76,7 +76,7 @@
                                     </Icon:PackIconMaterial.Triggers>
                                 </Icon:PackIconMaterial>
                                 <TextBlock Text="{Binding Value, ElementName=ProtagonistHealthGauge, StringFormat=\{0:0\}}" Style="{StaticResource gs_RightSection_ProtagonistHealthGaugeValue}" Margin="0 -100 0 0" />
-                                <Button Style="{StaticResource button}"  Content="Подлечиться +20" Command="{Binding AddProtagonistHealth20Command}" CommandParameter="{Binding Protagonist}" Margin="0 20 0 0"/>
+                                <Button Style="{StaticResource button}"  Content="Подлечиться +20" Command="{Binding AddProtagonistHealthCommand}" CommandParameter="20" Margin="0 20 0 0"/>
                                 <!--#endregion-->
                             </StackPanel>
                         </Grid>

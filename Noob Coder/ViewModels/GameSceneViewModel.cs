@@ -69,9 +69,7 @@ namespace Noob_Coder.ViewModels
         /// <summary>
         /// Команда управления здоровьем главного герою.
         /// </summary>
-        public ICommand AddProtagonistHealthCommand { get; }//Базоая команда
-        public ICommand AddProtagonistHealth10Command { get; }//Добавить 10 единиц
-        public ICommand AddProtagonistHealth20Command { get; }//Добавить 20 единиц
+        public ICommand AddProtagonistHealthCommand { get; }
 
         /// <summary>
         /// Команда управления настроением главного дероя.
@@ -107,8 +105,7 @@ namespace Noob_Coder.ViewModels
             #endregion
 
             #region Создание комманд взаимодействия с главным героем.
-            AddProtagonistHealth10Command = new AddProtagonistHealthCommand(10);//добавить 20 единиц здоровья
-            AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
+            AddProtagonistHealthCommand = new AddProtagonistHealthCommand();//добавить  здоровья
             TakeWorkCommand = new TakeWorkCommand(); //принять работу
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
             ChangeMoodCommand = new ChangeMoodCommand(-10); //испортить настроение

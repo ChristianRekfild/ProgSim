@@ -1,5 +1,9 @@
-﻿using Noob_Coder.Infrastructure.Commands.Base;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
+using Noob_Coder.Infrastructure.Commands.Base;
+using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.Models;
+using Noob_Coder.ViewModels;
 
 
 namespace Noob_Coder.Infrastructure.Commands
@@ -10,19 +14,10 @@ namespace Noob_Coder.Infrastructure.Commands
     internal class AddProtagonistHealthCommand : CommandBase
     {
 
-        private int _addedHealthValue;
-        /// <summary>
-        /// Количество добавляемого здоровья.
-        /// </summary>
-        public int AddedHealthValue
+        private NavigationStore _navigationStore;
+        public AddProtagonistHealthCommand()
         {
-            get => _addedHealthValue;
-            set => _addedHealthValue = value;
-        }
-
-        public AddProtagonistHealthCommand(int value)
-        {
-            AddedHealthValue = value;
+       
         }
 
         /// <summary>
@@ -31,16 +26,19 @@ namespace Noob_Coder.Infrastructure.Commands
         /// </summary>
         /// <param name="parameter">object</param>
         /// <returns>bool</returns>
-        public override bool CanExecute(object? parameter) => parameter is Protagonist;
+        public override bool CanExecute(object? parameter) => true;
         /// <summary>
         /// Действие при выполнении команды
         /// </summary>
         /// <param name="parameter"></param>
         public override void Execute(object? parameter)
         {
-            var protogonist = (Protagonist) parameter;
-            protogonist.AddHealth(AddedHealthValue);
-
+            _navigationStore = App.Host.Services.GetRequiredService<NavigationStore>();
+            if (_navigationStore.CurrentViewModel is GameSceneViewModel game)
+            {
+                game.Protagonist.AddHealth(Convert.ToInt32(parameter));
+            }
+                
         }
     }
 }

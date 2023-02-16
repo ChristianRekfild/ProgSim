@@ -178,8 +178,8 @@
             <!---тело блока-->
             <Border Style="{StaticResource gs_MainSection_SmallBlockBodyPanel}">
                 <StackPanel Margin="0 35 0 0">
-                    <Button  Style="{StaticResource button}" x:Name="AddProtagonistHealth10" Content="Подлечиться +10" Command="{Binding AddProtagonistHealth10Command}" CommandParameter="{Binding Protagonist}" Margin="0 10 0 0"/>
-                    <Button Style="{StaticResource button}" x:Name="AddProtagonistHealth20" Content="Подлечиться +20" Command="{Binding AddProtagonistHealth20Command}" CommandParameter="{Binding Protagonist}" Margin="0 20 0 0"/>
+                    <Button  Style="{StaticResource button}" x:Name="AddProtagonistHealth10" Content="Подлечиться +10" Command="{Binding AddProtagonistHealthCommand}" CommandParameter="10" Margin="0 10 0 0"/>
+                    <Button Style="{StaticResource button}" x:Name="AddProtagonistHealth20" Content="Подлечиться +20" Command="{Binding AddProtagonistHealthCommand}" CommandParameter="20" Margin="0 20 0 0"/>
                 </StackPanel>
             </Border>
         </Grid>
