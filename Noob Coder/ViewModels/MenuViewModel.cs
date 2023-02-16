@@ -54,11 +54,7 @@ namespace Noob_Coder.ViewModels
         /// </summary>
         public ICommand CloseApplicationCommand { get; }
         /// <summary>
-        /// Команда-обработчик перехода на страницу продолжения игры.
-        /// </summary>
-        public ICommand NavigateResumeGameCommand { get; }
-        /// <summary>
-        /// Команда-обработчик перехода на страницу новой игры.
+        /// Команда-обработчик перехода на страницу игры.
         /// </summary>
         public ICommand NavigateNewGameCommand { get; }
         /// <summary>
@@ -75,7 +71,6 @@ namespace Noob_Coder.ViewModels
         public MenuViewModel(NavigationStore navigationStore)
         {
             CloseApplicationCommand = new CloseApplicationCommand();
-            NavigateResumeGameCommand = new NavigateResumeGameCommand(navigationStore);
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
             NavigateSettingMenuCommand = new NavigateSettingMenuCommand(navigationStore);
             NavigateFeedBackFormCommand = new NavigateFeedBackFormCommand(navigationStore);

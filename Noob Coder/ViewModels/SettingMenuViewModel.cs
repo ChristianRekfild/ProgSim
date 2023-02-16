@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Xml.Linq;
 using Noob_Coder.Infrastructure.Commands;
 using Noob_Coder.Infrastructure.Stores;
-using Noob_Coder.Models;
 using Noob_Coder.UserInterface;
 using Noob_Coder.ViewModels.Base;
 

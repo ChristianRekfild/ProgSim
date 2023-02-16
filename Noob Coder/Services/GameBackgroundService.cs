@@ -1,9 +1,9 @@
-﻿using System.Threading;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Noob_Coder.Infrastructure.Stores;
-using Noob_Coder.Models;
 using Noob_Coder.ViewModels;
+
 
 namespace Noob_Coder.Services;
 
@@ -18,21 +18,23 @@ internal class GameBackgroundService
     {
         _navigationStore = navigationStore;
     }
+    private int _speed = 2000;
+        
+    public delegate void EventContainer();
+
+    public event EventContainer? DayChanged;
 
     public async Task RunTimer(CancellationToken token)
     {
         while (!token.IsCancellationRequested)
         {
-            await Task.Delay(2000);
+            await Task.Delay(_speed);
             if (_navigationStore.CurrentViewModel is not GameSceneViewModel game) continue;
 
-            // TODO: Убрать это все в обработчики соотв событий
-            game.Protagonist.AnotherFuckingDay(); //проживаем один день
-
-            if (game.Protagonist.IsDead())
-                Application.Current.Shutdown();//если померли - закрываем приложение (НАДО ПЕРЕДЕЛАТЬ НА КРАСИВУЮ ПЛАШКУ)
-
-            game.GameDate = game.GameDate.AddDays(1);
+            DayChanged?.Invoke();
         }
     }
+
+    public void ChangeSpeed(int speed) { _speed = speed; }
+
 }

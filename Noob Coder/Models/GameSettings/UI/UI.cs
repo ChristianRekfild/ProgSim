@@ -1,13 +1,5 @@
-﻿using Noob_Coder.Models;
-using Noob_Coder.Models.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System;
+
 
 namespace Noob_Coder.UserInterface
 {

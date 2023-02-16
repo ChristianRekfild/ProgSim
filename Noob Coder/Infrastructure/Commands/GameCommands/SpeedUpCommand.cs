@@ -1,28 +1,18 @@
 ﻿using Noob_Coder.Infrastructure.Commands.Base;
-using Noob_Coder.Models;
-
+using Microsoft.Extensions.DependencyInjection;
+using Noob_Coder.Services;
 
 namespace Noob_Coder.Infrastructure.Commands
 {
     /// <summary>
     /// Команда добавления здоровья главному герою.
     /// </summary>
-    internal class ChangeMoodCommand : CommandBase
+    internal class SpeedUpCommand : CommandBase
     {
 
-        private int _mood;
-        /// <summary>
-        /// Количество добавляемого здоровья.
-        /// </summary>
-        public int Mood
+         public SpeedUpCommand()
         {
-            get => _mood;
-            set => _mood = value;
-        }
-
-        public ChangeMoodCommand(int value)
-        {
-            Mood = value;
+            
         }
 
         /// <summary>
@@ -31,15 +21,14 @@ namespace Noob_Coder.Infrastructure.Commands
         /// </summary>
         /// <param name="parameter">object</param>
         /// <returns>bool</returns>
-        public override bool CanExecute(object? parameter) => parameter is Protagonist;
+        public override bool CanExecute(object? parameter) => true;
         /// <summary>
         /// Действие при выполнении команды
         /// </summary>
         /// <param name="parameter"></param>
         public override void Execute(object? parameter)
         {
-            var protogonist = (Protagonist) parameter;
-            protogonist.MoodChange(Mood);
+            App.Host.Services.GetRequiredService<GameBackgroundService>().ChangeSpeed(500);
 
         }
     }

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -30,10 +30,6 @@
 	<Resource Include="Data\Resourses\Images\Property.jpg" />
 	<Resource Include="Data\Resourses\Images\Education.jpg" />
 	<Resource Include="Data\Resourses\Images\Finance.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\Commands\UserSettingsCommands\" />
   </ItemGroup>
 
   <ItemGroup>

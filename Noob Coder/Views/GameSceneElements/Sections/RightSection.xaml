@@ -46,10 +46,13 @@
 
            <!--#region текущая игровая дата-->
             <StackPanel Style="{StaticResource gs_RightSection_ClockPanel}"  >
+                <Button Command="{Binding SpeedUpCommand}">
+                    <Icon:PackIconMaterial Kind="FastForwardOutline" Style="{StaticResource gs_RightSection_ClockIcon}"/>
+                </Button>
                 <Icon:PackIconMaterial Kind="ClockOutline" Style="{StaticResource gs_RightSection_ClockIcon}"/>
                 <StackPanel Margin="10 0 0 0">
-                    <TextBlock  Text="{Binding GameDate, StringFormat={}{0:M}, ConverterCulture={x:Static ui:UI.ConverterCulture}}" Style="{StaticResource gs_RightSection_Date}" />
-                    <TextBlock  Text="{Binding GameDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
+                    <TextBlock  Text="{Binding GameSettings.CurrentDate, StringFormat={}{0:M}, ConverterCulture={x:Static ui:UI.ConverterCulture}}" Style="{StaticResource gs_RightSection_Date}" />
+                    <TextBlock  Text="{Binding GameSettings.CurrentDate, StringFormat={}{0:yyyy}, ConverterCulture=ru-RU}" Style="{StaticResource gs_RightSection_Date}" />
                 </StackPanel>
             </StackPanel>
             <!--#region пустой индикатор, необходим для корректного отображения, лютейший костыть TODO Срочно переделать-->

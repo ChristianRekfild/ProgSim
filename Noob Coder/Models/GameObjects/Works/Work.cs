@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using Noob_Coder.Models.Base;
-using System.Xml.Linq;
 using Noob_Coder.UserInterface;
-using System.Runtime;
-using System.Reflection;
+
 
 namespace Noob_Coder.Models 
 {
@@ -67,7 +60,7 @@ namespace Noob_Coder.Models
 
         private List<int> _payDay;
         /// <summary>
-        /// Дени зарплаты.
+        /// Дни зарплаты.
         /// </summary>
         public List<int> PayDay
         {
@@ -107,9 +100,6 @@ namespace Noob_Coder.Models
             //результат в целом числе
             return Convert.ToInt32(result);
         }
-
-   
-
 
 
     }
