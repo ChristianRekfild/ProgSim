@@ -60,7 +60,7 @@ namespace Noob_Coder.Models
 
         private List<int> _payDay;
         /// <summary>
-        /// Дени зарплаты.
+        /// Дни зарплаты.
         /// </summary>
         public List<int> PayDay
         {
@@ -100,9 +100,6 @@ namespace Noob_Coder.Models
             //результат в целом числе
             return Convert.ToInt32(result);
         }
-
-   
-
 
 
     }

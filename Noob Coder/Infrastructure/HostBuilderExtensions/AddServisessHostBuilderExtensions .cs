@@ -21,7 +21,7 @@ namespace Noob_Coder.Infrastructure.HostBuilderExtensions
             {
                 services.AddSingleton<GameBackgroundService>(); 
                 services.AddSingleton<IHandler, ProtagonistStateHandler>(); 
-                services.AddSingleton<IHandler, GameDataHandler>(); 
+                services.AddSingleton<IHandler, GameSettingsHandler>(); 
         });
             return builder;
         }

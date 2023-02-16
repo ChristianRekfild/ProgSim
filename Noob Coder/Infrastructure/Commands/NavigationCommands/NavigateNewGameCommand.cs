@@ -29,6 +29,7 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
             Protagonist protagonist;
+            GameSettings gameSettings = new GameSettings();
             switch ((string)parameter)
             {
                 case "resume":
@@ -53,7 +54,7 @@ namespace Noob_Coder.Infrastructure.Commands
 
             }
 
-            _navigationStore.CurrentViewModel = ActivatorUtilities.CreateInstance<GameSceneViewModel>(App.Host.Services, protagonist);
+            _navigationStore.CurrentViewModel = ActivatorUtilities.CreateInstance<GameSceneViewModel>(App.Host.Services, protagonist, gameSettings);
 
 
 

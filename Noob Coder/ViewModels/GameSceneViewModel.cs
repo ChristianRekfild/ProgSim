@@ -30,12 +30,12 @@ namespace Noob_Coder.ViewModels
             set => SetField(ref _title, value);
         }
         //TODO убрать в класс GameSettings
-        private DateTime _gameDate = DateTime.Now;
+        private GameSettings _gameSettings;
 
-        public DateTime GameDate
+        public GameSettings GameSettings
         {
-            get => _gameDate;
-            set => SetField(ref _gameDate, value);
+            get => _gameSettings;
+            set => SetField(ref _gameSettings, value);
         }
 
         #region игровые объекты
@@ -93,10 +93,11 @@ namespace Noob_Coder.ViewModels
         #endregion
 
         //Конструктор GameSceneViewModel
-        public GameSceneViewModel(NavigationStore navigationStore, Protagonist protagonist)
+        public GameSceneViewModel(NavigationStore navigationStore, Protagonist protagonist, GameSettings gameSettings)
         {
             #region Создание базовых игровых объектов
             Protagonist = protagonist; // Создание нового главного героя игры.
+            GameSettings = gameSettings; //Создание базовых игровых параметров.
             VacanciesWorks = VacanciesWorksGenerator(); //Генерация доступных вакансий
             #endregion
 
@@ -108,7 +109,7 @@ namespace Noob_Coder.ViewModels
             #region Создание комманд взаимодействия с главным героем.
             AddProtagonistHealth10Command = new AddProtagonistHealthCommand(10);//добавить 20 единиц здоровья
             AddProtagonistHealth20Command = new AddProtagonistHealthCommand(20);//добавить 20 единиц здоровья
-            TakeWorkCommand = new TakeWorkCommand(Protagonist); //принять работу
+            TakeWorkCommand = new TakeWorkCommand(); //принять работу
             RobCaravanCommand = new RobCaravanCommand(); //попробовать ограбить корован
             ChangeMoodCommand = new ChangeMoodCommand(-10); //испортить настроение
             #endregion

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Runtime.CompilerServices;
 
 namespace Noob_Coder.Models
 {
@@ -77,6 +77,26 @@ namespace Noob_Coder.Models
 
         }
 
+        private DateTime _employmentDate;
+        /// <summary>
+        /// дата устройства на текущую работу
+        /// </summary>
+        public DateTime EmploymentDate
+        {
+            get => _employmentDate;
+            set => SetField(ref _employmentDate, value);
+        }
+
+
+        private DateTime _lastSellaryDay;
+        /// <summary>
+        /// день последней выплаты
+        /// </summary>
+        public DateTime LastSellaryDay
+        {
+            get => _lastSellaryDay;
+            set => SetField(ref _lastSellaryDay, value);
+        }
 
         #endregion
 
@@ -160,6 +180,13 @@ namespace Noob_Coder.Models
         public Protagonist()
         {
 
+        }
+
+        public void GetSellary(DateTime lastSellaryDay, DateTime currentDay)
+        {
+            int sellary = CurrentWork.SalaryPerDay * Convert.ToInt32((currentDay - lastSellaryDay).TotalDays);
+            Money += sellary;
+            LastSellaryDay = currentDay;
         }
 
     }

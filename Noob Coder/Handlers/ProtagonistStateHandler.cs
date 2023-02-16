@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Noob_Coder.Infrastructure.Stores;
 using Noob_Coder.ViewModels;
 
@@ -18,6 +19,20 @@ internal class ProtagonistStateHandler : IHandler
         var game = _navigationStore.CurrentViewModel as GameSceneViewModel;
 
         game?.Protagonist.AnotherFuckingDay();
+
+
+            if (game.GameSettings.CurrentDate != game.Protagonist.LastSellaryDay)
+            {
+            foreach (int day in game.Protagonist.CurrentWork.PayDay)
+                {
+                if (day == Convert.ToInt32(game.GameSettings.CurrentDate.Day))
+                    {
+                    game.Protagonist.GetSellary(game.Protagonist.LastSellaryDay, game.GameSettings.CurrentDate);
+                    }
+                }
+            }
+
+        
 
         if (game != null && game.Protagonist.IsDead()) 
         { 

@@ -24,10 +24,6 @@ namespace Noob_Coder.Models
 
         #endregion
 
-        #region Методы
-        
-        #endregion
-
         public GameSettings()
         {
             CurrentDate = new DateTime(2023, 2, 1);

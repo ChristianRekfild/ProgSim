@@ -3,11 +3,11 @@ using Noob_Coder.ViewModels;
 
 namespace Noob_Coder.Handlers;
 
-internal class GameDataHandler : IHandler
+internal class GameSettingsHandler : IHandler
 {
     private readonly NavigationStore _navigationStore;
 
-    public GameDataHandler(NavigationStore navigationStore)
+    public GameSettingsHandler(NavigationStore navigationStore)
     {
         _navigationStore = navigationStore;
     }
@@ -15,6 +15,6 @@ internal class GameDataHandler : IHandler
     public void HandleNewDayEvent()
     {
         if (_navigationStore.CurrentViewModel is GameSceneViewModel game)
-            game.GameDate = game.GameDate.AddDays(1);
+            game.GameSettings.CurrentDate = game.GameSettings.CurrentDate.AddDays(1);
     }
 }
