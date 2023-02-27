@@ -14,9 +14,12 @@ internal class GameBackgroundService
 {
     private NavigationStore _navigationStore;
 
+    public bool Pause { get; set; }
+
     public GameBackgroundService(NavigationStore navigationStore)
     {
         _navigationStore = navigationStore;
+        Pause = false;
     }
     private int _speed = 2000;
         
@@ -29,8 +32,8 @@ internal class GameBackgroundService
         while (!token.IsCancellationRequested)
         {
             await Task.Delay(_speed);
-            if (_navigationStore.CurrentViewModel is not GameSceneViewModel game) continue;
-
+            if (_navigationStore.CurrentViewModel is not GameSceneViewModel game ) continue;
+            if (Pause) continue;
             DayChanged?.Invoke();
         }
     }

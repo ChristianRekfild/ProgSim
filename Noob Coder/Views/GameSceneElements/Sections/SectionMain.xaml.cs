@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Extensions.DependencyInjection;
+using Noob_Coder.Services;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,13 +28,7 @@ namespace Noob_Coder.Views.GameSceneElements
             OpenDialogWindow(bluringWindow, new SearchWorkDialog());
         }
 
-        public void OpenDialogWindow(Window bluringWindow, Window opennigWindow)
-        {
-            bluringWindow.Effect = new System.Windows.Media.Effects.BlurEffect(); // затемнить текущее окно
-            opennigWindow.DataContext = this.DataContext; //установить VM нового окна
-            opennigWindow.ShowDialog(); //открыть новое окно
-            bluringWindow.Effect = null; //убрать затемнение
-        }
+
 
 
     }
