@@ -5,9 +5,9 @@ using System.Windows.Input;
 
 namespace Noob_Coder.Views
 {
-	public partial class LoadGameDialog : Window
+	public partial class SaveLoadGameDialog : Window
 	{
-		public LoadGameDialog()
+		public SaveLoadGameDialog()
 		{
 			InitializeComponent();
 	    }

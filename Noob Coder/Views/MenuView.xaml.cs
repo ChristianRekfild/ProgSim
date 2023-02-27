@@ -21,13 +21,13 @@ namespace Noob_Coder.Views
         {
             Button button = (Button)sender;
             Window bluringWindow = (Window)button.CommandParameter;
-            OpenSaveLoadDialogWindow(bluringWindow, new LoadGameDialog(), "load");
+            OpenSaveLoadDialogWindow(bluringWindow, new SaveLoadGameDialog(), "load");
         }
 
         public void OpenSaveLoadDialogWindow(Window bluringWindow, Window opennigWindow, string parametr)
         {
             bluringWindow.Effect = new System.Windows.Media.Effects.BlurEffect(); // затемнить текущее окно
-            opennigWindow.DataContext = App.Host.Services.GetRequiredService<FeedBackFormViewModel>(); //установить VM нового окна
+            opennigWindow.DataContext = ActivatorUtilities.CreateInstance<SaveLoadGameDialogViewModel>(App.Host.Services, parametr);
             opennigWindow.ShowDialog(); //открыть новое окно
             bluringWindow.Effect = null; //убрать затемнение
         }
