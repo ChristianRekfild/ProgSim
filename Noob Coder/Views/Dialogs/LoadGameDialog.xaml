@@ -1,0 +1,69 @@
+﻿<Window x:Class="Noob_Coder.Views.LoadGameDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="Transparent" ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight" ShowInTaskbar="False"
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        xmlns:Icon ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Title ="{Binding Title}">
+    <Grid MouseDown="SearchWorkDialog_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--region заглавная иконка-->
+        <Border Style="{StaticResource gs_DialogWindow_TopIconBorder}" >
+            <Icon:PackIconMaterial Kind="{Binding Icon}" Style="{StaticResource gs_DialogWindow_TopIcon}"/>
+        </Border>
+        <!--endregion-->
+        <!--#region тело окна-->
+        
+        <Border Style="{StaticResource gs_DialogWindow_BodyBorder}" Grid.Row="1">
+            <DockPanel Margin="0 10 0 0" MaxHeight="550">
+                
+                <Grid DockPanel.Dock="Top" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="top" Margin="0 20 0 0" >
+                    <ScrollViewer MaxHeight="490">
+                        <Grid MaxWidth="1000">
+                            <DataGrid ItemsSource="{Binding SaveFiles}"
+                                     SelectedItem="{Binding SelectedSaveFile}"
+                                      Width="350"
+                                      MaxHeight="250"
+                                      IsReadOnly="True"
+                                      AutoGenerateColumns="False"
+                                      GridLinesVisibility="Vertical"
+                                      FontWeight="Bold" FontSize="14" Cursor="Hand" SelectionMode="Single" Background="white" SelectionChanged="SaveFile_SelectionChanged">
+
+                                <DataGrid.Resources>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                                <Setter Property="Background" Value="#CC7163BA" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.Resources>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Имя файла" Binding="{Binding FileName}" Width="*"/>
+                                    <DataGridTextColumn Header="Дата создания" Binding="{Binding FileDate}" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+                <!--#region кнопки управления-->
+                <StackPanel Height="28"  DockPanel.Dock="Bottom" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="right" Margin="0,10,10,0">
+                    <Button Style="{StaticResource button}" 
+                            Command="{Binding NavigateNewGameCommand}"
+                            CommandParameter="{Binding SelectedSaveFile.FileNameWithExtension}"
+                            Click="Button_Click"
+                            x:Name="LoadButton"
+                            IsEnabled="false"
+                            Width="110">Загрузить</Button>
+                    <Button Style="{StaticResource button}" IsCancel="True" Width="110">Вернуться</Button>
+                </StackPanel>
+                <!--#endregion-->
+            </DockPanel>
+        </Border>
+        <!--#endregion-->
+    </Grid>
+</Window>

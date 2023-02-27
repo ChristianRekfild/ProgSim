@@ -21,7 +21,7 @@ namespace Noob_Coder.Views
         {
             Button button = (Button)sender;
             Window bluringWindow = (Window)button.CommandParameter;
-            OpenSaveLoadDialogWindow(bluringWindow, new SaveLoadGameDialog(), "load");
+            OpenSaveLoadDialogWindow(bluringWindow, new LoadGameDialog(), "load");
         }
 
         public void OpenSaveLoadDialogWindow(Window bluringWindow, Window opennigWindow, string parametr)
