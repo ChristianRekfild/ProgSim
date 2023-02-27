@@ -19,20 +19,11 @@ namespace Noob_Coder.ViewModels
 
         #region Свойства
 
-        private string _icon;
-        /// <summary>
-        /// Иконка окна.
-        /// </summary>
-        public string Icon
-        {
-            get => _icon;
-            set => SetField(ref _icon, value);
-        }
 
         /// <summary>
         /// Коллекция сохраненных файлов. Имя и дата создания.
         /// </summary>
-       public ObservableCollection<SaveFile> SaveFiles { get; set; }
+        public ObservableCollection<SaveFile> SaveFiles { get; set; }
 
         private SaveFile _selectedSaveFile;
         public SaveFile SelectedSaveFile
@@ -47,7 +38,7 @@ namespace Noob_Coder.ViewModels
             get => _newSaveFile;
             set => SetField(ref _newSaveFile, value);
         }
-        
+
 
         #endregion
 
@@ -61,19 +52,13 @@ namespace Noob_Coder.ViewModels
         #endregion
         public SaveLoadGameDialogViewModel(NavigationStore navigationStore, string parametr)
         {
-            if (parametr == "load")
-            {
-                Icon = "Upload";
-            }
-            else
-            {
-                Icon = "ContentSave";
-            }
 
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
             SaveGameCommand = new SaveGameCommand();
             readSaveFiles();
-            NewSaveFile = new SaveFile("NewGame", DateTime.Now, "NewGame"+".noob");
+            NewSaveFile = new SaveFile("newGame", DateTime.Now, "newGame" + ".noob");
+
+
 
 
 
@@ -89,13 +74,15 @@ namespace Noob_Coder.ViewModels
                 string[] AllFiles = Directory.GetFiles(savesDirectoryPath, "*.noob", SearchOption.TopDirectoryOnly);
                 foreach (string filename in AllFiles)
                 {
-                 SaveFiles.Add(new SaveFile(Path.GetFileNameWithoutExtension(filename), File.GetLastWriteTime(Path.Combine(savesDirectoryPath, filename)), Path.GetFileName(filename)));
+                    SaveFiles.Add(new SaveFile(Path.GetFileNameWithoutExtension(filename), File.GetLastWriteTime(Path.Combine(savesDirectoryPath, filename)), Path.GetFileName(filename)));
                 }
 
             }
         }
 
-      
+
+     
+
 
     }
 

@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <!--region заглавная иконка-->
         <Border Style="{StaticResource gs_DialogWindow_TopIconBorder}" >
-            <Icon:PackIconMaterial Kind="{Binding Icon}" Style="{StaticResource gs_DialogWindow_TopIcon}"/>
+            <Icon:PackIconMaterial Kind="ContentSave" Style="{StaticResource gs_DialogWindow_TopIcon}"/>
         </Border>
         <!--endregion-->
         <!--#region тело окна-->
