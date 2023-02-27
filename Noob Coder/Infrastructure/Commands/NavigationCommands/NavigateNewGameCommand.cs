@@ -29,30 +29,28 @@ namespace Noob_Coder.Infrastructure.Commands
         public override void Execute(object? parameter)
         {
             Protagonist protagonist;
-            GameSettings gameSettings = new GameSettings();
-            switch ((string)parameter)
+            GameSettings gameSettings;
+            
+            string saveFileName = (string)parameter;
+            if (saveFileName.Substring(saveFileName.Length - 5) == ".noob")
             {
-                case "resume":
-                    string jsonSaveString;
-                    using (StreamReader sr = new StreamReader("LastAutoSave.noob"))
-                    {
-                        jsonSaveString = sr.ReadLine();
-                    }
-                    jsonSaveString = Encoding.UTF8.GetString(Convert.FromBase64String(jsonSaveString));//декодирование сейв файла
-                    protagonist = JsonSerializer.Deserialize<Protagonist?>(jsonSaveString);
-                    break;
-
-                default:
-                    protagonist = new Protagonist();
-                    protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
-                    protagonist.Stamina = 100; //значение усталости главного героя игры по умолчанию
-                    protagonist.Appearance = 50; //значение опрятности главного героя игры по умолчанию
-                    protagonist.Mood = 50;  // значение настроения главного героя игры по умолчанию
-                    protagonist.Money = 15842; // значение наличных денег по умолчанию
-                    protagonist.CurrentWork = new Work(new EmptyJob(), new EmptyCompany());
-                    break;
-
+                GameSaveModel gameSaveModel = new GameSaveModel();
+                gameSaveModel = gameSaveModel.Load(saveFileName);
+                protagonist = gameSaveModel.Protagonist;
+                gameSettings = gameSaveModel.GameSettings;
             }
+            else
+            {
+                gameSettings = new GameSettings();
+                protagonist = new Protagonist();
+                protagonist.Health = 100; // значение здоровья главного героя игры по умолчанию
+                protagonist.Stamina = 100; //значение усталости главного героя игры по умолчанию
+                protagonist.Appearance = 50; //значение опрятности главного героя игры по умолчанию
+                protagonist.Mood = 50;  // значение настроения главного героя игры по умолчанию
+                protagonist.Money = 15842; // значение наличных денег по умолчанию
+                protagonist.CurrentWork = new Work(new EmptyJob(), new EmptyCompany());
+            }
+
 
             _navigationStore.CurrentViewModel = ActivatorUtilities.CreateInstance<GameSceneViewModel>(App.Host.Services, protagonist, gameSettings);
 

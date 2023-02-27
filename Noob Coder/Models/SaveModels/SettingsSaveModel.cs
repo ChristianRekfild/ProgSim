@@ -19,8 +19,9 @@ namespace Noob_Coder.Models
         {
             if (File.Exists(Path.Combine(App.CurrentAppRunningDirectory(), "settings.noob")))
             {
+                var filePath = Path.Combine(App.CurrentAppRunningDirectory(), "settings.noob");
                 string jsonSaveString;
-                using (StreamReader sr = new StreamReader("settings.noob"))
+                using (StreamReader sr = new StreamReader(filePath))
                 {
                     jsonSaveString = sr.ReadLine();
                 }
@@ -36,8 +37,9 @@ namespace Noob_Coder.Models
 
         public void Save()
         {
+            var filePath = Path.Combine(App.CurrentAppRunningDirectory(), "settings.noob");
             string jsonSaveString = JsonSerializer.Serialize(this);
-            using (StreamWriter sw = new StreamWriter("settings.noob"))
+            using (StreamWriter sw = new StreamWriter(filePath))
             {
                 sw.WriteLine(jsonSaveString);
             }

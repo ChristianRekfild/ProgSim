@@ -78,7 +78,8 @@ namespace Noob_Coder.ViewModels
             Title = UI.MenuViewTitle;
 
             // Если существует файл LastAutoSave.noob показывать кнопу "Продолжить игру"
-            if (File.Exists("LastAutoSave.noob")) ResumeGameButtonVisibilityStatus = "visable";
+            var filePath = Path.Combine(App.CurrentAppRunningDirectory(), "Saves", "LastAutoSave.noob");
+            if (File.Exists(filePath)) ResumeGameButtonVisibilityStatus = "visable";
 
                     
         }
