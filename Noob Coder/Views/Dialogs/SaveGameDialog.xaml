@@ -1,4 +1,4 @@
-﻿<Window x:Class="Noob_Coder.Views.LoadGameDialog"
+﻿<Window x:Class="Noob_Coder.Views.SaveGameDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Background="Transparent" ResizeMode="NoResize"
@@ -26,13 +26,14 @@
                     <ScrollViewer MaxHeight="490">
                         <Grid MaxWidth="1000">
                             <DataGrid ItemsSource="{Binding SaveFiles}"
-                                     SelectedItem="{Binding SelectedSaveFile}"
-                                      Width="350"
+                                     SelectedItem="{Binding NewSaveFile}"
+                                     
+                                      MaxWidth="350"
                                       MaxHeight="250"
                                       IsReadOnly="True"
                                       AutoGenerateColumns="False"
                                       GridLinesVisibility="Vertical"
-                                      FontWeight="Bold" FontSize="14" Cursor="Hand" SelectionMode="Single" Background="white" SelectionChanged="SaveFile_SelectionChanged">
+                                      FontWeight="Bold" FontSize="14" Cursor="Hand" SelectionMode="Single" Background="white">
 
                                 <DataGrid.Resources>
                                     <Style TargetType="{x:Type DataGridCell}">
@@ -45,22 +46,25 @@
                                 </DataGrid.Resources>
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Имя файла" Binding="{Binding FileName}" Width="*"/>
-
-                                    <DataGridTextColumn Header="Дата создания" Binding="{Binding FileDate, StringFormat={}{0}, ConverterCulture={x:Static ui:UI.ConverterCulture}}"  Width="*"/>
+                                    <DataGridTextColumn Header="Дата создания" Binding="{Binding FileDate, StringFormat={}{0}, ConverterCulture={x:Static ui:UI.ConverterCulture}}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
                 <!--#region кнопки управления-->
+                <StackPanel  Height="28"  DockPanel.Dock="Top" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,10,10,0" >
+                    <TextBlock FontWeight="Bold" FontSize="14" Text="Имя файла:" />
+                    <TextBox x:Name="NewFileName" Width="250" Text="{Binding NewSaveFile.FileName}" />
+
+                </StackPanel>
                 <StackPanel Height="28"  DockPanel.Dock="Bottom" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="right" Margin="0,10,10,0">
                     <Button Style="{StaticResource button}" 
-                            Command="{Binding NavigateNewGameCommand}"
-                            CommandParameter="{Binding SelectedSaveFile.FileNameWithExtension}"
+                            Command="{Binding SaveGameCommand}"
+                            CommandParameter="{Binding NewSaveFile.FileName}"
                             Click="Button_Click"
-                            x:Name="LoadButton"
-                            IsEnabled="false"
-                            Width="110">Загрузить</Button>
+                            x:Name="SaveButton"
+                            Width="110">Сохранить</Button>
                     <Button Style="{StaticResource button}" IsCancel="True" Width="110">Вернуться</Button>
                 </StackPanel>
                 <!--#endregion-->

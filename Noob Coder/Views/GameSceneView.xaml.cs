@@ -169,6 +169,13 @@ namespace Noob_Coder.Views
             OpenSaveLoadDialogWindow(bluringWindow, new LoadGameDialog(), "load");
         }
 
+        private void gs_LeftSection_SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Window bluringWindow = (Window)button.CommandParameter;
+            OpenSaveLoadDialogWindow(bluringWindow, new SaveGameDialog(), "save");
+        }
+
         public void OpenSaveLoadDialogWindow(Window bluringWindow, Window opennigWindow, string parametr)
         {
             App.Host.Services.GetRequiredService<GameBackgroundService>().Pause = true;

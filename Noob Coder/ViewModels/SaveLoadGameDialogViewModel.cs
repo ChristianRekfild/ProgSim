@@ -41,6 +41,13 @@ namespace Noob_Coder.ViewModels
             set => SetField(ref _selectedSaveFile, value);
         }
 
+        private SaveFile _newSaveFile;
+        public SaveFile NewSaveFile
+        {
+            get => _newSaveFile;
+            set => SetField(ref _newSaveFile, value);
+        }
+        
 
         #endregion
 
@@ -49,6 +56,7 @@ namespace Noob_Coder.ViewModels
         /// Команда-обработчик перехода на страницу игры.
         /// </summary>
         public ICommand NavigateNewGameCommand { get; }
+        public ICommand SaveGameCommand { get; }
 
         #endregion
         public SaveLoadGameDialogViewModel(NavigationStore navigationStore, string parametr)
@@ -63,9 +71,12 @@ namespace Noob_Coder.ViewModels
             }
 
             NavigateNewGameCommand = new NavigateNewGameCommand(navigationStore);
+            SaveGameCommand = new SaveGameCommand();
             readSaveFiles();
+            NewSaveFile = new SaveFile("NewGame", DateTime.Now, "NewGame"+".noob");
 
-          
+
+
 
         }
 
@@ -78,11 +89,13 @@ namespace Noob_Coder.ViewModels
                 string[] AllFiles = Directory.GetFiles(savesDirectoryPath, "*.noob", SearchOption.TopDirectoryOnly);
                 foreach (string filename in AllFiles)
                 {
-                 SaveFiles.Add(new SaveFile(Path.GetFileNameWithoutExtension(filename), File.GetCreationTime(Path.Combine(savesDirectoryPath, filename)), Path.GetFileName(filename)));
+                 SaveFiles.Add(new SaveFile(Path.GetFileNameWithoutExtension(filename), File.GetLastWriteTime(Path.Combine(savesDirectoryPath, filename)), Path.GetFileName(filename)));
                 }
 
             }
         }
+
+      
 
     }
 

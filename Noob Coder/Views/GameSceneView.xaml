@@ -53,7 +53,9 @@
 
                         <Separator Style="{StaticResource gs_LeftSection_Separator}" Margin="20 180 20 10"/>
 
-                        <Button x:Name="gs_LeftSection_SaveButton" Style="{StaticResource gs_LeftSection_Button}">
+                        <Button x:Name="gs_LeftSection_SaveButton" Style="{StaticResource gs_LeftSection_Button}"
+                                Click="gs_LeftSection_SaveButton_Click"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
                             <Icon:PackIconMaterial Kind="ContentSave" Style="{StaticResource gs_LeftSection_ButtonIcon}"/>
                         </Button>
 
