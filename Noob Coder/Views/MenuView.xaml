@@ -23,7 +23,7 @@
                 Margin="0,20,0,0" 
                 Content="{x:Static ui:UI.ResumeGameButtonName}"
                 Command="{Binding NavigateNewGameCommand}"
-                CommandParameter="resume"
+                CommandParameter="LastAutoSave.noob"
                 Visibility="{Binding ResumeGameButtonVisibilityStatus}"/>
 
         <!--кнопка новой игры-->
@@ -33,13 +33,15 @@
                 Margin="0,85,0,0" 
                 Content="{x:Static ui:UI.NewGameButtonName}"
                 Command="{Binding NavigateNewGameCommand}"
-                CommandParameter="new" Cursor="Hand"/>
+                CommandParameter="newGame" Cursor="Hand"/>
 
         <!--кнопка загрузки игры-->
         <Button x:Name="LoadGameMenuButton" 
                 Grid.Column="1" Grid.Row="1"
                 Style="{StaticResource mainMenuButton}"
-                Margin="0,150,0,0" 
+                Margin="0,150,0,0"
+                Click="LoadGameMenuButton_Click"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                 Content="{x:Static ui:UI.LoadGameButtonName}" />
 
         <!--кнопка настроек-->

@@ -25,6 +25,7 @@ namespace Noob_Coder.Infrastructure.HostBuilderExtensions
                 services.AddTransient<GameSceneViewModel>();
                 services.AddTransient<SettingMenuViewModel>();
                 services.AddTransient<FeedBackFormViewModel>();
+                services.AddTransient<SaveLoadGameDialogViewModel>();
             });
             return builder;
         }

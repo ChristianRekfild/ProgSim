@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Noob_Coder.Infrastructure.Stores;
+using Noob_Coder.Models;
+using Noob_Coder.Services;
+using Noob_Coder.ViewModels;
+using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -154,6 +159,34 @@ namespace Noob_Coder.Views
 
 
         }
+
+
+
+        private void gs_LeftSection_LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Window bluringWindow = (Window)button.CommandParameter;
+            OpenSaveLoadDialogWindow(bluringWindow, new LoadGameDialog(), "load");
+        }
+
+        private void gs_LeftSection_SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Window bluringWindow = (Window)button.CommandParameter;
+            OpenSaveLoadDialogWindow(bluringWindow, new SaveGameDialog(), "save");
+        }
+
+        public void OpenSaveLoadDialogWindow(Window bluringWindow, Window opennigWindow, string parametr)
+        {
+            App.Host.Services.GetRequiredService<GameBackgroundService>().Pause = true;
+            bluringWindow.Effect = new System.Windows.Media.Effects.BlurEffect(); // затемнить текущее окно
+            opennigWindow.DataContext = ActivatorUtilities.CreateInstance<SaveLoadGameDialogViewModel>(App.Host.Services, parametr);
+            opennigWindow.ShowDialog(); //открыть новое окно
+            App.Host.Services.GetRequiredService<GameBackgroundService>().Pause = false;
+            bluringWindow.Effect = null; //убрать затемнение
+        }
+
+
 
     }
 }
